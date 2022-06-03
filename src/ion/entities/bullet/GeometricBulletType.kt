@@ -28,13 +28,13 @@ open class GeometricBulletType : BulletType{
         Draw.z(Layer.bullet)
         Draw.color(color)
         
-        if(b.data() !is Int) return
-        
-        if(hollow){
-            Lines.poly(b.x, b.y, b.data(), b.type.hitSize, b.rotation())
-            return
+        if(b.data() is Int){
+            if(hollow){
+                Lines.poly(b.x, b.y, b.data(), b.type.hitSize, b.rotation())
+                return
+            }
+            Fill.poly(b.x, b.y, b.data(), b.type.hitSize, b.rotation())
         }
-        Fill.poly(b.x, b.y, b.data(), b.type.hitSize, b.rotation())
     }
     
     override fun create(
