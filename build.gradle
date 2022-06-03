@@ -27,8 +27,8 @@ repositories{
 }
 
 dependencies{
-    compileOnly "com.github.Anuken.Arc:arc-core:$mindustryVersion"
-    compileOnly "com.github.Anuken.Mindustry:core:$mindustryVersion"
+    compileOnly "com.github.Anuken.Arc:arc-core:master-SNAPSHOT"
+    compileOnly "com.github.Anuken.MindustryJitpack:core:main-SNAPSHOT"
 }
 
 compileKotlin{
