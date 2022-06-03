@@ -1,6 +1,7 @@
 package ion.content
 
 import arc.*
+import arc.func.*
 import arc.graphics.*
 import mindustry.gen.*
 import mindustry.type.*
@@ -31,7 +32,7 @@ object IonUnitTypes{
             engineOffset = 7f
             hitSize = 13f
             
-            constructor = UnitEntity::create
+            constructor = Prov{ UnitEntity() }
             
             
             weapons.add(Weapon("orion-arc").apply{
