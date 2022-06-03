@@ -32,10 +32,10 @@ open class GeometricBulletType : BulletType{
         
         if(data is Int){
             if(hollow){
-                Lines.poly(b.x, b.y, b.data(), b.type.hitSize, b.rotation())
+                Lines.poly(b.x, b.y, data, b.type.hitSize, b.rotation())
                 return
             }
-            Fill.poly(b.x, b.y, b.data(), b.type.hitSize, b.rotation())
+            Fill.poly(b.x, b.y, data, b.type.hitSize, b.rotation())
         }
     }
     
