@@ -27,8 +27,10 @@ open class GeometricBulletType : BulletType{
         super.draw(b)
         Draw.z(Layer.bullet)
         Draw.color(color)
+        //Bullet#data is public but i dont feel like taking risks
+        val data = b.data()
         
-        if(b.data() is Int){
+        if(data is Int){
             if(hollow){
                 Lines.poly(b.x, b.y, b.data(), b.type.hitSize, b.rotation())
                 return
