@@ -4,6 +4,7 @@ import mindustry.content.Items
 import mindustry.type.*
 import mindustry.world.Block
 import mindustry.world.blocks.units.*
+import mindustry.world.blocks.units.UnitFactory.UnitPlan
 
 import ion.content.IonItems
 

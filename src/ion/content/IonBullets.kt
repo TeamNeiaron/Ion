@@ -19,7 +19,7 @@ object IonBullets{
             speed = 3.4f
             lifetime = 72f
             hitSize = 15f
-            spinSpeed = 3.4f
+            spin = 3.4f
             pierce = true
             pierceBuilding = true
             pierceCap = 3
@@ -31,7 +31,7 @@ object IonBullets{
             trailColor = IColor.energy
         }
         
-        energyOrbBullet = UnstableEnergyBulletType(0.2f).apply{
+        energyOrbBullet = UnstableEnergyBulletType(0.2).apply{
             damage = 67f
             speed = 2.7f
             lifetime = 120f
@@ -45,7 +45,7 @@ object IonBullets{
             color = IColor.energy
         }
         
-        xeusLaser = SparkingContinuousLaserBulletType(0.4f).apply{
+        xeusLaser = SparkingContinuousLaserBulletType(0.4).apply{
             lifetime = 360f
             length = 388f
             width = 4f
