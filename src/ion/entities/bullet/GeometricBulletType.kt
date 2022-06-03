@@ -1,5 +1,6 @@
 package ion.entities.bullet
 
+imoort arc.util.Time
 import arc.math.Mathf
 import arc.graphics.Color
 import arc.graphics.g2d.*
@@ -13,6 +14,7 @@ open class GeometricBulletType : BulletType{
     
     var minSides = 3
     var maxSides = 7
+    var spinSpeed = 0.08f
     var color = Color.white
     var hollow = false
     
@@ -32,10 +34,10 @@ open class GeometricBulletType : BulletType{
         
         if(data is Int){
             if(hollow){
-                Lines.poly(b.x, b.y, data, b.type.hitSize, b.rotation())
+                Lines.poly(b.x, b.y, data, b.type.hitSize, b.rotation() + (Time.time * spinSpeed))
                 return
             }
-            Fill.poly(b.x, b.y, data, b.type.hitSize, b.rotation())
+            Fill.poly(b.x, b.y, data, b.type.hitSize, b.rotation() + (Time.time * spinSpeed))
         }
     }
     

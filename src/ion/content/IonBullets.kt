@@ -19,7 +19,7 @@ object IonBullets{
             speed = 3.4f
             lifetime = 72f
             hitSize = 15f
-            spin = 3.4f
+            spinSpeed = 3.4f
             pierce = true
             pierceBuilding = true
             pierceCap = 3
