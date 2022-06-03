@@ -34,5 +34,5 @@ object IonFx{
         Lines.line(e.x, e.y, e.x + e.fout(Interp.pow5In) * -40f, e.y + e.fout(Interp.pow5Out) * -50f)
     }
     
-    val xeusCharge = MultiEffect(arrayOf(geometryCharge, chargeEffect))
+    val xeusCharge = MultiEffect(geometryCharge, chargeEffect)
 }
