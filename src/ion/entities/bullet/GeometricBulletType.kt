@@ -47,7 +47,7 @@ open class GeometricBulletType : BulletType{
     damage: Float,
     velocityScl: Float,
     lifetimeScl: Float,
-    data: Any? = null,
+    data: Any,
     mover: Mover,
     aimX: Float, aimY: Float
     ) = super.create(owner, team, x, y, angle, damage, velocityScl, lifetimeScl, data, mover, aimX, aimY).also{
