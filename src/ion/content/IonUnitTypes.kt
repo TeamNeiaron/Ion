@@ -22,6 +22,8 @@ object IonUnitTypes{
     lateinit var geometry: UnitType
     lateinit var xeus: UnitType
     
+    private val MUnit = mindustry.gen.Unit
+    
     fun load(){
         orion = UnitType("orion").apply{
             flying = true
@@ -32,7 +34,7 @@ object IonUnitTypes{
             engineOffset = 7f
             hitSize = 13f
             
-            constructor = Prov<Unit> { UnitEntity.create() }
+            constructor = Prov<MUnit> { UnitEntity.create() }
             
             
             weapons.add(Weapon("orion-arc").apply{
@@ -60,7 +62,7 @@ object IonUnitTypes{
             engineSize = 3.7f
             engineOffset = 9f
             hitSize = 16f
-            constructor = Prov<Unit> { UnitEntity.create() }
+            constructor = Prov<MUnit> { UnitEntity.create() }
             weapons.add(Weapon("xender-lancer").apply{
                 reload = 95f
                 x = 0f
@@ -86,7 +88,7 @@ object IonUnitTypes{
             engineOffset = 17f
             hitSize = 27f
             rotateSpeed = 3f
-            constructor = Prov<Unit> { UnitEntity.create() }
+            constructor = Prov<MUnit> { UnitEntity.create() }
             weapons.add(Weapon("electric-orb-launcher").apply{
                 x = 0f
                 reload = 180f
@@ -109,7 +111,7 @@ object IonUnitTypes{
             engineOffset = 22f
             hitSize = 33f
             rotateSpeed = 2f
-            constructor = Prov<Unit> { UnitEntity.create() }
+            constructor = Prov<MUnit> { UnitEntity.create() }
             weapons.add(Weapon("geo-launcher").apply{
                 x = 0f
                 reload = 258f
@@ -133,7 +135,7 @@ object IonUnitTypes{
             engineOffset = 26f
             hitSize = 47f
             rotateSpeed = 0.8f
-            constructor = Prov<Unit> { UnitEntity.create() }
+            constructor = Prov<MUnit> { UnitEntity.create() }
             weapons.add(Weapon("energy-laser").apply{
                 x = 0f
                 y = -7f
