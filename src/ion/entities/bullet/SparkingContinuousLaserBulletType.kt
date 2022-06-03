@@ -13,7 +13,7 @@ open class SparkingContinuousLaserBulletType : ContinuousLaserBulletType{
     var lightningLength = 24;
     var lightningColor = Color.white;
     
-    constructor(lSpawnChance: Float) : super(){
+    constructor(lSpawnChance: Double) : super(){
         lightningSpawnChance = lSpawnChance;
     }
     
