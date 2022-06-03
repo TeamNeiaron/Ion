@@ -1,6 +1,6 @@
 package ion.entities.bullet
 
-imoort arc.util.Time
+import arc.util.Time
 import arc.math.Mathf
 import arc.graphics.Color
 import arc.graphics.g2d.*

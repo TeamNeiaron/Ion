@@ -60,7 +60,10 @@ object IonUnitTypes{
             engineSize = 3.7f
             engineOffset = 9f
             hitSize = 16f
+            
             constructor = Prov<mindustry.gen.Unit> { UnitEntity.create() }
+            
+            
             weapons.add(Weapon("xender-lancer").apply{
                 reload = 95f
                 x = 0f
@@ -86,7 +89,10 @@ object IonUnitTypes{
             engineOffset = 17f
             hitSize = 27f
             rotateSpeed = 3f
+            
             constructor = Prov<mindustry.gen.Unit> { UnitEntity.create() }
+            
+            
             weapons.add(Weapon("electric-orb-launcher").apply{
                 x = 0f
                 reload = 180f
@@ -109,7 +115,10 @@ object IonUnitTypes{
             engineOffset = 22f
             hitSize = 33f
             rotateSpeed = 2f
-            constructor = { UnitEntity.create() }
+            
+            constructor = Prov<mindustry.gen.Unit> { UnitEntity.create() }
+            
+            
             weapons.add(Weapon("geo-launcher").apply{
                 x = 0f
                 reload = 258f
@@ -133,7 +142,10 @@ object IonUnitTypes{
             engineOffset = 26f
             hitSize = 47f
             rotateSpeed = 0.8f
+            
             constructor = Prov<mindustry.gen.Unit> { UnitEntity.create() }
+            
+            
             weapons.add(Weapon("energy-laser").apply{
                 x = 0f
                 y = -7f
