@@ -21,8 +21,8 @@ class IonKt : Mod(){
     
     override fun loadContent(){
         IonItems.load()
-        IonBlocks.load()
         IonBullets.load()
         IonUnitTypes.load()
+        IonBlocks.load()
     }
 }
