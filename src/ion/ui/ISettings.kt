@@ -6,8 +6,8 @@ import mindustry.gen.Icon
 
 object ISettings{
     fun load(){
-        ui.settings.addCategory("Ion", Icon.right).apply{
-            textPref("Input", "..."){
+        ui.settings.addCategory("Ion", Icon.right){
+            it.textPref("Input", "..."){
                 when(it){
                     "horny" -> app.exit()
                 }
