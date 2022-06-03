@@ -49,7 +49,6 @@ open class GeometricBulletType : BulletType{
     mover: Mover,
     aimX: Float, aimY: Float
     ) = super.create(owner, team, x, y, angle, damage, velocityScl, lifetimeScl, data, mover, aimX, aimY).also{
-            it.data(Mathf.random(minSides, maxSides))
-        }
+        it.data(Mathf.random(minSides, maxSides))
     }
 }
