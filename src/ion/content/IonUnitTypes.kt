@@ -22,7 +22,7 @@ object IonUnitTypes{
     lateinit var geometry: UnitType
     lateinit var xeus: UnitType
     
-    private val MUnit = mindustry.gen.Unit
+    val MUnit = mindustry.gen.Unit
     
     fun load(){
         orion = UnitType("orion").apply{
