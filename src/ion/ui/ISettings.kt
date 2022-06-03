@@ -10,6 +10,9 @@ object ISettings{
             it.textPref("Input", "..."){
                 when(it){
                     "horny" -> app.exit()
+                    
+                    "plus one" -> ui.showInfo("[red]angry cheesy-chan noises[]")
+                    "pet the cheesy-chan" -> ui.showConfirm("Question", "Have you gotten [accent]consent[]?"){ ui.showInfo("the cheesy-chan has been pet.") }
                 }
             }
         }
