@@ -5,8 +5,8 @@ import mindustry.entities.units.WeaponMount
 
 open class SpinnyWeapon : Weapon{
     
-    lateinit var rotateSpeed = 0.08f
-    lateinit var spinOnShoot = false
+    var rotateSpeed = 0.08f
+    var spinOnShoot = false
     
     constructor(name: String) : super(name){
         rotate = false
