@@ -11,7 +11,7 @@ import mindustry.entities.bullet.*
 import mindustry.entities.pattern.*
 
 import ion.defs.*
-import ion.type.*
+import ion.type.weapons.*
 import ion.content.*
 import ion.entities.bullet.*
 
