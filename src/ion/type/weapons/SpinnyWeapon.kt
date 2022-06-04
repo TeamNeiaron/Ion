@@ -49,7 +49,7 @@ open class SpinnyWeapon : Weapon{
         
         var mRot = mount.weapon.baseRotation
         
-        if(spinOnShoot) if(!mount.shoot) return
+        if(spinOnShoot && !mount.shoot) return
         
         mRot += spinSpeed
     }
