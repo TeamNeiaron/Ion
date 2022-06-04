@@ -42,15 +42,15 @@ open class GeometricBulletType : BulletType{
     }
     
     override fun create(
-    owner: Entityc,
-    team: Team,
+    owner: Entityc?,
+    team: Team?,
     x: Float, y: Float,
     angle: Float,
     damage: Float,
     velocityScl: Float,
     lifetimeScl: Float,
     data: Any?,
-    mover: Mover,
+    mover: Mover?,
     aimX: Float, aimY: Float
     ) = super.create(owner, team, x, y, angle, damage, velocityScl, lifetimeScl, data, mover, aimX, aimY).also{
         it.data(Mathf.random(minSides, maxSides))
