@@ -8,14 +8,14 @@ open class SpinnyWeapon : Weapon{
     var spinSpeed = 0.8f
     
     constructor(name: String) : super(name){
-        rotate = true
+        rotate = false
         shootCone = 360f
         baseRotation = 1f
     }
     
     constructor(name: String, rSpeed: Float) : super(name){
         spinSpeed = rSpeed
-        rotate = true
+        rotate = false
         shootCone = 360f
         baseRotation = 1f
     }
@@ -24,5 +24,7 @@ open class SpinnyWeapon : Weapon{
         super.update(unit, mount)
         
         mount.weapon.baseRotation += spinSpeed
+        mount.rotation += spinSpeed
+        mount.targetRotation += spinSpeed
     }
 }
