@@ -21,9 +21,7 @@ class Ion : Mod(){
         }
     }
     
-    fun Vars.sus(){
-        Log.info("amogus")
-    }
+    fun Vars.sus() = Log.info("amogus")
     
     override fun loadContent(){
         IonItems.load()
