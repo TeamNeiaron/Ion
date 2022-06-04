@@ -21,7 +21,7 @@ open class ContinuousWeapon : Weapon{
     }
     
     
-    public void update(mindustry.gen.Unit unit, WeaponMount mount){
+    override fun update(unit: mindustry.gen.Unit, mount: WeaponMount){
         var can = unit.canShoot()
         mount.recoil = Mathf.approachDelta(mount.recoil, 0, unit.reloadMultiplier / recoilTime)
         mount.heat = Math.max(mount.heat - Time.delta * unit.reloadMultiplier / cooldownTime, 0)
