@@ -40,8 +40,8 @@ object IonBullets{
             spinSpeed = 3.4f
             color = IColor.energy
             trailEffect = Fx.trailFade
-            trailWidth = 7.5f
-            trailLength = 2
+            trailWidth = 3f
+            traiLength = 4
             trailColor = IColor.energy
         }
         
