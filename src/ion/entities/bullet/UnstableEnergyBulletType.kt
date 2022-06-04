@@ -13,11 +13,11 @@ import ion.defs.*
 open class UnstableEnergyBulletType : BulletType{
     
     var lightningSpawnChance = 0.1;
-    var lightningDamage = 1f;
-    var lightningLength = 17;
+    @JvmField var lightningDamage = 1f;
+    @JvmField var lightningLength = 17;
+    @JvmField var lightningColor = Color.white;
     var orb = true;
     var color = Color.white;
-    var ightningColor = Color.white;
     
     constructor(lSpawnChance: Double) : super(){
         lightningSpawnChance = lSpawnChance;

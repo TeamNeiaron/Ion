@@ -9,9 +9,9 @@ import mindustry.entities.bullet.*
 open class SparkingContinuousLaserBulletType : ContinuousLaserBulletType{
     
     var lightningSpawnChance = 0.3;
-    var lightningDamage = 1f;
-    var lightningLength = 24;
-    var lightningColor = Color.white;
+    @JvmField var LightningDamage = 1f;
+    @JvmField var LightningLength = 24;
+    @JvmField var LightningColor = Color.white;
     
     constructor(lSpawnChance: Double) : super(){
         lightningSpawnChance = lSpawnChance;
