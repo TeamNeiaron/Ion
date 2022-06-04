@@ -9,12 +9,9 @@ import mindustry.mod.*
 import mindustry.ui.dialogs.*
 
 import ion.ui.*
+import ion.defs.*
 import ion.content.*
 
-
-fun Vars.amogus(sus: String) = {
-    Log.info(sus)
-}
 
 class Ion : Mod(){
     
