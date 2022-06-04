@@ -9,10 +9,10 @@ import ion.entities.bullet.*
 
 object IonBullets{
     
-    lateinit var geometricBullet: BulletType
-    lateinit var miniGeometricBullet: BulletType
-    lateinit var energyOrbBullet: BulletType
-    lateinit var xeusLaser: BulletType
+    lateinit var geometricBullet: BulletType? = null
+    lateinit var miniGeometricBullet: BulletType? = null
+    lateinit var energyOrbBullet: BulletType? = null
+    lateinit var xeusLaser: BulletType? = null
     
     fun load(){
         geometricBullet = GeometricBulletType(3, 10).apply{
