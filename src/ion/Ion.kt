@@ -10,10 +10,10 @@ import mindustry.ui.dialogs.*
 import ion.ui.*
 import ion.content.*
 
-class IonKt : Mod(){
+class Ion : Mod(){
     
     init{
-        Log.infoTag("IKTLoad", "Loaded main IonKt class.")
+        Log.infoTag("ILoad", "Loaded main Ion class.")
         Events.on(ClientLoadEvent::class.java){
             ISettings.load()
         }

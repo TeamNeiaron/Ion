@@ -1,17 +1,17 @@
 #the mod name as displayed in-game
-displayName: "Ion (Kotlin)"
+displayName: "Ion"
 
 #the internal name of your mod
-name: "ion-kotlin"
+name: "ion"
 
 #your name
 author: "SMOLKEYS"
 
 #the fully qualified main class of the mod
-main: "ion.IonKt"
+main: "ion.Ion"
 
 #the mod description as seen in the mod dialog
-description: "Kotlin version of Ion."
+description: "Chaos."
 
 #the mod version
 version: 0
