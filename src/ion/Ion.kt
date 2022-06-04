@@ -10,6 +10,8 @@ import mindustry.ui.dialogs.*
 import ion.ui.*
 import ion.content.*
 
+
+
 class Ion : Mod(){
     
     init{
@@ -19,10 +21,15 @@ class Ion : Mod(){
         }
     }
     
+    fun Vars.sus(){
+        Log.info("amogus")
+    }
+    
     override fun loadContent(){
         IonItems.load()
         IonBullets.load()
         IonUnitTypes.load()
         IonBlocks.load()
+        Vars.sus()
     }
 }
