@@ -161,7 +161,7 @@ object IonUnitTypes{
                 y = 4f
                 reload = 10f
                 mirror = true
-                shootSound = Sounds.beam
+                shootSound = Sounds.laser
                 bullet = IonBullets.miniGeometricBullet
             })
         }
