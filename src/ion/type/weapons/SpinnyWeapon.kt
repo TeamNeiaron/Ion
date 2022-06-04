@@ -5,17 +5,17 @@ import mindustry.entities.units.WeaponMount
 
 open class SpinnyWeapon : Weapon{
     
-    var spinSpeed = 0.4f
+    var spinSpeed = 0.8f
     
     constructor(name: String) : super(name){
-        rotate = false
+        rotate = true
         shootCone = 360f
         baseRotation = 1f
     }
     
     constructor(name: String, rSpeed: Float) : super(name){
         spinSpeed = rSpeed
-        rotate = false
+        rotate = true
         shootCone = 360f
         baseRotation = 1f
     }
@@ -23,8 +23,6 @@ open class SpinnyWeapon : Weapon{
     override fun update(unit: mindustry.gen.Unit, mount: WeaponMount){
         super.update(unit, mount)
         
-        var mRot = mount.weapon.baseRotation
-        
-        mRot += spinSpeed
+        mount.weapon.baseRotation += spinSpeed
     }
 }
