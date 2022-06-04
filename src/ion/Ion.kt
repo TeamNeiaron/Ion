@@ -28,6 +28,5 @@ class Ion : Mod(){
         IonBullets.load()
         IonUnitTypes.load()
         IonBlocks.load()
-        Vars.amogus("load")
     }
 }
