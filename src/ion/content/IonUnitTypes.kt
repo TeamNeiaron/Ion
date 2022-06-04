@@ -11,6 +11,7 @@ import mindustry.entities.bullet.*
 import mindustry.entities.pattern.*
 
 import ion.defs.*
+import ion.type.*
 import ion.content.*
 import ion.entities.bullet.*
 
@@ -155,6 +156,13 @@ object IonUnitTypes{
                 shootSound = Sounds.beam
                 shoot.firstShotDelay = IonFx.chargeEffect.lifetime
                 bullet = IonBullets.xeusLaser
+            }, SpinnyWeapon("geo-caller").apply{
+                x = 9f
+                y = 4f
+                reload = 10f
+                mirror = true
+                shootSound = Sounds.beam
+                bullet = IonBullets.miniGeometricBullet
             })
         }
     }

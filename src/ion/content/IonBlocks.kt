@@ -8,12 +8,12 @@ import mindustry.world.blocks.units.UnitFactory.UnitPlan
 
 import ion.content.IonItems
 
-object IonBlocks {
+object IonBlocks{
 
     lateinit var geoEnergeticAirFactory: Block
     lateinit var gonicReconstructor: Block
     
-    fun load() {
+    fun load(){
         geoEnergeticAirFactory = UnitFactory("geo-energetic-air-factory").apply{
             requirements(
                 Category.units, ItemStack.with(

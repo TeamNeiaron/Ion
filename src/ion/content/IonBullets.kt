@@ -10,10 +10,11 @@ import ion.entities.bullet.*
 object IonBullets{
     
     lateinit var geometricBullet: BulletType
+    lateinit var miniGeometricBullet: BulletType
     lateinit var energyOrbBullet: BulletType
     lateinit var xeusLaser: BulletType
     
-    fun load() {
+    fun load(){
         geometricBullet = GeometricBulletType(3, 10).apply{
             damage = 370f
             speed = 3.4f
@@ -28,6 +29,19 @@ object IonBullets{
             trailEffect = Fx.trailFade
             trailWidth = 7.5f
             trailLength = 17
+            trailColor = IColor.energy
+        }
+        
+        miniGeometricBullet = GeometricBulletType(3, 10).apply{
+            damage = 50f
+            speed = 3.3f
+            lifetime = 86f
+            hitSize = 5f
+            spinSpeed = 3.4f
+            color = IColor.energy
+            trailEffect = Fx.trailFade
+            trailWidth = 7.5f
+            trailLength = 2
             trailColor = IColor.energy
         }
         
