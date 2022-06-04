@@ -16,7 +16,7 @@ import ion.content.*
 class Ion : Mod(){
     
     init{
-        Log.iinfo("Loaded main Ion class.")
+        Log.info("Loaded main Ion class.")
         Events.on(ClientLoadEvent::class.java){
             ISettings.load()
         }
