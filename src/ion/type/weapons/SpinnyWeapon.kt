@@ -13,7 +13,7 @@ open class SpinnyWeapon : Weapon{
     }
     
     constructor(name: String, rSpeed: Float) : super(name){
-        rotateSpeed = rSpeed
+        spinSpeed = rSpeed
         rotate = false
     }
     
@@ -23,24 +23,27 @@ open class SpinnyWeapon : Weapon{
     }
     
     constructor(name: String, rSpeed: Float, spinShoot: Boolean) : super(name){
-        rotateSpeed = rSpeed
+        spinSpeed = rSpeed
         spinOnShoot = spinShoot
         rotate = false
     }
     
     constructor(name: String, spinShoot: Boolean, rSpeed: Float) : super(name){
-        rotateSpeed = rSpeed
+        spinSpeed = rSpeed
         spinOnShoot = spinShoot
         rotate = false
     }
     
     override fun update(unit: mindustry.gen.Unit, mount: WeaponMount){
         super.update(unit, mount)
+        
+        var mRot = mount.weapon.baseRotation
+        
         if(spinOnShoot){
             if(!mount.shoot) return
-            mount.rotation = mount.rotation + rotateSpeed
+            mRot += spinSpeed
             return
         }
-        mount.rotation = mount.rotation + rotateSpeed
+        mRot += spinSpeed
     }
 }
