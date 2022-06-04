@@ -12,6 +12,10 @@ import ion.ui.*
 import ion.content.*
 
 
+fun Vars.amogus(sus: String) = {
+    Log.info(sus)
+}
+
 class Ion : Mod(){
     
     init{
@@ -21,13 +25,12 @@ class Ion : Mod(){
         }
     }
     
-    fun Vars.sus() = Log.info("amogus")
     
     override fun loadContent(){
         IonItems.load()
         IonBullets.load()
         IonUnitTypes.load()
         IonBlocks.load()
-        Vars.sus()
+        Vars.amogus("load")
     }
 }
