@@ -6,7 +6,6 @@ import mindustry.entities.units.WeaponMount
 open class SpinnyWeapon : Weapon{
     
     var spinSpeed = 0.4f
-    var spinOnShoot = false
     
     constructor(name: String) : super(name){
         rotate = false
@@ -48,8 +47,6 @@ open class SpinnyWeapon : Weapon{
         super.update(unit, mount)
         
         var mRot = mount.weapon.baseRotation
-        
-        if(spinOnShoot && !mount.shoot) return
         
         mRot += spinSpeed
     }
