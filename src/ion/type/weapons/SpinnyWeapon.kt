@@ -20,29 +20,6 @@ open class SpinnyWeapon : Weapon{
         baseRotation = 1f
     }
     
-    constructor(name: String, spinShoot: Boolean) : super(name){
-        spinOnShoot = spinShoot
-        rotate = false
-        shootCone = 360f
-        baseRotation = 1f
-    }
-    
-    constructor(name: String, rSpeed: Float, spinShoot: Boolean) : super(name){
-        spinSpeed = rSpeed
-        spinOnShoot = spinShoot
-        rotate = false
-        shootCone = 360f
-        baseRotation = 1f
-    }
-    
-    constructor(name: String, spinShoot: Boolean, rSpeed: Float) : super(name){
-        spinSpeed = rSpeed
-        spinOnShoot = spinShoot
-        rotate = false
-        shootCone = 360f
-        baseRotation = 1f
-    }
-    
     override fun update(unit: mindustry.gen.Unit, mount: WeaponMount){
         super.update(unit, mount)
         
