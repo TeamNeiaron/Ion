@@ -2,8 +2,9 @@ package ion.ui
 
 import arc.Core.app
 import arc.util.*
+import arc.math.Mathf
 import mindustry.Vars.*
-import mindustry.gen.Icon
+import mindustry.gen.*
 
 object ISettings{
     fun load(){
