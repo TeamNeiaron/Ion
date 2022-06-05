@@ -134,7 +134,7 @@ object IonUnitTypes{
         
         xeus = UnitType("xeus").apply{
             flying = true
-            health = 25380f
+            health = 22500f
             armor = 18f
             speed = 0.65f
             accel = 0.45f
@@ -150,7 +150,7 @@ object IonUnitTypes{
             weapons.add(Weapon("energy-laser").apply{
                 x = 0f
                 y = -7f
-                reload = 660f
+                reload = 450f
                 mirror = false
                 continuous = true
                 shootSound = Sounds.beam
