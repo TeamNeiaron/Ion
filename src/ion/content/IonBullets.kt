@@ -82,10 +82,10 @@ object IonBullets{
             lightningColor = IColor.lightEnergy
         xeusLaser = object : SparkingContinuousLaserBulletType(0.4){
             init{
-                lifetime = 360f
+                lifetime = 300f
                 length = 388f
                 width = 4f
-                damage = 85f
+                damage = 69f
                 colors = arrayOf(
                     IColor.energy,
                     IColor.lightEnergy,
