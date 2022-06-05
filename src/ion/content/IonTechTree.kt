@@ -7,7 +7,7 @@ import ion.content.*
 
 object IonTechTree{
     fun load(){
-        node(siliconSmelter){
+        nodeRoot("factories-1", siliconSmelter){
             node(IonBlocks.brassSmelter)
         }
     }
