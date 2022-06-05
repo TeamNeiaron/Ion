@@ -65,7 +65,7 @@ object IonBullets{
             }
         }
         
-        xeusLaser = object : SparkingContinuousLaserBulletType(0.4).{
+        xeusLaser = object : SparkingContinuousLaserBulletType(0.4){
             init{
                 lifetime = 360f
                 length = 388f
