@@ -5,17 +5,21 @@ import mindustry.type.*
 import mindustry.world.Block
 import mindustry.world.blocks.units.*
 import mindustry.world.blocks.environment.*
+import mindustry.world.blocks.production.*
 import mindustry.world.blocks.units.UnitFactory.UnitPlan
 
 import ion.content.IonItems
 import mindustry.graphics.Layer.plans
 
 object IonBlocks{
-    
+    //floors
     lateinit var oreZinc: Block
+    //unit-based blocks
     lateinit var advancedAirFactory: Block
     lateinit var gonicReconstructor: Block
     lateinit var alephReconstructor: Block
+    //factories
+    lateinit var brassSmelter: Block
     
     fun load(){
         
@@ -103,6 +107,29 @@ object IonBlocks{
                     )
                 )
                 upgrades.add(arrayOf(IonUnitTypes.xender, IonUnitTypes.astro))
+            }
+        }
+        
+        brassSmelter = object : GenericCrafter("brass-smelter"){
+            init{
+                requirements(Category.crafting, ItemStack.with(
+                    Items.copper, 40,
+                    Items.lead, 38,
+                    Items.silicon, 20,
+                    IonItems.zinc, 15
+                ))
+                health = 350
+                size = 2
+                craftTime = 60f
+                outputItem = IonItems.brass
+                consumePower(1.4f)
+                consumeItems(
+                    *ItemStack.with(
+                        Items.copper, 2,
+                        IonItems.zinc, 1,
+                        Items.coal, 2
+                    )
+                )
             }
         }
     }

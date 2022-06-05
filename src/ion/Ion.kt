@@ -27,5 +27,6 @@ class Ion : Mod(){
         IonBullets.load()
         IonUnitTypes.load()
         IonBlocks.load()
+        IonTechTree.load()
     }
 }
