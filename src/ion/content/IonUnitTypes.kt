@@ -15,17 +15,17 @@ import ion.type.weapons.*
 import ion.content.*
 import ion.entities.bullet.*
 
-object IonUnitTypes{
-    
+object IonUnitTypes {
+
     lateinit var orion: UnitType
     lateinit var xender: UnitType
     lateinit var astro: UnitType
     lateinit var geometry: UnitType
     lateinit var xeus: UnitType
-    
-    fun load(){
-        orion = object : UnitType("orion"){
-            init{
+
+    fun load() {
+        orion = object : UnitType("orion") {
+            init {
                 flying = true
                 health = 290f
                 speed = 3.62f
@@ -33,19 +33,19 @@ object IonUnitTypes{
                 drag = 0.05f
                 engineOffset = 7f
                 hitSize = 13f
-                
+
                 constructor = Prov<mindustry.gen.Unit> { UnitEntity.create() }
-                
-                
+
+
                 weapons.add(
-                    Weapon("orion-arc").apply{
+                    Weapon("orion-arc").apply {
                         x = 0f
                         y = 0f
                         reload = 40f
                         mirror = false
                         shootSound = Sounds.spark
                         shoot.shots = 2
-                        bullet = LightningBulletType().apply{
+                        bullet = LightningBulletType().apply {
                             damage = 14f
                             lightningColor = IColor.energy
                             lightningLength = 19
@@ -54,11 +54,11 @@ object IonUnitTypes{
                 )
             }
         }
-        
-        xender = object : UnitType("xender"){
-            init{
+
+        xender = object : UnitType("xender") {
+            init {
                 flying = true
-                health = 640f
+                health = 740f
                 armor = 4.2f
                 speed = 2.7f
                 accel = 0.2f
@@ -66,19 +66,19 @@ object IonUnitTypes{
                 engineSize = 3.7f
                 engineOffset = 9f
                 hitSize = 16f
-                
+
                 constructor = Prov<mindustry.gen.Unit> { UnitEntity.create() }
-                
-                
+
+
                 weapons.add(
-                    Weapon("xender-lancer").apply{
+                    Weapon("xender-lancer").apply {
                         reload = 95f
                         x = 0f
                         y = -4.3f
                         mirror = false
                         shootSound = Sounds.laser
                         shoot = ShootSpread(2, 2f)
-                        bullet = LaserBulletType(34f).apply{
+                        bullet = LaserBulletType(34f).apply {
                             length = 152f
                             width = 5f
                         }
@@ -86,9 +86,9 @@ object IonUnitTypes{
                 )
             }
         }
-        
-        astro = object : UnitType("astro"){
-            init{
+
+        astro = object : UnitType("astro") {
+            init {
                 flying = true
                 health = 1030f
                 armor = 7.8f
@@ -99,12 +99,12 @@ object IonUnitTypes{
                 engineOffset = 17f
                 hitSize = 27f
                 rotateSpeed = 3f
-                
+
                 constructor = Prov<mindustry.gen.Unit> { UnitEntity.create() }
-                
-                
+
+
                 weapons.add(
-                    Weapon("electric-orb-launcher").apply{
+                    Weapon("electric-orb-launcher").apply {
                         x = 0f
                         reload = 180f
                         mirror = false
@@ -116,11 +116,11 @@ object IonUnitTypes{
                 )
             }
         }
-        
-        geometry = object : UnitType("geometry"){
-            init{
+
+        geometry = object : UnitType("geometry") {
+            init {
                 flying = true
-                health = 6550f
+                health = 9850f
                 armor = 13.5f
                 speed = 0.9f
                 accel = 0.4f
@@ -129,12 +129,12 @@ object IonUnitTypes{
                 engineOffset = 22f
                 hitSize = 33f
                 rotateSpeed = 2f
-                
+
                 constructor = Prov<mindustry.gen.Unit> { UnitEntity.create() }
-                
-                
+
+
                 weapons.add(
-                    Weapon("geo-launcher").apply{
+                    Weapon("geo-launcher").apply {
                         x = 0f
                         reload = 258f
                         mirror = false
@@ -147,44 +147,43 @@ object IonUnitTypes{
                 )
             }
         }
-        
-        xeus = object : UnitType("xeus"){
-            init{
-                flying = true
-                health = 16380f
-                armor = 18f
-                speed = 0.65f
-                accel = 0.45f
-                drag = 0.06f
-                engineSize = 9f
-                engineOffset = 26f
-                hitSize = 47f
-                rotateSpeed = 0.8f
-                
-                constructor = Prov<mindustry.gen.Unit> { UnitEntity.create() }
-                
-                
-                weapons.add(
-                    Weapon("energy-laser").apply{
-                        x = 0f
-                        y = -7f
-                        reload = 660f
-                        mirror = false
-                        continuous = true
-                        shootSound = Sounds.beam
-                        shoot.firstShotDelay = IonFx.chargeEffect.lifetime
-                        bullet = IonBullets.xeusLaser
-                    }, SpinnyWeapon("geo-caller").apply{
-                        x = 9f
-                        y = 4f
-                        reload = 10f
-                        mirror = true
-                        shoot = ShootSpread(3, 120f)
-                        shootSound = Sounds.laser
-                        bullet = IonBullets.miniGeometricBullet
-                    }
-                )
+
+            xeus = object : UnitType("xeus") {
+                init {
+                    flying = true
+                    health = 25380f
+                    armor = 18f
+                    speed = 0.65f
+                    accel = 0.45f
+                    drag = 0.06f
+                    engineSize = 9f
+                    engineOffset = 26f
+                    hitSize = 47f
+                    rotateSpeed = 0.8f
+
+                    constructor = Prov<mindustry.gen.Unit> { UnitEntity.create() }
+
+
+                    weapons.add(
+                        Weapon("energy-laser").apply {
+                            x = 0f
+                            y = -7f
+                            reload = 660f
+                            mirror = false
+                            continuous = true
+                            shootSound = Sounds.beam
+                            shoot.firstShotDelay = IonFx.chargeEffect.lifetime
+                            bullet = IonBullets.xeusLaser
+                        }, SpinnyWeapon("geo-caller").apply {
+                            x = 9f
+                            y = 4f
+                            reload = 10f
+                            mirror = true
+                            shootSound = Sounds.laser
+                            bullet = IonBullets.miniGeometricBullet
+                        }
+                    )
+                }
             }
         }
     }
-}
