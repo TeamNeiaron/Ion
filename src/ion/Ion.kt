@@ -9,14 +9,13 @@ import mindustry.mod.*
 import mindustry.ui.dialogs.*
 
 import ion.ui.*
-import ion.defs.*
 import ion.content.*
 
 
 class Ion : Mod(){
     
     init{
-        Log.infoTag("ILoad", "Loaded main Ion class.")
+        Log.info("Loaded main Ion class.")
         Events.on(ClientLoadEvent::class.java){
             ISettings.load()
         }
