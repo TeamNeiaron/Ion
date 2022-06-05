@@ -70,7 +70,7 @@ object IonBullets{
                 lifetime = 300f
                 length = 388f
                 width = 4f
-                damage = 69f
+                damage = 46f
                 colors = arrayOf(
                     IColor.energy,
                     IColor.lightEnergy,
