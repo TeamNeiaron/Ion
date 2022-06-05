@@ -20,10 +20,9 @@ object IonBlocks{
             init{
                 requirements(
                     Category.units, ItemStack.with(
-                        Items.lead, 550,
+                        Items.copper, 235,
+                        Items.lead, 150,
                         Items.silicon, 80,
-                        Items.metaglass, 80,
-                        Items.titanium, 250,
                         IonItems.zinc, 30
                     )
                 )
@@ -32,7 +31,7 @@ object IonBlocks{
                 consumePower(2f)
                 plans.addAll(
                     UnitPlan(
-                        IonUnitTypes.orion, 20f * 60, ItemStack.with(
+                        IonUnitTypes.orion, 20f * 60f, ItemStack.with(
                             Items.silicon, 10,
                             Items.titanium, 25,
                             IonItems.zinc, 5
@@ -46,10 +45,10 @@ object IonBlocks{
             init{
                 requirements(
                     Category.units, ItemStack.with(
-                        Items.copper, 570,
-                        Items.lead, 480,
-                        Items.silicon, 95,
-                        Items.titanium, 300,
+                        Items.copper, 320,
+                        Items.lead, 290,
+                        Items.silicon, 120,
+                        Items.titanium, 80,
                         IonItems.zinc, 55
                     )
                 )
@@ -73,11 +72,11 @@ object IonBlocks{
             init{
                 requirements(
                     Category.units, ItemStack.with(
-                        Items.lead, 520,
-                        Items.metaglass, 100,
-                        Items.silicon, 230,
-                        Items.titanium, 430,
-                        Items.thorium, 240,
+                        Items.lead, 460,
+                        Items.metaglass, 120,
+                        Items.silicon, 190,
+                        Items.titanium, 330,
+                        Items.thorium, 180,
                         IonItems.zinc, 60
                     )
                 )

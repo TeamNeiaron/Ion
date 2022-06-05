@@ -58,7 +58,7 @@ object IonUnitTypes{
         xender = object : UnitType("xender"){
             init{
                 flying = true
-                health = 740f
+                health = 640f
                 armor = 4.2f
                 speed = 2.7f
                 accel = 0.2f
@@ -120,7 +120,7 @@ object IonUnitTypes{
         geometry = object : UnitType("geometry"){
             init{
                 flying = true
-                health = 9850f
+                health = 6550f
                 armor = 13.5f
                 speed = 0.9f
                 accel = 0.4f
@@ -151,7 +151,7 @@ object IonUnitTypes{
         xeus = object : UnitType("xeus"){
             init{
                 flying = true
-                health = 25380f
+                health = 16380f
                 armor = 18f
                 speed = 0.65f
                 accel = 0.45f
@@ -179,6 +179,7 @@ object IonUnitTypes{
                         y = 4f
                         reload = 10f
                         mirror = true
+                        shoot = ShootSpread(3, 120f)
                         shootSound = Sounds.laser
                         bullet = IonBullets.miniGeometricBullet
                     }
