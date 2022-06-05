@@ -121,7 +121,7 @@ object IonBlocks{
                 health = 350
                 size = 2
                 craftTime = 60f
-                outputItems = ItemStack(IonItems.brass, 1)
+                outputItem = ItemStack(IonItems.brass, 1)
                 consumePower(1.4f)
                 consumeItems(
                     *ItemStack.with(
