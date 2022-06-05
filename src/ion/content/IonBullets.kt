@@ -64,22 +64,7 @@ object IonBullets{
                 color = IColor.energy
             }
         }
-
-        xeusLaser = SparkingContinuousLaserBulletType(0.4).apply{
-            lifetime = 360f
-            length = 800f
-            width = 4f
-            damage = 8f
-            colors = arrayOf(
-                IColor.energy,
-                IColor.lightEnergy,
-                Color.white
-            )
-            despawnEffect = Fx.smokeCloud
-            shootEffect = IonFx.xeusCharge
-            lightningDamage = 40f
-            lightningLength = 40
-            lightningColor = IColor.lightEnergy
+        
         xeusLaser = object : SparkingContinuousLaserBulletType(0.4){
             init{
                 lifetime = 300f

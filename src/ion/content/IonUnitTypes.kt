@@ -147,40 +147,7 @@ object IonUnitTypes{
                 )
             }
         }
-
-        xeus = UnitType("xeus").apply{
-            flying = true
-            health = 22500f
-            armor = 18f
-            speed = 0.65f
-            accel = 0.45f
-            drag = 0.06f
-            engineSize = 9f
-            engineOffset = 26f
-            hitSize = 47f
-            rotateSpeed = 0.8f
-            
-            constructor = Prov<mindustry.gen.Unit> { UnitEntity.create() }
-            
-            
-            weapons.add(Weapon("energy-laser").apply{
-                x = 0f
-                y = -7f
-                reload = 450f
-                mirror = false
-                continuous = true
-                shootSound = Sounds.beam
-                shoot.firstShotDelay = IonFx.chargeEffect.lifetime
-                bullet = IonBullets.xeusLaser
-            }, SpinnyWeapon("geo-caller").apply{
-                x = 9f
-                y = 4f
-                reload = 10f
-                mirror = true
-                shootSound = Sounds.laser
-                bullet = IonBullets.miniGeometricBullet
-            })
-
+        
         xeus = object : UnitType("xeus"){
             init{
                 flying = true
