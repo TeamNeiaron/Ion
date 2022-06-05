@@ -16,7 +16,7 @@ object IonBlocks{
     lateinit var alephReconstructor: Block
     
     fun load(){
-        geoEnergeticAirFactory = object : UnitFactory("geo-energetic-air-factory"){
+        advancedAirFactory = object : UnitFactory("advanced-air-factory"){
             init{
                 requirements(
                     Category.units, ItemStack.with(
