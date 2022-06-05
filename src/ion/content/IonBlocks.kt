@@ -4,18 +4,29 @@ import mindustry.content.Items
 import mindustry.type.*
 import mindustry.world.Block
 import mindustry.world.blocks.units.*
+import mindustry.world.blocks.environment.*
 import mindustry.world.blocks.units.UnitFactory.UnitPlan
 
 import ion.content.IonItems
 import mindustry.graphics.Layer.plans
 
 object IonBlocks{
-
+    
+    lateinit var zincOre: Block
     lateinit var advancedAirFactory: Block
     lateinit var gonicReconstructor: Block
     lateinit var alephReconstructor: Block
     
     fun load(){
+        
+        oreZinc = object : OreBlock("ore-zinc", IonItems.zinc){
+            init{
+                oreDefault = true
+                oreThreshold = 0.877f
+                oreScale = 24.927461f
+            }
+        }
+        
         advancedAirFactory = object : UnitFactory("advanced-air-factory"){
             init{
                 requirements(
