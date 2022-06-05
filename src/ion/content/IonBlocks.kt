@@ -22,7 +22,7 @@ object IonBlocks{
         oreZinc = object : OreBlock("ore-zinc", IonItems.zinc){
             init{
                 oreDefault = true
-                oreThreshold = 0.877f
+                oreThreshold = 0.887f
                 oreScale = 24.927461f
             }
         }

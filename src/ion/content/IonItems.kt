@@ -11,7 +11,7 @@ object IonItems{
         zinc = object : Item("zinc", Color.valueOf("9c9fa6")){
             init{
                 explosiveness = 0.25f
-                hardness = 4
+                hardness = 2
                 cost = 2f
             }
         }
