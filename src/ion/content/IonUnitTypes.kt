@@ -195,6 +195,7 @@ object IonUnitTypes{
                     super.draw(unit)
                     var s = Mathf.absin(15f, 3f)
                     
+                    Lines.stroke(3.4f)
                     Draw.color(IColor.energy)
                     Draw.z(Layer.effect)
                     Fill.circle(unit.x, unit.y, 9f + s)
