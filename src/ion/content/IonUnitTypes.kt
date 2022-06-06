@@ -190,13 +190,13 @@ object IonUnitTypes{
                     )
                 }
                 
-                override fun update(unit: mindustry.gen.Unit){
+                override fun draw(unit: mindustry.gen.Unit){
                     super.draw(unit)
                     var s = Mathf.absin(15f, 3f)
                     
                     Draw.color(IColor.energy)
                     Draw.z(Layer.effect)
-                    Fill.circle(unit.x, unit.y, 5 + s)
+                    Fill.circle(unit.x, unit.y, 5f + s)
                     for(sus in 1..10){
                         var i = sus.toFloat()
                         Lines.spikes(unit.x, unit.y, i * 2.4f, 9f + s, 1, Time.time * i / 10f)
