@@ -2,7 +2,9 @@ package ion.content
 
 import arc.*
 import arc.func.*
+import arc.math.*
 import arc.graphics.*
+import arc.graphics.g2d.*
 import mindustry.gen.*
 import mindustry.type.*
 import mindustry.game.*
@@ -193,11 +195,12 @@ object IonUnitTypes{
                     Draw.color(IColor.energy)
                     Draw.z(Layer.effect)
                     Fill.circle(unit.x, unit.y, 5 + s)
-                    for(i in 1..10){
+                    for(sus in 1..10){
+                        i = sus.toFloat()
                         Lines.spikes(unit.x, unit.y, i * 2.4f, 9f + s, 1, Time.time * i / 10f)
                         Lines.spikes(unit.x, unit.y, i * 2.4f, 9f + s, 1, 180f - -Time.time * i / 10f)
                     }
-                    Lines.circle(unit.x, unit.y, 15f + s)t
+                    Lines.circle(unit.x, unit.y, 15f + s)
                 }
             }
         }
