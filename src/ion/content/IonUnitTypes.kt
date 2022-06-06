@@ -195,7 +195,7 @@ object IonUnitTypes{
                     super.draw(unit)
                     var s = Mathf.absin(15f, 3f)
                     
-                    Lines.stroke(3.4f)
+                    Lines.stroke(2.3f)
                     Draw.color(IColor.energy)
                     Draw.z(Layer.effect)
                     Fill.circle(unit.x, unit.y, 9f + s)
@@ -205,6 +205,8 @@ object IonUnitTypes{
                         Lines.spikes(unit.x, unit.y, i * 2.4f, 13f + s, 1, 180f - -Time.time * i / 10f)
                     }
                     Lines.circle(unit.x, unit.y, 18f + s)
+                    if(!Core.settings.getBool("effectreduction")) return
+                    Fill.light(unit.x, unit.y, 4, 40f + Mathf.absin(20f, 40f), IColor.energy, Color.clear)
                 }
             }
         }
