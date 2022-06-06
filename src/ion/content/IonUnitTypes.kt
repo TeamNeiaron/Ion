@@ -1,6 +1,7 @@
 package ion.content
 
 import arc.*
+import arc.util.*
 import arc.func.*
 import arc.math.*
 import arc.graphics.*
@@ -9,6 +10,7 @@ import mindustry.gen.*
 import mindustry.type.*
 import mindustry.game.*
 import mindustry.content.*
+import mindustry.graphics.*
 import mindustry.entities.bullet.*
 import mindustry.entities.pattern.*
 
@@ -188,7 +190,7 @@ object IonUnitTypes{
                     )
                 }
                 
-                override fun update(unit: mindustty.gen.Unit){
+                override fun update(unit: mindustry.gen.Unit){
                     super.draw(unit)
                     var s = Mathf.absin(15f, 3f)
                     
@@ -196,7 +198,7 @@ object IonUnitTypes{
                     Draw.z(Layer.effect)
                     Fill.circle(unit.x, unit.y, 5 + s)
                     for(sus in 1..10){
-                        i = sus.toFloat()
+                        var i = sus.toFloat()
                         Lines.spikes(unit.x, unit.y, i * 2.4f, 9f + s, 1, Time.time * i / 10f)
                         Lines.spikes(unit.x, unit.y, i * 2.4f, 9f + s, 1, 180f - -Time.time * i / 10f)
                     }
