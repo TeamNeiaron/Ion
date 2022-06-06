@@ -155,6 +155,7 @@ object IonUnitTypes{
             xeus = object : UnitType("xeus"){
                 init{
                     flying = true
+                    lowAltitude = true
                     health = 25380f
                     armor = 18f
                     speed = 0.65f
