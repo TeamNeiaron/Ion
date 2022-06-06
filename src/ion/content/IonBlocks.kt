@@ -110,7 +110,6 @@ object IonBlocks{
             }
         }
 
-        //todo
         brassSmelter = object : GenericCrafter("brass-smelter"){
             init{
                 requirements(Category.crafting, ItemStack.with(
