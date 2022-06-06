@@ -41,7 +41,7 @@ object ISettings{
                 Core.settings.put("effectreduction", it)
             }
             
-            it.sliderPref("Xeus Line Count", 10, 0, 100, 1) : String{
+            it.sliderPref("Xeus Line Count", 10, 0, 100, 1) : Int{
                 Core.settings.put("xeuslinecount", it)
             }
         }
