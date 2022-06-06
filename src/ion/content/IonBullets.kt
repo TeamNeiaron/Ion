@@ -77,7 +77,7 @@ object IonBullets{
                     Color.white
                 )
                 despawnEffect = Fx.smokeCloud
-                shootEffect = IonFx.xeusCharge
+                chargeEffect = IonFx.xeusCharge
                 lightningDamage = 75f
                 lightningLength = 45
                 lightningColor = IColor.lightEnergy

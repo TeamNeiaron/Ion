@@ -110,6 +110,7 @@ object IonBlocks{
             }
         }
 
+
         brassSmelter = object : GenericCrafter("brass-smelter"){
             init{
                 requirements(Category.crafting, ItemStack.with(
@@ -125,8 +126,9 @@ object IonBlocks{
                 consumePower(1.4f)
                 consumeItems(
                     *ItemStack.with(
+                        Items.copper, 2,
                         IonItems.zinc, 1,
-                        Items.coal, 2
+                        Items.coal, 1
                     )
                 )
             }

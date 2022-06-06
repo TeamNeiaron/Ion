@@ -1,5 +1,6 @@
 package ion.ui
 
+import arc.Core
 import arc.Core.app
 import arc.util.*
 import arc.math.Mathf
@@ -34,6 +35,16 @@ object ISettings{
                     
                     "pet the cheesy-chan" -> ui.showConfirm("Question","have you gotten [accent]consent[]?") { ui.showInfo("the cheesy-chan has been pet.") }
                 }
+            }
+            
+            it.checkPref("Effect Reduction", false){
+                Core.settings.put("effectreduction", it)
+            }
+            
+            it.sliderPref("Xeus Line Count", 10, 0, 100, 1){
+                Core.settings.put("xeuslinecount", it)
+                
+                it.toString()
             }
         }
     }
