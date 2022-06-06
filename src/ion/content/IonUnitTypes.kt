@@ -199,7 +199,7 @@ object IonUnitTypes{
                     Draw.color(IColor.energy)
                     Draw.z(Layer.effect)
                     Fill.circle(unit.x, unit.y, 9f + s)
-                    for(sus in 1..10){
+                    for(sus in 1..Core.settings.getInt("xeuslinecount")){
                         var i = sus.toFloat()
                         Lines.spikes(unit.x, unit.y, i * 2.4f, 13f + s, 1, Time.time * i / 10f)
                         Lines.spikes(unit.x, unit.y, i * 2.4f, 13f + s, 1, 180f - -Time.time * i / 10f)

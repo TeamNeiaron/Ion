@@ -1,5 +1,6 @@
 package ion.ui
 
+import arc.Core
 import arc.Core.app
 import arc.util.*
 import arc.math.Mathf
@@ -40,8 +41,8 @@ object ISettings{
                 Core.settings.put("effectreduction", it)
             }
             
-            it.sliderPref("Xeus Line Count", 10, 0, 100, 1){
-                Core.settings.put("xeuslinecount", it.toInt())
+            it.sliderPref("Xeus Line Count", 10, 0, 100, 1) : String{
+                Core.settings.put("xeuslinecount", it)
                 return it + "Lines"
             }
         }
