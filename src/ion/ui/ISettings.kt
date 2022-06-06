@@ -44,7 +44,7 @@ object ISettings{
             it.sliderPref("Xeus Line Count", 10, 0, 100, 1){
                 Core.settings.put("xeuslinecount", it)
                 
-                return it
+                return@sliderPref it.toString()
             }
         }
     }
