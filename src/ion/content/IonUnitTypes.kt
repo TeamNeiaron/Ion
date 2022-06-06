@@ -15,7 +15,7 @@ import ion.type.weapons.*
 import ion.content.*
 import ion.entities.bullet.*
 
-object IonUnitTypes {
+object IonUnitTypes{
 
     lateinit var orion: UnitType
     lateinit var xender: UnitType
@@ -23,9 +23,9 @@ object IonUnitTypes {
     lateinit var geometry: UnitType
     lateinit var xeus: UnitType
 
-    fun load() {
-        orion = object : UnitType("orion") {
-            init {
+    fun load(){
+        orion = object : UnitType("orion"){
+            init{
                 flying = true
                 health = 290f
                 speed = 3.62f
@@ -38,14 +38,14 @@ object IonUnitTypes {
 
 
                 weapons.add(
-                    Weapon("orion-arc").apply {
+                    Weapon("orion-arc").apply{
                         x = 0f
                         y = 0f
                         reload = 40f
                         mirror = false
                         shootSound = Sounds.spark
                         shoot.shots = 2
-                        bullet = LightningBulletType().apply {
+                        bullet = LightningBulletType().apply{
                             damage = 14f
                             lightningColor = IColor.energy
                             lightningLength = 19
@@ -55,8 +55,8 @@ object IonUnitTypes {
             }
         }
 
-        xender = object : UnitType("xender") {
-            init {
+        xender = object : UnitType("xender"){
+            init{
                 flying = true
                 health = 740f
                 armor = 4.2f
@@ -71,14 +71,14 @@ object IonUnitTypes {
 
 
                 weapons.add(
-                    Weapon("xender-lancer").apply {
+                    Weapon("xender-lancer").apply{
                         reload = 95f
                         x = 0f
                         y = -4.3f
                         mirror = false
                         shootSound = Sounds.laser
                         shoot = ShootSpread(2, 2f)
-                        bullet = LaserBulletType(34f).apply {
+                        bullet = LaserBulletType(34f).apply{
                             length = 152f
                             width = 5f
                         }
@@ -87,8 +87,8 @@ object IonUnitTypes {
             }
         }
 
-        astro = object : UnitType("astro") {
-            init {
+        astro = object : UnitType("astro"){
+            init{
                 flying = true
                 health = 1030f
                 armor = 7.8f
@@ -104,7 +104,7 @@ object IonUnitTypes {
 
 
                 weapons.add(
-                    Weapon("electric-orb-launcher").apply {
+                    Weapon("electric-orb-launcher").apply{
                         x = 0f
                         reload = 180f
                         mirror = false
@@ -117,8 +117,8 @@ object IonUnitTypes {
             }
         }
 
-        geometry = object : UnitType("geometry") {
-            init {
+        geometry = object : UnitType("geometry"){
+            init{
                 flying = true
                 health = 9850f
                 armor = 13.5f
@@ -134,7 +134,7 @@ object IonUnitTypes {
 
 
                 weapons.add(
-                    Weapon("geo-launcher").apply {
+                    Weapon("geo-launcher").apply{
                         x = 0f
                         reload = 258f
                         mirror = false
@@ -148,8 +148,8 @@ object IonUnitTypes {
             }
         }
 
-            xeus = object : UnitType("xeus") {
-                init {
+            xeus = object : UnitType("xeus"){
+                init{
                     flying = true
                     health = 25380f
                     armor = 18f
@@ -165,7 +165,7 @@ object IonUnitTypes {
 
 
                     weapons.add(
-                        Weapon("energy-laser").apply {
+                        Weapon("energy-laser").apply{
                             x = 0f
                             y = -7f
                             reload = 660f
@@ -178,11 +178,26 @@ object IonUnitTypes {
                             x = 9f
                             y = 4f
                             reload = 10f
+                            top = true
                             mirror = true
                             shootSound = Sounds.laser
                             bullet = IonBullets.miniGeometricBullet
                         }
                     )
+                }
+                
+                override fun update(unit: mindustty.gen.Unit){
+                    super.draw(unit)
+                    var s = Mathf.absin(15f, 3f)
+                    
+                    Draw.color(IColor.energy)
+                    Draw.z(Layer.effect)
+                    Fill.circle(unit.x, unit.y, 5 + s)
+                    for(i in 1..10){
+                        Lines.spikes(unit.x, unit.y, i * 2.4f, 9f + s, 1, Time.time * i / 10f)
+                        Lines.spikes(unit.x, unit.y, i * 2.4f, 9f + s, 1, 180f - -Time.time * i / 10f)
+                    }
+                    Lines.circle(unit.x, unit.y, 15f + s)t
                 }
             }
         }
