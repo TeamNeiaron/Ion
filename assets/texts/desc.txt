@@ -1,0 +1,5 @@
+A mindustry mod project.
+
+Authors:
+SMOLKEYS (Mod Owner/Main Coder)
+xjammuux/xjamiex (Spriter/Occasional Coder)
