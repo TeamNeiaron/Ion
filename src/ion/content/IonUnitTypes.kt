@@ -181,13 +181,14 @@ object IonUnitTypes{
                             bullet = IonBullets.xeusLaser
                             shootStatusDuration = 140f;
                             shootStatus = StatusEffects.unmoving
-                        }, SpinnyWeapon("geo-caller").apply {
+                        }, SpinnyWeapon("geo-caller").apply{
                             x = 9f
                             y = 4f
                             reload = 10f
                             top = true
                             mirror = true
                             shootSound = Sounds.laser
+                            shoot = ShootSpread(5, 72f)
                             bullet = IonBullets.miniGeometricBullet
                         }
                     )
@@ -200,15 +201,15 @@ object IonUnitTypes{
                     Lines.stroke(2.3f)
                     Draw.color(IColor.energy)
                     Draw.z(Layer.effect)
-                    Fill.circle(unit.x, unit.y, 9f + s)
+                    Fill.circle(unit.x, unit.y, 6f + s)
                     for(sus in 1..Core.settings.getInt("xeuslinecount")){
                         var i = sus.toFloat()
                         Lines.spikes(unit.x, unit.y, i * 2.4f, 13f + s, 1, Time.time * i / 10f)
                         Lines.spikes(unit.x, unit.y, i * 2.4f, 13f + s, 1, 180f - -Time.time * i / 10f)
                     }
-                    Lines.circle(unit.x, unit.y, 18f + s)
+                    Lines.circle(unit.x, unit.y, 15f + s)
                     if(!Core.settings.getBool("effectreduction")) return
-                    Fill.light(unit.x, unit.y, 4, 40f + Mathf.absin(20f, 40f), IColor.energy, Color.clear)
+                    Fill.light(unit.x, unit.y, 4, 35f + Mathf.absin(20f, 25f), IColor.energy, Color.clear)
                 }
             }
         }

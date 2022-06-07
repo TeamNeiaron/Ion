@@ -36,8 +36,9 @@ object IonBullets{
         
         miniGeometricBullet = object : GeometricBulletType(3, 10){
             init{
-                damage = 50f
-                speed = 3.3f
+                damage = 75f
+                speed = 12f
+                drag = 0.05f
                 lifetime = 86f
                 hitSize = 5f
                 spinSpeed = 3.4f
@@ -70,7 +71,7 @@ object IonBullets{
                 lifetime = 300f
                 length = 388f
                 width = 4f
-                damage = 46f
+                damage = 52f
                 colors = arrayOf(
                     IColor.energy,
                     IColor.lightEnergy,
@@ -78,7 +79,7 @@ object IonBullets{
                 )
                 despawnEffect = Fx.smokeCloud
                 chargeEffect = IonFx.xeusCharge
-                lightningDamage = 75f
+                lightningDamage = 64f
                 lightningLength = 45
                 lightningColor = IColor.lightEnergy
             }
