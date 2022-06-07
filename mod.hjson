@@ -5,16 +5,16 @@ displayName: "Ion"
 name: "ion"
 
 #your name
-author: "SMOLKEYS"
+author: "SMOLKEYS(code stuff) and XJAMMUUX(sprite stuff)"
 
 #the fully qualified main class of the mod
 main: "ion.Ion"
 
 #the mod description as seen in the mod dialog
-description: "Chaos."
+description: "Let chaos be divine"
 
 #the mod version
-version: 0
+version: ALPHA 0.5
 
 #the minimum game build required to run this mod
 minGameVersion: 136
