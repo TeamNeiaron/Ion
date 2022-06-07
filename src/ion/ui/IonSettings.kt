@@ -9,7 +9,7 @@ import mindustry.gen.*
 
 import ion.content.*
 
-object ISettings{
+object IonSettings{
     fun load(){
         ui.settings.addCategory("Ion: Global", Icon.right){
             
@@ -43,7 +43,6 @@ object ISettings{
                     "pet the cheesy-chan" -> ui.showConfirm("Question","have you gotten [accent]consent[]?") { ui.showInfo("the cheesy-chan has been pet.") }
                 }
             }
-            
         }
         
         ui.settings.addCategory("Ion: Units", Icon.right){

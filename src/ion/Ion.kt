@@ -17,7 +17,8 @@ class Ion : Mod(){
     init{
         Log.info("Loaded main Ion class.")
         Events.on(ClientLoadEvent::class.java){
-            ISettings.load()
+            IonSettings.load()
+            IonUI.load()
         }
     }
     
