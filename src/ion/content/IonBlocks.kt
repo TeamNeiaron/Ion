@@ -109,8 +109,8 @@ object IonBlocks{
                 upgrades.add(arrayOf(IonUnitTypes.xender, IonUnitTypes.astro))
             }
         }
-        
-        //todo
+
+
         brassSmelter = object : GenericCrafter("brass-smelter"){
             init{
                 requirements(Category.crafting, ItemStack.with(
