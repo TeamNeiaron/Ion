@@ -59,6 +59,12 @@ object ISettings{
                 
                 "$it"
             }
+            
+            it.sliderPref("Xeus Line Effect Multiplier", 1, 1, 30, 1){
+                Core.settings.put("xeuslineeffectmultiplier", it)
+                
+                "x$it"
+            }
         }
     }
 }

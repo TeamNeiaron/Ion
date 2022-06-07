@@ -152,66 +152,67 @@ object IonUnitTypes{
             }
         }
 
-            xeus = object : UnitType("xeus"){
-                init{
-                    flying = true
-                    lowAltitude = true
-                    health = 25380f
-                    armor = 18f
-                    speed = 0.65f
-                    accel = 0.45f
-                    drag = 0.06f
-                    engineSize = 9f
-                    engineOffset = 26f
-                    hitSize = 47f
-                    rotateSpeed = 0.8f
+        xeus = object : UnitType("xeus"){
+            init{
+                flying = true
+                lowAltitude = true
+                health = 25380f
+                armor = 18f
+                speed = 0.65f
+                accel = 0.45f
+                drag = 0.06f
+                engineSize = 9f
+                engineOffset = 26f
+                hitSize = 47f
+                rotateSpeed = 0.8f
 
-                    constructor = Prov<mindustry.gen.Unit> { UnitEntity.create() }
+                constructor = Prov<mindustry.gen.Unit> { UnitEntity.create() }
 
 
-                    weapons.add(
-                        Weapon("energy-laser").apply{
-                            x = 0f
-                            y = -7f
-                            reload = 660f
-                            mirror = false
-                            continuous = true
-                            shootSound = Sounds.beam
-                            shoot.firstShotDelay = IonFx.chargeEffect.lifetime
-                            bullet = IonBullets.xeusLaser
-                            shootStatusDuration = 140f;
-                            shootStatus = StatusEffects.unmoving
-                        }, SpinnyWeapon("geo-caller").apply{
-                            x = 9f
-                            y = 4f
-                            reload = 10f
-                            top = true
-                            mirror = true
-                            shootSound = Sounds.laser
-                            shoot = ShootSpread(5, 72f)
-                            bullet = IonBullets.miniGeometricBullet
-                        }
-                    )
-                }
-                
-                override fun draw(unit: mindustry.gen.Unit){
-                    super.draw(unit)
-                    var s = Mathf.absin(15f, 3f)
-                    var slowness = Core.settings.getFloat("xeuslineeffectslowness")
-                    
-                    Lines.stroke(2.3f)
-                    Draw.color(IColor.energy)
-                    Draw.z(Layer.effect)
-                    Fill.circle(unit.x, unit.y, 6f + s)
-                    for(sus in 1..Core.settings.getInt("xeuslinecount")){
-                        var i = sus.toFloat()
-                        Lines.spikes(unit.x, unit.y, i * 2.4f, 13f + s, 1, Time.time * i / slowness)
-                        Lines.spikes(unit.x, unit.y, i * 2.4f, 13f + s, 1, 180f - -Time.time * i / slowness)
+                weapons.add(
+                    Weapon("energy-laser").apply{
+                        x = 0f
+                        y = -7f
+                        reload = 660f
+                        mirror = false
+                        continuous = true
+                        shootSound = Sounds.beam
+                        shoot.firstShotDelay = IonFx.chargeEffect.lifetime
+                        bullet = IonBullets.xeusLaser
+                        shootStatusDuration = 140f;
+                        shootStatus = StatusEffects.unmoving
+                    }, SpinnyWeapon("geo-caller").apply{
+                        x = 9f
+                        y = 4f
+                        reload = 10f
+                        top = true
+                        mirror = true
+                        shootSound = Sounds.laser
+                        shoot = ShootSpread(5, 72f)
+                        bullet = IonBullets.miniGeometricBullet
                     }
-                    Lines.circle(unit.x, unit.y, 15f + s)
-                    if(!Core.settings.getBool("effectreduction")) return
-                    Fill.light(unit.x, unit.y, 4, 35f + Mathf.absin(20f, 25f), IColor.energy, Color.clear)
+                )
+            }
+            
+            override fun draw(unit: mindustry.gen.Unit){
+                super.draw(unit)
+                var s = Mathf.absin(15f, 3f)
+                var slowness = Core.settings.getFloat("xeuslineeffectslowness")
+                var mul = Core.settings.getInt("xeuslineeffectmultiplier")
+                
+                Lines.stroke(2.3f)
+                Draw.color(IColor.energy)
+                Draw.z(Layer.effect)
+                Fill.circle(unit.x, unit.y, 6f + s)
+                for(sus in 1..Core.settings.getInt("xeuslinecount")){
+                    var i = sus.toFloat()
+                    Lines.spikes(unit.x, unit.y, i * 2.4f, 13f + s, mul, Time.time * i / slowness)
+                    Lines.spikes(unit.x, unit.y, i * 2.4f, 13f + s, mul, 180f - -Time.time * i / slowness)
                 }
+                Lines.circle(unit.x, unit.y, 15f + s)
+                if(!Core.settings.getBool("effectreduction")) return
+                Fill.light(unit.x, unit.y, 4, 35f + Mathf.absin(20f, 25f), IColor.energy, Color.clear)
             }
         }
     }
+}
