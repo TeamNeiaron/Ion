@@ -15,18 +15,12 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 16
-    - name: Use other metadata file for autoreleases
-      run: |
-        rm mod.hjson; mv modbe.hjson mod.hjson
     - name: Build mod jar
       run: ./gradlew deploy
-    - name: Rename jar file
-      run: |
-        cd build/libs; mv Ion.jar IonBuilds.jar; cd ../..
     - name: Upload built jar file
       uses: svenstaro/upload-release-action@2.2.1
       with:
         repo_token: ${{ secrets.GTOKEN }}
         repo_name: TeamNeiaron/IonBuilds
-        file: build/libs/IonBuilds.jar
+        file: build/libs/Ion.jar
         tag: ${{ github.run_number }}
