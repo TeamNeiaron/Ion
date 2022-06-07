@@ -15,14 +15,18 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 16
-    - name: Change metadata file
+    - name: Use other metadata file for autoreleases
       run: |
         rm mod.hjson; mv modbe.hjson mod.hjson
     - name: Build mod jar
       run: ./gradlew deploy
-    - name: Rename jar file accordingly
+    - name: Rename jar file
       run: |
         cd build/libs; mv Ion.jar IonBuilds.jar; cd ../..
+    - name: Use actions-user for releases
+      run: |
+        git config --global user.name 'Github Actions'
+        git config --global user.email 'actions@github.com'
     - name: Upload built jar file
       uses: svenstaro/upload-release-action@2.2.1
       with:
