@@ -7,9 +7,16 @@ import arc.math.Mathf
 import mindustry.Vars.*
 import mindustry.gen.*
 
+import ion.content.*
+
 object ISettings{
     fun load(){
-        ui.settings.addCategory("Ion", Icon.right){
+        ui.settings.addCategory("Ion: Global", Icon.right){
+            
+            it.checkPref("Effect Reduction", false){
+                Core.settings.put("effectreduction", it)
+            }
+            
             it.textPref("Input", "..."){
                 when(it){
                     "horny" -> app.exit()
@@ -37,14 +44,14 @@ object ISettings{
                 }
             }
             
-            it.checkPref("Effect Reduction", false){
-                Core.settings.put("effectreduction", it)
-            }
+        }
+        
+        ui.settings.addCategory("Ion: Units", Icon.right){
             
-            it.sliderPref("Xeus Line Count", 10, 0, 100, 1){
+            it.sliderPref("Xeus Effect Line Count", 10, 0, 100, 1){
                 Core.settings.put("xeuslinecount", it)
                 
-                it.toString()
+                "$it"
             }
         }
     }
