@@ -48,8 +48,14 @@ object ISettings{
         
         ui.settings.addCategory("Ion: Units", Icon.right){
             
-            it.sliderPref("Xeus Effect Line Count", 10, 0, 100, 1){
+            it.sliderPref("Xeus Line Effect Count", 10, 0, 100, 1){
                 Core.settings.put("xeuslinecount", it)
+                
+                "$it"
+            }
+            
+            it.sliderPref("Xeus Line Effect Slowness", 10, 1, 100, 1){
+                Core.settings.put("xeuslineeffectslowness", it.toFloat())
                 
                 "$it"
             }

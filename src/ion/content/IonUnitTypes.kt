@@ -197,6 +197,7 @@ object IonUnitTypes{
                 override fun draw(unit: mindustry.gen.Unit){
                     super.draw(unit)
                     var s = Mathf.absin(15f, 3f)
+                    var slowness = Core.settings.getFloat("xeuslineeffectslowness")
                     
                     Lines.stroke(2.3f)
                     Draw.color(IColor.energy)
@@ -204,8 +205,8 @@ object IonUnitTypes{
                     Fill.circle(unit.x, unit.y, 6f + s)
                     for(sus in 1..Core.settings.getInt("xeuslinecount")){
                         var i = sus.toFloat()
-                        Lines.spikes(unit.x, unit.y, i * 2.4f, 13f + s, 1, Time.time * i / 10f)
-                        Lines.spikes(unit.x, unit.y, i * 2.4f, 13f + s, 1, 180f - -Time.time * i / 10f)
+                        Lines.spikes(unit.x, unit.y, i * 2.4f, 13f + s, 1, Time.time * i / slowness)
+                        Lines.spikes(unit.x, unit.y, i * 2.4f, 13f + s, 1, 180f - -Time.time * i / slowness)
                     }
                     Lines.circle(unit.x, unit.y, 15f + s)
                     if(!Core.settings.getBool("effectreduction")) return
