@@ -59,7 +59,7 @@ object IonSettings{
                     ui.loadfrag.hide()
                     ui.showInfo("Ion mod file updated. You may restart the game now.")
                 }
-            }.margin(14).width(240f).pad(6)
+            }.margin(14f).width(240f).pad(6f)
         }
         
         ui.settings.addCategory("Ion: Units", Icon.right){
