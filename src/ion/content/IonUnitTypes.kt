@@ -80,7 +80,7 @@ object IonUnitTypes{
                         x = 0f
                         y = -4.3f
                         mirror = false
-                        shootSound = Sounds.laser
+                        shootStatusDuration = 5f;
                         shoot = ShootSpread(2, 2f)
                         bullet = LaserBulletType(34f).apply{
                             length = 152f
@@ -179,6 +179,8 @@ object IonUnitTypes{
                             shootSound = Sounds.beam
                             shoot.firstShotDelay = IonFx.chargeEffect.lifetime
                             bullet = IonBullets.xeusLaser
+                            shootStatusDuration = 140f;
+                            shootStatus = StatusEffects.unmoving
                         }, SpinnyWeapon("geo-caller").apply {
                             x = 9f
                             y = 4f
