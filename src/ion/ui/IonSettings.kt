@@ -50,6 +50,8 @@ object IonSettings{
                 }
             }
             
+            it.row()
+            
             it.button("Update"){
                 ui.loadfrag.show("Updating Ion...")
                 Http.get("https://github.com/TeamNeiaron/IonBuilds/releases/latest/download/Ion.jar"){
@@ -59,7 +61,7 @@ object IonSettings{
                     ui.loadfrag.hide()
                     ui.showInfo("Ion mod file updated. You may restart the game now.")
                 }
-            }.margin(14f).width(240f).pad(6f)
+            }.margin(14f).width(240f).pad(6f).row()
         }
         
         ui.settings.addCategory("Ion: Units", Icon.right){
