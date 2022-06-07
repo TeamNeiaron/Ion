@@ -18,7 +18,7 @@ jobs:
     - name: Use different mod metadata
       run: |
         rm mod.hjson
-        printf 'name: "ion"\ndisplayName: "Ion"\nauthor: "TeamNeiaron"\nversion: ${{ github.run_number }}\nminGameVersion: 136\nmain: "ion.Ion"' >> mod.hjson
+        printf 'name: "ion"\ndisplayName: "Ion"\nauthor: "TeamNeiaron"\nsubtitle: "BE Build ${{ github.run_number }}"\nminGameVersion: 136\nmain: "ion.Ion"' >> mod.hjson
     - name: Build mod jar
       run: ./gradlew deploy
     - name: Upload built jar file
