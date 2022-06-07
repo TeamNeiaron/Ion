@@ -50,14 +50,16 @@ object IonSettings{
                 }
             }
             
-            it.button("Update", Styles.defaultb){a -> java.lang.Runnable
-                ui.loadfrag.show("Updating Ion...")
-                Http.get("https://github.com/TeamNeiaron/IonBuilds/releases/latest/download/Ion.jar"){
+            it.button("Update", Styles.defaultb) = java.lang.Runnable{
+                override fun run(){
+                    ui.loadfrag.show("Updating Ion...")
+                    Http.get("https://github.com/TeamNeiaron/IonBuilds/releases/latest/download/Ion.jar"){
                     Streams.copyProgress(it.getResultAsStream(), tmpDir.write(false), it.getContentLength(), 4096){69f}
                     mods.importMod(tmpDir)
                     
                     ui.loadfrag.hide()
                     ui.showInfo("Ion mod file updated. You may restart the game now.")
+                }
                 }
             }.margin(14).width(240f).pad(6)
         }
