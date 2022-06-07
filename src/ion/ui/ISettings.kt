@@ -54,14 +54,20 @@ object ISettings{
                 "$it"
             }
             
-            it.sliderPref("Xeus Line Effect Slowness", 10, 1, 100, 1){
+            it.sliderPref("Xeus Line Effect Slowness", 10, 1, 150, 1){
                 Core.settings.put("xeuslineeffectslowness", it.toFloat())
                 
                 "$it"
             }
             
-            it.sliderPref("Xeus Line Effect Multiplier", 1, 1, 30, 1){
+            it.sliderPref("Xeus Line Effect Count Multiplier", 1, 1, 30, 1){
                 Core.settings.put("xeuslineeffectmultiplier", it)
+                
+                "x$it"
+            }
+            
+            it.sliderPref("Xeus Line Effect Spacing Multiplier", 1, 1, 120, 1){
+                Core.settings.put("xeuslineeffectspacing", it.toFloat())
                 
                 "x$it"
             }
