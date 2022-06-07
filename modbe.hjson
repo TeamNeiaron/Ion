@@ -1,0 +1,20 @@
+#the mod name as displayed in-game
+displayName: "Ion (Bleeding Edge)"
+
+#the internal name of your mod
+name: "ion-be"
+
+#your name
+author: "SMOLKEYS"
+
+#the fully qualified main class of the mod
+main: "ion.Ion"
+
+#the mod description as seen in the mod dialog
+description: "Chaos."
+
+#the mod version
+version: 0
+
+#the minimum game build required to run this mod
+minGameVersion: 136

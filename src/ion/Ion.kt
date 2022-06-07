@@ -18,7 +18,6 @@ class Ion : Mod(){
         Log.info("Loaded main Ion class.")
         Events.on(ClientLoadEvent::class.java){
             IonSettings.load()
-            IonUI.load()
         }
     }
     
