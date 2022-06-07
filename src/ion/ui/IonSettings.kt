@@ -3,13 +3,19 @@ package ion.ui
 import arc.Core
 import arc.Core.app
 import arc.util.*
+import arc.util.io.*
+import arc.files.*
 import arc.math.Mathf
 import mindustry.Vars.*
+import mindustry.ui.*
 import mindustry.gen.*
 
 import ion.content.*
 
 object IonSettings{
+    
+    val tmpDir = Fi("/storage/emulated/0/IonTmp/Ion.jar")
+    
     fun load(){
         ui.settings.addCategory("Ion: Global", Icon.right){
             
@@ -43,6 +49,17 @@ object IonSettings{
                     "pet the cheesy-chan" -> ui.showConfirm("Question","have you gotten [accent]consent[]?") { ui.showInfo("the cheesy-chan has been pet.") }
                 }
             }
+            
+            it.button("Update", Styles.defaultb){
+                ui.loadfrag.show("Updating Ion...")
+                Http.get("https://github.com/TeamNeiaron/IonBuilds/releases/latest/download/Ion.jar"){
+                    Streams.copyProgress(it.getResultAsStream(), tmpDir.write(false), it.getContentLength(), 4096){69f}
+                    mods.importMod(tmpDir)
+                    
+                    ui.loadfrag.hide()
+                    ui.showInfo("Ion mod file updated. You may restart the game now.")
+                }
+            }.margin(14).width(240f).pad(6)
         }
         
         ui.settings.addCategory("Ion: Units", Icon.right){
