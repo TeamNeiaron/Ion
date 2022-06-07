@@ -50,7 +50,7 @@ object IonSettings{
                 }
             }
             
-            it.button("Update", Styles.defaultb) -> {
+            it.button("Update"){
                 ui.loadfrag.show("Updating Ion...")
                 Http.get("https://github.com/TeamNeiaron/IonBuilds/releases/latest/download/Ion.jar"){
                     Streams.copyProgress(it.getResultAsStream(), tmpDir.write(false), it.getContentLength(), 4096){69f}
