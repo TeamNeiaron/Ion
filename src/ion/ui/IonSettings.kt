@@ -15,13 +15,18 @@ import ion.content.*
 
 object IonSettings{
     
-    val tmpDir = Fi("/storage/emulated/0/IonTmp/Ion.jar")
-    val waitTime = 60f * 30f
+    val tmpDir = Core.settings.getDataDirectory().child("IonT.jar")
     var importing = false
     var errored = false
     
     fun load(){
         ui.settings.addCategory("Ion: Global", Icon.right){
+            
+            it.sliderPref("Updater Timeout Threshold", 30, 1, 120, 5){
+                Core.settings.put("updatertimeout", it.toFloat())
+                
+                "$it seconds"
+            }
             
             it.checkPref("Effect Reduction", false){
                 Core.settings.put("effectreduction", it)
@@ -63,25 +68,26 @@ object IonSettings{
             it.button("Update"){
                 importing = true
                 errored = false
-                ui.loadfrag.show("Updating Ion...\n(Automatic timeout error after 30 seconds)")
+                ui.loadfrag.show("Updating Ion...\n(Automatic timeout after ${Core.settings.getFloat("updatertimeout")} seconds)")
                 Http.get("https://github.com/TeamNeiaron/IonBuilds/releases/latest/download/Ion.jar"){
                     Streams.copyProgress(it.getResultAsStream(), tmpDir.write(false), it.getContentLength(), 4096){69f}
-                    try{
-                        mods.importMod(tmpDir)
-                    } catch (e: Throwable){
-                        ui.showException(e)
-                        importing = false
-                        ui.loadfrag.hide()
-                        errored = true
-                    }
+                    
                     if(errored){ Log.err("Ion import error.") } else {
+                        try{
+                            mods.importMod(tmpDir)
+                        } catch (e: Throwable){
+                            ui.showException(e)
+                            importing = false
+                            ui.loadfrag.hide()
+                            errored = true
+                        }
                         importing = false
                         ui.loadfrag.hide()
                         ui.showInfo("Ion mod file updated. You may restart the game now.")
                     }
                 }
                 
-                Time.runTask(waitTime){
+                Time.runTask(Core.settings.getFloat("updatertimeout") * 60f){
                     if(!importing){} else {
                         ui.loadfrag.hide()
                         ui.showErrorMessage("Download failed. Check your internet connection or download from the IonBuilds repo directly.")
