@@ -12,8 +12,6 @@ import mindustry.gen.*
 
 import ion.content.*
 
-import java.lang.Throwable
-
 object IonSettings{
     
     val tmpDir = Fi("/storage/emulated/0/IonTmp/Ion.jar")
