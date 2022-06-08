@@ -22,7 +22,7 @@ object IonBlocks{
     //factories
     lateinit var brassSmelter: Block
     //defense
-    lateinit var eorpnafola: Block
+    lateinit var eorphosia: Block
     
     fun load(){
         //region ores
@@ -141,7 +141,7 @@ object IonBlocks{
         
         //endregion factories
         //region defense
-        eorpnafola = object : PowerTurret("eorpnafola"){
+        eorphosia = object : PowerTurret("eorphosia"){
             init{
                 requirements(Category.turret, ItemStack.with(
                     Items.copper, 1 //todo
