@@ -17,6 +17,7 @@ object IonSettings{
     val tmpDir = Fi("/storage/emulated/0/IonTmp/Ion.jar")
     val waitTime = 60f * 30f
     var importing = false
+    var errored = false
     
     fun load(){
         ui.settings.addCategory("Ion: Global", Icon.right){
@@ -56,6 +57,7 @@ object IonSettings{
             
             it.button("Update"){
                 importing = true
+                errored = false
                 ui.loadfrag.show("Updating Ion...\n(Automatic timeout error after 30 seconds)")
                 Http.get("https://github.com/TeamNeiaron/IonBuilds/releases/latest/download/Ion.jar"){
                     Streams.copyProgress(it.getResultAsStream(), tmpDir.write(false), it.getContentLength(), 4096){69f}
@@ -65,8 +67,9 @@ object IonSettings{
                         ui.showException(e)
                         importing = false
                         ui.loadfrag.hide()
-                        return
+                        errored = true
                     }
+                    if(errored) return
                     importing = false
                     ui.loadfrag.hide()
                     ui.showInfo("Ion mod file updated. You may restart the game now.")
@@ -76,6 +79,7 @@ object IonSettings{
                     if(!importing) return
                     ui.showErrorMessage("Download failed. Check your internet connection or download from the IonBuilds repo directly.")
                     importing = false
+                    errored = true
                 }
             }.margin(14f).width(240f).pad(6f).row()
         }
