@@ -22,7 +22,7 @@ object IonBlocks{
     //factories
     lateinit var brassSmelter: Block
     //defense
-    lateinit var eorpnafola: Block
+    lateinit var eorphosia: Block
     
     fun load(){
         //region ores
@@ -47,7 +47,7 @@ object IonBlocks{
                     )
                 )
                 health = 450
-                size = 3
+                size = 4
                 consumePower(2f)
                 plans.addAll(
                     UnitPlan(
@@ -78,7 +78,6 @@ object IonBlocks{
                 consumeItems(
                     *ItemStack.with(
                         Items.lead, 30,
-                        Items.titanium, 25,
                         Items.silicon, 45,
                         IonItems.zinc, 20
                     )
@@ -107,7 +106,7 @@ object IonBlocks{
                     *ItemStack.with(
                         Items.graphite, 75,
                         Items.silicon, 85,
-                        Items.titanium, 30,
+                        Items.thorium, 30,
                         IonItems.zinc, 35
                     )
                 )
@@ -142,7 +141,7 @@ object IonBlocks{
         
         //endregion factories
         //region defense
-        eorpnafola = object : PowerTurret("eorpnafola"){
+        eorphosia = object : PowerTurret("eorphosia"){
             init{
                 requirements(Category.turret, ItemStack.with(
                     Items.copper, 1 //todo
