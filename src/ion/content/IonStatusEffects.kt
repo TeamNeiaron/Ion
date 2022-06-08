@@ -19,7 +19,7 @@ object IonStatusEffects{
             override fun draw(unit: mindustry.gen.Unit){
                 super.draw(unit)
                 
-                Draw.z(180)
+                Draw.z(180f)
                 Draw.color(Color.gray)
                 Draw.rect(unit.type.uiIcon, unit.x, unit.y, 270f + unit.rotation)
             }
