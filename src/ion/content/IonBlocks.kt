@@ -73,7 +73,7 @@ object IonBlocks{
                     )
                 )
                 health = 670
-                size = 3
+                size = 4
                 consumePower(2.4f)
                 consumeItems(
                     *ItemStack.with(
