@@ -4,6 +4,7 @@ import mindustry.content.Items
 import mindustry.type.*
 import mindustry.world.Block
 import mindustry.world.blocks.units.*
+import mindustry.world.blocks.defense.turrets.*
 import mindustry.world.blocks.environment.*
 import mindustry.world.blocks.production.*
 import mindustry.world.blocks.units.UnitFactory.UnitPlan
@@ -20,9 +21,11 @@ object IonBlocks{
     lateinit var alephReconstructor: Block
     //factories
     lateinit var brassSmelter: Block
+    //defense
+    lateinit var eorpnafola: Block
     
     fun load(){
-        
+        //region ores
         oreZinc = object : OreBlock("ore-zinc", IonItems.zinc){
             init{
                 oreDefault = true
@@ -31,6 +34,8 @@ object IonBlocks{
             }
         }
         
+        //endregion ores
+        //region units
         advancedAirFactory = object : UnitFactory("advanced-air-factory"){
             init{
                 requirements(
@@ -109,8 +114,9 @@ object IonBlocks{
                 upgrades.add(arrayOf(IonUnitTypes.xender, IonUnitTypes.astro))
             }
         }
-
-
+        
+        //endregion units
+        //region factories
         brassSmelter = object : GenericCrafter("brass-smelter"){
             init{
                 requirements(Category.crafting, ItemStack.with(
@@ -131,6 +137,18 @@ object IonBlocks{
                         Items.coal, 1
                     )
                 )
+            }
+        }
+        
+        //endregion factories
+        //region defense
+        eorpnafola = object : PowerTurret("eorpnafola"){
+            init{
+                requirements(Category.turret, ItemStack.with(
+                    Items.copper, 1 //todo
+                ))
+                size = 5
+                consumePower(17.5f)
             }
         }
     }

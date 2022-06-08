@@ -25,6 +25,7 @@ class Ion : Mod(){
     
     override fun loadContent(){
         IonItems.load()
+        IonStatusEffects.load()
         IonBullets.load()
         IonUnitTypes.load()
         IonBlocks.load()
