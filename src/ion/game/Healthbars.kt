@@ -5,6 +5,7 @@ import arc.graphics.*
 import arc.graphics.g2d.*
 import mindustry.gen.*
 import mindustry.game.EventType.Trigger
+import mindustry.graphics.Layer
 
 import ion.defs.*
 
@@ -21,13 +22,14 @@ object Healthbars{
                 Groups.unit.each(){
                     var u = it
                     
+                    Draw.z(Layer.effect)
                     Draw.color(Color.valueOf("ffaf00"))
                     Lines.stroke(3f)
-                    Lines.line(u.x - u.hitSize, u.y - u.hitSize, u.x - u.hitSize + u.healthf() * u.hitSize * 2f, u.y - u.hitSize - 6f)
+                    Lines.line(u.x - u.hitSize, u.y - u.hitSize, u.x - u.hitSize + u.healthf() * u.hitSize * 2f, u.y - u.hitSize)
                     
-                    if(u.shield == 0f){} else {
+                    if(u.shield < 0f){} else {
                         Draw.color(IColor.energy)
-                        Lines.line(u.x - u.hitSize, u.y - u.hitSize, u.x - u.hitSize + u.health / u.shield * u.hitSize * 2f, u.y - u.hitSize - 6f)
+                        Lines.line(u.x - u.hitSize - 5f, u.y - u.hitSize, u.x - u.hitSize + u.shield / u.maxHealth * u.hitSize * 2f, u.y - u.hitSize - 5f)
                     }
                 }
             }
