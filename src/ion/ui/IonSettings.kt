@@ -69,7 +69,7 @@ object IonSettings{
                         ui.loadfrag.hide()
                         errored = true
                     }
-                    if(errored){} else {
+                    if(errored){ Log.err("Ion import error.") } else {
                         importing = false
                         ui.loadfrag.hide()
                         ui.showInfo("Ion mod file updated. You may restart the game now.")
@@ -78,6 +78,7 @@ object IonSettings{
                 
                 Time.runTask(waitTime){
                     if(!importing){} else {
+                        ui.loadfrag.hide()
                         ui.showErrorMessage("Download failed. Check your internet connection or download from the IonBuilds repo directly.")
                         importing = false
                         errored = true
