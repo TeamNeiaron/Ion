@@ -22,11 +22,12 @@ object Healthbars{
                 Groups.unit.each(){
                     var u = it
                     
-                    Draw.z(Layer.effect)
-                    Draw.color(Color.valueOf("ffaf00"))
-                    Lines.stroke(3f)
-                    Lines.line(u.x - u.hitSize, u.y - u.hitSize, u.x - u.hitSize + u.healthf() * u.hitSize * 2f, u.y - u.hitSize)
-                    
+                    if(u.health <= 0f){} else {
+                        Draw.z(Layer.effect)
+                        Draw.color(Color.valueOf("ffaf00"))
+                        Lines.stroke(3f)
+                        Lines.line(u.x - u.hitSize, u.y - u.hitSize, u.x - u.hitSize + u.healthf() * u.hitSize * 2f, u.y - u.hitSize)
+                    }
                     
                     if(u.shield <= 0f){} else {
                         Draw.z(Layer.effect + 0.001f)
