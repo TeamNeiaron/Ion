@@ -27,9 +27,9 @@ object Healthbars{
                     Lines.stroke(3f)
                     Lines.line(u.x - u.hitSize, u.y - u.hitSize, u.x - u.hitSize + u.healthf() * u.hitSize * 2f, u.y - u.hitSize)
                     
-                    if(u.shield < 0f){} else {
+                    if(u.shield <= 0f){} else {
                         Draw.color(IColor.energy)
-                        Lines.line(u.x - u.hitSize - 5f, u.y - u.hitSize, u.x - u.hitSize + u.shield / u.maxHealth * u.hitSize * 2f, u.y - u.hitSize - 5f)
+                        Lines.line(u.x - u.hitSize, u.y - u.hitSize - 5f, u.x - u.hitSize + u.shield / u.maxHealth * u.hitSize * 2f, u.y - u.hitSize - 5f)
                     }
                 }
             }
