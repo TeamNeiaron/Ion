@@ -27,10 +27,6 @@ object Healthbars{
                     Lines.stroke(3f)
                     Lines.line(u.x - u.hitSize, u.y - u.hitSize, u.x - u.hitSize + u.healthf() * u.hitSize * 2f, u.y - u.hitSize)
                     
-                    Draw.z(Layer.effect + 0.001f)
-                    Draw.color(Color.gray)
-                    Lines.line(u.x - u.hitSize, u.y - u.hitSize, u.x - u.hitSize + u.maxHealth / u.maxHealth * u.hitSize * 2f, u.y - u.hitSize)
-                                        
                     
                     if(u.shield <= 0f){} else {
                         Draw.z(Layer.effect + 0.001f)
