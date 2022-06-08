@@ -10,6 +10,7 @@ import mindustry.Vars.*
 import mindustry.ui.*
 import mindustry.gen.*
 
+import ion.game.*
 import ion.content.*
 
 object IonSettings{
@@ -24,6 +25,10 @@ object IonSettings{
             
             it.checkPref("Effect Reduction", false){
                 Core.settings.put("effectreduction", it)
+            }
+            
+            it.checkPref("Healthbars", true){
+                Healthbars.draw(it)
             }
             
             it.textPref("Input", "..."){

@@ -9,6 +9,7 @@ import mindustry.mod.*
 import mindustry.ui.dialogs.*
 
 import ion.ui.*
+import ion.game.*
 import ion.content.*
 
 
@@ -18,6 +19,7 @@ class Ion : Mod(){
         Log.info("Loaded main Ion class.")
         Events.on(ClientLoadEvent::class.java){
             IonSettings.load()
+            Healthbars.load()
             Vars.mods.getMod("ion").meta.description = Vars.tree["texts/desc.txt"].readString()
         }
     }
