@@ -1,19 +1,21 @@
 package ion.ui.dialogs
 
+import arc.func.*
 import mindustry.*
 import mindustry.ui.dialogs.*
 import mindustry.ai.types.*
 import mindustry.entities.units.*
 
-object AISwitcherDialog : BaseDialog{
+object AISwitcherDialog : BaseDialog("AI Switcher"){
     var active = false
-    val list = arrayOf<Prov<UnitController>>(
-        { FlyingAI() },
-        { GroundAI() },
-        { BuilderAI() },
-        { RepairAI() }
+    var list = arrayOf(
+        Prov<AIController> { FlyingAI() },
+        Prov<AIController> { GroundAI() },
+        Prov<AIController> { BuilderAI() },
+        Prov<AIController> { RepairAI() }
     )
-    constructor() : super("AI Switcher"){
+    
+    init{
         addCloseButton()
         
         for(li in list){
