@@ -1,5 +1,6 @@
 package ion.ui
 
+import arc.scene.ui.layout.*
 import mindustry.Vars
 import mindustry.ui.Styles
 import mindustry.gen.Icon
@@ -10,11 +11,11 @@ object UtilityTable{
     val tpos = Vars.ui.hudGroup.find("minimap/position")
     
     fun load(){
-        tpos.table(){
-            it.setBackground(Styles.black7)
-            it.button(Icon.unitsSmall){
+        tpos.table(){ s -> Table:
+            s.setBackground(Styles.black8)
+            s.button(Icon.unitsSmall){
                 IonVars.ai.show()
             }
-        }.size(130f, 150f)
+        }.row().size(130f, 150f)
     }
 }

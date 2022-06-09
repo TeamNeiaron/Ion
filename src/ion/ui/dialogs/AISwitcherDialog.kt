@@ -5,15 +5,15 @@ import mindustry.ui.dialogs.*
 import mindustry.ai.types.*
 import mindustry.entities.units.*
 
-object AISwitcherDialog : BaseDialog("AI Switcher"){
+object AISwitcherDialog : BaseDialog{
     var active = false
-    val list = arrayOf<Prov<AIController>>(
+    val list = arrayOf<Prov<UnitController>>(
         { FlyingAI() },
         { GroundAI() },
         { BuilderAI() },
         { RepairAI() }
     )
-    init{
+    constructor() : super("AI Switcher"){
         addCloseButton()
         
         for(li in list){
