@@ -6,7 +6,7 @@ import mindustry.ui.dialogs.*
 import mindustry.ai.types.*
 import mindustry.entities.units.*
 
-object AISwitcherDialog : BaseDialog("AI Switcher"){
+open class AISwitcherDialog : BaseDialog{
     var active = false
     var list = arrayOf(
         Prov<AIController> { FlyingAI() },
@@ -15,7 +15,7 @@ object AISwitcherDialog : BaseDialog("AI Switcher"){
         Prov<AIController> { RepairAI() }
     )
     
-    init{
+    constructor() : super("AI Switcher"){
         addCloseButton()
         
         for(li in list){
