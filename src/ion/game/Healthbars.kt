@@ -23,14 +23,14 @@ object Healthbars{
                     var u = it
                     
                     if(u.health <= 0f){} else {
-                        Draw.z(Layer.effect)
+                        Draw.z(Layer.end)
                         Draw.color(Color.valueOf("ffaf00"))
                         Lines.stroke(3f)
                         Lines.line(u.x - u.hitSize, u.y - u.hitSize, u.x - u.hitSize + u.healthf() * u.hitSize * 2f, u.y - u.hitSize)
                     }
                     
                     if(u.shield <= 0f){} else {
-                        Draw.z(Layer.effect + 0.001f)
+                        Draw.z(Layer.end)
                         Draw.color(IColor.energy)
                         Lines.line(u.x - u.hitSize, u.y - u.hitSize - 5f, u.x - u.hitSize + u.shield / u.maxHealth * u.hitSize * 2f, u.y - u.hitSize - 5f)
                     }
