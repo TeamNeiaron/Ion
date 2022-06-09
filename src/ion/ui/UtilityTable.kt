@@ -12,6 +12,7 @@ object UtilityTable{
     
     fun load(){
         tpos.table(){
+            var s = it
             s.setBackground(Styles.black8)
             s.button(Icon.unitsSmall){
                 IonVars.ai.show()
