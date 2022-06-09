@@ -14,20 +14,21 @@ open class AISwitcherDialog : BaseDialog{
         { BuilderAI() },
         { RepairAI() }
     )
+    var names = arrayOf("Flying", "Ground", "Builder", "Repair")
     
     constructor() : super("AI Switcher"){
         addCloseButton()
         
-        for(li in list){
-            val sus = li
-            cont.button("Switch"){
+        for(i in 0..list.size - 1){
+            val sus = list[i]
+            cont.button("${names[i]}"){
                 active = true
                 Vars.player.unit().controller(sus())
-            }.row()
+            }.size(130f, 40f).row()
         }
         cont.button("Reset AI"){
             active = false
             Vars.player.unit().resetController()
-        }
+        }.size(130f, 40f).row()
     }
 }
