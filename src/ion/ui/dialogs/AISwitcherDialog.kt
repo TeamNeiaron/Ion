@@ -8,7 +8,7 @@ import mindustry.entities.units.*
 
 open class AISwitcherDialog : BaseDialog{
     var active = false
-    var list = arrayOf(
+    var list = arrayOf<Prov<UnitController>>(
         { FlyingAI() },
         { GroundAI() },
         { BuilderAI() },
@@ -21,7 +21,7 @@ open class AISwitcherDialog : BaseDialog{
         for(li in list){
             cont.button("Switch"){
                 active = true
-                Vars.player.unit().controller(Prov<UnitController> li)
+                Vars.player.unit().controller(li)
             }.row()
         }
         cont.button("Reset AI"){
