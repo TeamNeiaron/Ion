@@ -21,7 +21,7 @@ open class AISwitcherDialog : BaseDialog{
         for(li in list){
             cont.button("Switch"){
                 active = true
-                Vars.player.unit().controller(list[li])
+                Vars.player.unit().controller(li)
             }.row()
         }
         cont.button("Reset AI"){

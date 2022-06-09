@@ -11,7 +11,7 @@ object UtilityTable{
     val tpos = Vars.ui.hudGroup.find("minimap/position")
     
     fun load(){
-        tpos.table(){
+        tpos.table{
             var s = it
             s.setBackground(Styles.black8)
             s.button(Icon.unitsSmall){
