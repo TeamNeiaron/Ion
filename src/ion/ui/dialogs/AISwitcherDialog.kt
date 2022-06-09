@@ -8,7 +8,7 @@ import mindustry.entities.units.*
 
 open class AISwitcherDialog : BaseDialog{
     var active = false
-    var list = arrayOf<Prov<UnitController>>(
+    var list = arrayOf<UnitController>(
         { FlyingAI() },
         { GroundAI() },
         { BuilderAI() },
