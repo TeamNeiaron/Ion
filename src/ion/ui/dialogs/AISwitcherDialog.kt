@@ -12,9 +12,13 @@ open class AISwitcherDialog : BaseDialog{
         { FlyingAI() },
         { GroundAI() },
         { BuilderAI() },
-        { RepairAI() }
+        { RepairAI() },
+        { MinerAI() },
+        { DefenderAI() },
+        { HugAI() },
+        { SuicideAI() }
     )
-    var names = arrayOf("Flying", "Ground", "Builder", "Repair")
+    var names = arrayOf("Flying", "Ground", "Builder", "Repair", "Miner", "Defender", "Hug", "Suicide")
     
     constructor() : super("AI Switcher"){
         addCloseButton()
