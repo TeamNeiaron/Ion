@@ -8,21 +8,21 @@ import mindustry.entities.units.*
 
 open class AISwitcherDialog : BaseDialog{
     var active = false
-    var list = arrayOf<UnitController>(
-        <UnitController> { FlyingAI() },
-        <UnitController> { GroundAI() },
-        <UnitController> { BuilderAI() },
-        <UnitController> { RepairAI() }
+    var list = arrayOf(
+        { FlyingAI() },
+        { GroundAI() },
+        { BuilderAI() },
+        { RepairAI() }
     )
     
     constructor() : super("AI Switcher"){
         addCloseButton()
         
         for(li in list){
+            val sus = li
             cont.button("Switch"){
-                val sus = li
                 active = true
-                Vars.player.unit().controller(sus)
+                Vars.player.unit().controller(sus())
             }.row()
         }
         cont.button("Reset AI"){
