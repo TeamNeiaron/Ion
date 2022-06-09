@@ -77,8 +77,8 @@ object IonBlocks{
                 consumePower(2.4f)
                 consumeItems(
                     *ItemStack.with(
-                        Items.lead, 30,
-                        Items.silicon, 45,
+                        Items.thorium, 55,
+                        Items.silicon, 80,
                         IonItems.zinc, 20
                     )
                 )
@@ -100,16 +100,17 @@ object IonBlocks{
                     )
                 )
                 health = 840
-                size = 5
+                size = 6
                 consumePower(3.2f)
                 consumeItems(
                     *ItemStack.with(
-                        Items.graphite, 75,
-                        Items.silicon, 85,
-                        Items.thorium, 30,
-                        IonItems.zinc, 35
+                        Items.graphite, 145,
+                        Items.silicon, 250,
+                        Items.plastanium, 250,
+                        IonItems.zinc, 120
                     )
                 )
+                constructTime = 30 * 60f
                 upgrades.add(arrayOf(IonUnitTypes.xender, IonUnitTypes.astro))
             }
         }
