@@ -9,10 +9,10 @@ import mindustry.entities.units.*
 open class AISwitcherDialog : BaseDialog{
     var active = false
     var list = arrayOf(
-        Prov<AIController> { FlyingAI() },
-        Prov<AIController> { GroundAI() },
-        Prov<AIController> { BuilderAI() },
-        Prov<AIController> { RepairAI() }
+        { FlyingAI() },
+        { GroundAI() },
+        { BuilderAI() },
+        { RepairAI() }
     )
     
     constructor() : super("AI Switcher"){
@@ -21,7 +21,7 @@ open class AISwitcherDialog : BaseDialog{
         for(li in list){
             cont.button("Switch"){
                 active = true
-                Vars.player.unit().controller(list[li])
+                Vars.player.unit().controller(Prov<AIController> list[li])
             }.row()
         }
         cont.button("Reset AI"){
