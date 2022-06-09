@@ -8,7 +8,7 @@ import mindustry.gen.Icon
 import ion.*
 
 object UtilityTable{
-    val tpos = Vars.ui.hudGroup.find("minimap/position")
+    var tpos = Vars.ui.hudGroup.find<Table>("minimap/position")
     
     fun load(){
         tpos.table{ s: Table ->
