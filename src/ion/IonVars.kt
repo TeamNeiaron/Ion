@@ -14,7 +14,9 @@ object IonVars{
     fun load(){
         Events.run(Trigger.update){
             if(ai.active){
-                Core.camera.position.set(Vars.player.unit().x, Vars.player.unit().y)
+                if(Vars.mobile){
+                    Core.camera.position.set(Vars.player.unit().x, Vars.player.unit().y)
+                }
             }
         }
     }
