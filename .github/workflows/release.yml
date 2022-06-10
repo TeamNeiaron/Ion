@@ -20,7 +20,7 @@ jobs:
         rm mod.hjson
         printf 'name: "ion"\ndisplayName: "Ion"\nauthor: "TeamNeiaron"\nsubtitle: "BE Build ${{ github.run_number }}"\nversion: ${{ github.run_number }}\nminGameVersion: 136\nmain: "ion.Ion"' >> mod.hjson
     - name: Build mod jar
-      run: ./gradlew deploy
+      run: ./gradlew deploy -Duse-k2
     - name: Upload built jar file
       uses: svenstaro/upload-release-action@2.2.1
       with:
