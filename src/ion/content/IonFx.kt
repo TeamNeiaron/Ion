@@ -50,7 +50,7 @@ object IonFx{
         Draw.color(Color.gray)
         Lines.stroke(e.fin() * 8f)
         Lines.square(e.x, e.y, e.fout(Interp.pow3Out) * 35f, e.fout(Interp.pow3Out) * 180f)
-        Lines.square(e.x, e.y, e.fin(Interp.pow3Out) * 35f, e.fin(Interp.pow3Out) * 180f)
+        Lines.square(e.x, e.y, e.fout(Interp.pow3Out) * 35f, e.fin(Interp.pow3Out) * 180f)
         Lines.circle(e.x, e.y, e.fout(Interp.pow5Out) * 40f)
     }
 }
