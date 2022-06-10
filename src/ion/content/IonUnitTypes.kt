@@ -211,8 +211,9 @@ object IonUnitTypes{
                     Lines.spikes(unit.x, unit.y, i * spacing, 13f + s, mul, 180f - -Time.time * i / slowness)
                 }
                 Lines.circle(unit.x, unit.y, 15f + s)
-                if(Core.settings.getBool("effectreduction")) return
-                Fill.light(unit.x, unit.y, 4, 35f + Mathf.absin(20f, 25f), IColor.energy, Color.clear)
+                if(!Core.settings.getBool("effectreduction")){
+                    Fill.light(unit.x, unit.y, 4, 35f + Mathf.absin(20f, 25f), IColor.energy, Color.clear)
+                }
             }
         }
     }

@@ -18,7 +18,7 @@ object Healthbars{
     
     fun load(){
         Events.run(Trigger.draw){
-            if(!shown){} else {
+            if(shown){
                 Groups.unit.each(){
                     var u = it
                     
