@@ -10,6 +10,7 @@ import mindustry.world.blocks.production.*
 import mindustry.world.blocks.units.UnitFactory.UnitPlan
 
 import ion.content.IonItems
+import mindustry.content.Liquids
 import mindustry.graphics.Layer.plans
 
 object IonBlocks{
@@ -19,8 +20,11 @@ object IonBlocks{
     lateinit var advancedAirFactory: Block
     lateinit var gonicReconstructor: Block
     lateinit var alephReconstructor: Block
+    lateinit var titanReconstructor: Block
+
     //factories
     lateinit var brassSmelter: Block
+
     //defense
     lateinit var eorphosia: Block
     
@@ -112,6 +116,35 @@ object IonBlocks{
                 )
                 constructTime = 30 * 60f
                 upgrades.add(arrayOf(IonUnitTypes.xender, IonUnitTypes.astro))
+            }
+        }
+
+        titanReconstructor = object : Reconstructor("titan-reconstructor"){
+            init{
+                requirements(
+                    Category.units, ItemStack.with(
+                        Items.lead, 780,
+                        Items.silicon, 850,
+                        Items.thorium, 950,
+                        IonItems.zinc, 850,
+                        Items.graphite, 770,
+                        Items.surgeAlloy, 350
+                    )
+                )
+                health = 1520
+                size = 8
+                consumePower(3.2f)
+                consumeItems(
+                    *ItemStack.with(
+                        Items.graphite, 850,
+                        Items.silicon, 980,
+                        Items.plastanium, 730,
+                        IonItems.zinc, 730,
+                        Items.thorium, 980
+                    )
+                )
+                constructTime = 38 * 60f
+                upgrades.add(arrayOf(IonUnitTypes.astro, IonUnitTypes.geometry))
             }
         }
         
