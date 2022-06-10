@@ -4,6 +4,8 @@ import arc.graphics.*
 import arc.graphics.g2d.*
 import mindustry.type.*
 
+import ion.defs.*
+
 object IonStatusEffects{
     
     lateinit var petrified: StatusEffect
@@ -21,7 +23,7 @@ object IonStatusEffects{
                 
                 Draw.z(180f)
                 Draw.color(Color.gray)
-                Draw.rect(unit.type.uiIcon, unit.x, unit.y, 270f + unit.rotation)
+                IDraw.unit(unit)
             }
         }
     }

@@ -2,8 +2,9 @@ package ion.content
 
 import arc.graphics.Color
 import mindustry.content.Fx
-import mindustry.entities.bullet.BulletType
+import mindustry.entities.bullet.*
 
+import ion.content.*
 import ion.defs.IColor
 import ion.entities.bullet.*
 
@@ -13,6 +14,7 @@ object IonBullets{
     lateinit var miniGeometricBullet: BulletType
     lateinit var energyOrbBullet: BulletType
     lateinit var xeusLaser: BulletType
+    lateinit var petrifierBullet: BulletType
     
     fun load(){
         geometricBullet = object : GeometricBulletType(3, 10){
@@ -82,6 +84,24 @@ object IonBullets{
                 lightningDamage = 64f
                 lightningLength = 45
                 lightningColor = IColor.lightEnergy
+            }
+        }
+        
+        petrifierBullet = object : BasicBulletType(){
+            init{
+                damage = 50f
+                speed = 3.7f
+                lifetime = 132f
+                width = 21.6f
+                height = 21.6f
+                chargeEffect = IonFx.ptCharge
+                status = IonStatusEffects.petrified
+                trailEffect = Fx.smoke
+                trailChance = 0.4f
+                backColor = Color.gray
+                frontColor = Color.darkGray
+                despawnEffect = IonFx.dissipate
+                hitEffect = IonFx.dissipate
             }
         }
     }

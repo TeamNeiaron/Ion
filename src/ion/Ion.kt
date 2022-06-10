@@ -4,6 +4,7 @@ import arc.*
 import arc.util.*
 import arc.func.*
 import mindustry.*
+import mindustry.content.*
 import mindustry.game.EventType.*
 import mindustry.mod.*
 import mindustry.ui.dialogs.*
