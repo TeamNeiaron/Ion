@@ -18,6 +18,6 @@ object UtilityTable{
             s.button(Icon.unitsSmall){
                 IonVars.ai.show()
             }
-        }.size(130f, 150f).row()
+        }.size(130f, 240f).row()
     }
 }

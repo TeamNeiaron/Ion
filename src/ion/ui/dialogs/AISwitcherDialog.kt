@@ -23,6 +23,8 @@ open class AISwitcherDialog : BaseDialog{
     constructor() : super("AI Switcher"){
         addCloseButton()
         
+        cont.add("@warning.coreunit").row()
+        
         for(i in 0..list.size - 1){
             val sus = list[i]
             cont.button("${names[i]}"){
