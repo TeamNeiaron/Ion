@@ -136,7 +136,7 @@ object IonBlocks{
                 consumePower(3.2f)
                 consumeItems(
                     *ItemStack.with(
-                        Items.graphite, 850,
+                        Items.titanium, 850,
                         Items.silicon, 980,
                         Items.plastanium, 730,
                         IonItems.zinc, 730,
