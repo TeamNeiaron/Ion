@@ -8,6 +8,7 @@ import mindustry.world.blocks.defense.turrets.*
 import mindustry.world.blocks.environment.*
 import mindustry.world.blocks.production.*
 import mindustry.world.blocks.units.UnitFactory.UnitPlan
+import mindustry.entities.pattern.*
 
 import ion.content.IonItems
 import mindustry.content.Liquids
@@ -24,7 +25,6 @@ object IonBlocks{
 
     //factories
     lateinit var brassSmelter: Block
-
     //defense
     lateinit var eorphosia: Block
     
@@ -180,7 +180,10 @@ object IonBlocks{
                 requirements(Category.turret, ItemStack.with(
                     Items.copper, 1 //todo
                 ))
+                health = 5550
                 size = 5
+                reload = 480f
+                shoot.shots = 15
                 consumePower(17.5f)
             }
         }
