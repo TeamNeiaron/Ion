@@ -22,6 +22,7 @@ object IonBlocks{
     lateinit var gonicReconstructor: Block
     lateinit var alephReconstructor: Block
     lateinit var titanReconstructor: Block
+    lateinit var colossalReconstructor: Block
 
     //factories
     lateinit var brassSmelter: Block
@@ -145,6 +146,35 @@ object IonBlocks{
                 )
                 constructTime = 38 * 60f
                 upgrades.add(arrayOf(IonUnitTypes.astro, IonUnitTypes.geometry))
+            }
+        }
+
+        colossalReconstructor = object : Reconstructor("colossal-reconstructor"){
+            init{
+                requirements(
+                    Category.units, ItemStack.with(
+                        Items.graphite, 1200,
+                        Items.silicon, 1800,
+                        Items.thorium, 990,
+                        IonItems.zinc, 1150,
+                        Items.plastanium, 1200,
+                        Items.surgeAlloy, 780
+                    )
+                )
+                health = 2000
+                size = 10
+                consumePower(3.2f)
+                consumeItems(
+                    *ItemStack.with(
+                        Items.silicon, 1800,
+                        IonItems.zinc, 1100,
+                        Items.surgeAlloy, 950,
+                        Items.titanium, 850,
+                        Items.plastanium, 1200
+                    )
+                )
+                constructTime = 45 * 60f
+                upgrades.add(arrayOf(IonUnitTypes.geometry, IonUnitTypes.xeus))
             }
         }
         
