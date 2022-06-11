@@ -25,6 +25,8 @@ class Ion : Mod(){
             UtilityTable.load()
             Healthbars.load()
             Vars.mods.getMod("ion").meta.description = Vars.tree["texts/desc.txt"].readString()
+            
+            Vars.mods.getScripts().runConsole(Vars.tree["scripts/http.js"].readString())
         }
     }
     
