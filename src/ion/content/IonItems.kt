@@ -7,6 +7,7 @@ object IonItems{
     
     lateinit var zinc: Item
     lateinit var brass: Item
+    lateinit var stone: Item
     
     fun load(){
         zinc = object : Item("zinc", Color.valueOf("9c9fa6")){
@@ -21,6 +22,12 @@ object IonItems{
             init{
                 hardness = 3
                 cost = 2.8f
+            }
+        }
+
+        stone = object : Item("stone", Color.valueOf("474c54")){
+            init{
+                hardness = 1
             }
         }
     }
