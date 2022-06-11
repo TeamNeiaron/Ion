@@ -13,6 +13,8 @@ import mindustry.gen.*
 import ion.game.*
 import ion.content.*
 
+import com.github.mnemotechnician.mkui.*
+
 object IonSettings{
     
     val tmpDir = Core.settings.getDataDirectory().child("IonT.jar")
@@ -30,10 +32,6 @@ object IonSettings{
             
             it.checkPref("Effect Reduction", false){
                 Core.settings.put("effectreduction", it)
-            }
-            
-            it.checkPref("Healthbars", true){
-                Healthbars.draw(it)
             }
             
             it.textPref("Input", "..."){
@@ -65,14 +63,14 @@ object IonSettings{
             
             it.row()
             
-            it.button("Update"){
+            it.textButton("Update", wrap = false){
                 importing = true
                 errored = false
                 ui.loadfrag.show("Updating Ion...\n(Automatic timeout after ${Core.settings.getFloat("updatertimeout")} seconds)")
                 Http.get("https://github.com/TeamNeiaron/IonBuilds/releases/latest/download/Ion.jar"){
                     Streams.copyProgress(it.getResultAsStream(), tmpDir.write(false), it.getContentLength(), 4096){69f}
                     
-                    if(errored){ Log.err("Ion import error.") } else {
+                    if(!errored){
                         try{
                             mods.importMod(tmpDir)
                         } catch (e: Throwable){
@@ -88,14 +86,14 @@ object IonSettings{
                 }
                 
                 Time.runTask(Core.settings.getFloat("updatertimeout") * 60f){
-                    if(!importing){} else {
+                    if(importing){
                         ui.loadfrag.hide()
                         ui.showErrorMessage("Download failed. Check your internet connection or download from the IonBuilds repo directly.")
                         importing = false
                         errored = true
                     }
                 }
-            }.margin(14f).width(240f).pad(6f).row()
+            }.row()
         }
         
         ui.settings.addCategory("Ion: Units", Icon.right){

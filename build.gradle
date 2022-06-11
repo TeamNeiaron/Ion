@@ -29,6 +29,7 @@ repositories{
 dependencies{
     compileOnly "com.github.Anuken.Arc:arc-core:master-SNAPSHOT"
     compileOnly "com.github.Anuken.MindustryJitpack:core:main-SNAPSHOT"
+    implementation files("libs/mnemotechnician/MKUI.jar")
 }
 
 compileKotlin{
