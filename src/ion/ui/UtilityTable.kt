@@ -19,7 +19,7 @@ object UtilityTable{
 
             s.name = "utilitytable"
             
-            s.setBackground(Styles.black8)
+            s.setBackground(Styles.none)
             s.button(Icon.unitsSmall){
                 IonVars.ai.show()
             }.size(50f, 50f)
