@@ -31,6 +31,30 @@ object IonSettings{
                 "$it seconds"
             }
             
+            it.sliderPref("Xeus Line Effect Count", 10, 0, 100, 1){
+                Core.settings.put("xeuslinecount", it)
+                
+                "$it"
+            }
+            
+            it.sliderPref("Xeus Line Effect Slowness", 10, 1, 150, 1){
+                Core.settings.put("xeuslineeffectslowness", it.toFloat())
+                
+                "$it"
+            }
+            
+            it.sliderPref("Xeus Line Effect Count Multiplier", 1, 1, 30, 1){
+                Core.settings.put("xeuslineeffectmultiplier", it)
+                
+                "x$it"
+            }
+            
+            it.sliderPref("Xeus Line Effect Spacing Multiplier", 1, 1, 120, 1){
+                Core.settings.put("xeuslineeffectspacing", it.toFloat())
+                
+                "x$it"
+            }
+            
             it.checkPref("Effect Reduction", false){
                 Core.settings.put("effectreduction", it)
             }
@@ -66,64 +90,9 @@ object IonSettings{
             
             it.row()
             
-            it.textButton("Update", wrap = false){
-                importing = true
-                errored = false
-                ui.loadfrag.show("Updating Ion...\n(Automatic timeout after ${Core.settings.getFloat("updatertimeout")} seconds)")
-                Http.get("https://github.com/TeamNeiaron/IonBuilds/releases/latest/download/Ion.jar"){
-                    Streams.copyProgress(it.getResultAsStream(), tmpDir.write(false), it.getContentLength(), 4096){69f}
-                    
-                    if(!errored){
-                        try{
-                            mods.importMod(tmpDir)
-                        } catch (e: Throwable){
-                            ui.showException(e)
-                            importing = false
-                            ui.loadfrag.hide()
-                            errored = true
-                        }
-                        importing = false
-                        ui.loadfrag.hide()
-                        ui.showInfo("Ion mod file updated. You may restart the game now.")
-                    }
-                }
-                
-                Time.runTask(Core.settings.getFloat("updatertimeout") * 60f){
-                    if(importing){
-                        ui.loadfrag.hide()
-                        ui.showErrorMessage("Download failed. Check your internet connection or download from the IonBuilds repo directly.")
-                        importing = false
-                        errored = true
-                    }
-                }
+            it.textButton("Update\n(Do not spam!)", wrap = false){
+                Utils.getAndWrite("https://github.com/TeamNeiaron/IonBuilds/releases/latest/download/Ion.jar", tmpDir, true){ mods.importMod(it) }
             }.row()
-        }
-        
-        ui.settings.addCategory("Ion: Units", Icon.right){
-            
-            it.sliderPref("Xeus Line Effect Count", 10, 0, 100, 1){
-                Core.settings.put("xeuslinecount", it)
-                
-                "$it"
-            }
-            
-            it.sliderPref("Xeus Line Effect Slowness", 10, 1, 150, 1){
-                Core.settings.put("xeuslineeffectslowness", it.toFloat())
-                
-                "$it"
-            }
-            
-            it.sliderPref("Xeus Line Effect Count Multiplier", 1, 1, 30, 1){
-                Core.settings.put("xeuslineeffectmultiplier", it)
-                
-                "x$it"
-            }
-            
-            it.sliderPref("Xeus Line Effect Spacing Multiplier", 1, 1, 120, 1){
-                Core.settings.put("xeuslineeffectspacing", it.toFloat())
-                
-                "x$it"
-            }
         }
     }
 }
