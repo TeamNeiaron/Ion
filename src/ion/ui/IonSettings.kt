@@ -91,7 +91,11 @@ object IonSettings{
             it.row()
             
             it.textButton("Update\n(Do not spam!)", wrap = false){
-                Utils.getAndWrite("https://github.com/TeamNeiaron/IonBuilds/releases/latest/download/Ion.jar", tmpDir, true){ mods.importMod(it) }
+                Utils.getAndWrite("https://github.com/TeamNeiaron/IonBuilds/releases/latest/download/Ion.jar", tmpDir, true){
+                    mods.importMod(it)
+                    it.delete()
+                    ui.showInfoOnHidden("@info.mod-imported"){ app.exit() }
+                }
             }.row()
         }
     }
