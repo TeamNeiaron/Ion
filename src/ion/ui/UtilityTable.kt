@@ -26,7 +26,7 @@ object UtilityTable{
             
             s.button(IIcon.hp){
                 Healthbars.shown = !Healthbars.shown
-            }.size(50f, 50f)
+            }.size(50f, 50f).tooltip("Enables/disables healthbars.")
         }.size(130f, 240f).row()
     }
 }
