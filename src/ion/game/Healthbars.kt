@@ -12,10 +12,6 @@ import ion.defs.*
 object Healthbars{
     var shown = true
     
-    fun draw(bool: Boolean){
-        shown = bool
-    }
-    
     fun load(){
         Events.run(Trigger.draw){
             if(shown){

@@ -6,6 +6,8 @@ import mindustry.ui.Styles
 import mindustry.gen.Icon
 
 import ion.*
+import ion.defs.*
+import ion.game.*
 
 object UtilityTable{
     var tpos = Vars.ui.hudGroup.find<Table>("minimap/position")
@@ -14,10 +16,17 @@ object UtilityTable{
         tpos.row()
         
         tpos.table{ s: Table ->
+
+			s.name = "utilitytable"
+        	
             s.setBackground(Styles.black8)
             s.button(Icon.unitsSmall){
                 IonVars.ai.show()
-            }
+            }.size(50f, 50f)
+            
+            s.button(IIcon.hp){
+                Healthbars.shown = !Healthbars.shown
+            }.size(50f, 50f)
         }.size(130f, 240f).row()
     }
 }

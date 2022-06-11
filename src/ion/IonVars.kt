@@ -12,8 +12,6 @@ object IonVars{
 
     val ai = AISwitcherDialog()
     
-    val healthbars = Healthbars
-    
     fun load(){
         Events.run(Trigger.update){
             if(ai.active){
