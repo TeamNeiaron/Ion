@@ -10,6 +10,7 @@ import mindustry.Vars.*
 import mindustry.ui.*
 import mindustry.gen.*
 
+import ion.ui.dialogs.*
 import ion.defs.*
 import ion.content.*
 
@@ -17,6 +18,7 @@ import com.github.mnemotechnician.mkui.*
 
 object IonSettings{
     
+    val ach = AchievementDisplayDialog()
     val tmpDir = Core.settings.getDataDirectory().child("IonT.jar")
     var importing = false
     var errored = false
@@ -95,6 +97,10 @@ object IonSettings{
                     it.delete()
                     ui.showInfoOnHidden("@info.mod-imported"){ app.exit() }
                 }
+            }.row()
+            
+            it.textButton("Achievements", wrap = false){
+                ach.show()
             }.row()
         }
     }
