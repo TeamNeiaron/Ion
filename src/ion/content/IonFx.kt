@@ -4,6 +4,7 @@ import arc.math.*
 import arc.graphics.*
 import arc.graphics.g2d.*
 import mindustry.entities.*
+import mindustry.entities.Effect.EffectContainer
 import mindustry.entities.effect.*
 
 import ion.defs.IColor

@@ -1,6 +1,6 @@
 package ion.content
 
-import mindustry.content.Items
+import mindustry.content.*
 import mindustry.type.*
 import mindustry.world.Block
 import mindustry.world.blocks.units.*
@@ -12,8 +12,7 @@ import mindustry.entities.bullet.*
 import mindustry.entities.pattern.*
 
 import ion.content.*
-import mindustry.content.Liquids
-import mindustry.graphics.Layer.plans
+import mindustry.graphics.Layer.*
 
 object IonBlocks{
     //floors
@@ -192,6 +191,7 @@ object IonBlocks{
                 health = 350
                 size = 2
                 craftTime = 60f
+                craftEffect = Fx.smeltsmoke
                 outputItem = ItemStack(IonItems.brass, 1)
                 consumePower(1.4f)
                 consumeItems(
