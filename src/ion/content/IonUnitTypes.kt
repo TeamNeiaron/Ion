@@ -214,6 +214,9 @@ object IonUnitTypes{
                 if(!Core.settings.getBool("effectreduction")){
                     Fill.light(unit.x, unit.y, 4, 35f + Mathf.absin(20f, 25f), IColor.energy, Color.clear)
                 }
+                
+                Draw.color()
+                Lines.stroke(1f)
             }
         }
     }
