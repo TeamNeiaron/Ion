@@ -11,7 +11,6 @@ import mindustry.ui.*
 import mindustry.gen.*
 
 import ion.defs.*
-import ion.game.*
 import ion.content.*
 
 import com.github.mnemotechnician.mkui.*
