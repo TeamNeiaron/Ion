@@ -10,8 +10,6 @@ import mindustry.mod.*
 import mindustry.ui.dialogs.*
 
 import ion.ui.*
-import ion.ui.dialogs.*
-import ion.game.*
 import ion.content.*
 
 
