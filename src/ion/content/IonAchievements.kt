@@ -6,7 +6,7 @@ object IonAchievements{
     lateinit var test: Achievement
     lateinit var test2: Achievement
     
-    lateinit var all: Array<Achievement>
+    lateinit var allTest: Array<Achievement>
     
     fun load(){
         test = object : Achievement("test", "Test Achievement"){
@@ -22,6 +22,6 @@ object IonAchievements{
         }
         
         
-        all = arrayOf(test, test2)
+        allTest = arrayOf(test, test2)
     }
 }

@@ -18,8 +18,8 @@ class Ion : Mod(){
     init{
         Log.info("Loaded main Ion class.")
         Events.on(ClientLoadEvent::class.java){
-            IonSettings.load()
             IonAchievements.load()
+            IonSettings.load()
             Vars.mods.getMod("ion").meta.description = Vars.tree["texts/desc.txt"].readString()
             
             Vars.mods.getScripts().runConsole(Vars.tree["scripts/http.js"].readString())

@@ -1,6 +1,7 @@
 package ion.ui.dialogs
 
 import arc.scene.ui.*
+import arc.scene.ui.layout.*
 import mindustry.ui.dialogs.*
 
 import ion.game.*
@@ -8,15 +9,29 @@ import ion.defs.*
 import ion.content.*
 
 open class AchievementDisplayDialog : BaseDialog{
-    constructor() : super("Achievements"){
+    constructor() : super("Achievement"){
         addCloseButton()
-        margin(6f)
+    }
+    
+    fun show(ach: Achievement){
+        cont.clear()
+        val dat = ach.data(true)
+        val t = Table()
+        t.margin(10f)
         
-        Utils.eachAchievement(IonAchievements.all){
-            val a = it.data(true)
-            cont.add("Name: ${a[0]}").row()
-            cont.add("Unlocked: ${it.isUnlocked()}").row()
-            cont.add("Description: ${a[1]}\n\n").row()
+        t.table(){ s: Table ->
+            if(ach.isUnlocked()){
+                s.add("[accent]${dat[0]}[]").row()
+                s.add("Description: ${dat[1]}").row()
+            } else {
+                for(i in 0..1){
+                    s.add("???").row()
+                }
+            }
         }
+        
+        val s = ScrollPane(t)
+        cont.add(s)
+        show()
     }
 }
