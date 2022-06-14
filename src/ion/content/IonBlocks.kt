@@ -1,6 +1,7 @@
 package ion.content
 
 import mindustry.content.*
+import mindustry.gen.*
 import mindustry.type.*
 import mindustry.world.Block
 import mindustry.world.blocks.units.*
@@ -215,8 +216,12 @@ object IonBlocks{
                 size = 5
                 reload = 480f
                 range = 440f
+                rotateSpeed = 1.3f
                 inaccuracy = 25f
+                recoil = 5f
+                shootSound = Sounds.artillery
                 velocityRnd = 0.25f
+                moveWhileCharging = false
                 shoot.shots = 15
                 shoot.firstShotDelay = IonFx.ptCharge.lifetime
                 consumePower(16.5f)

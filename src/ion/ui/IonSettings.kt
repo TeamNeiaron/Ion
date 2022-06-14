@@ -10,6 +10,7 @@ import mindustry.Vars.*
 import mindustry.ui.*
 import mindustry.gen.*
 
+import ion.ui.dialogs.*
 import ion.defs.*
 import ion.content.*
 
@@ -17,6 +18,8 @@ import com.github.mnemotechnician.mkui.*
 
 object IonSettings{
     
+    val acl = AchievementListDialog()
+    val acu = AchievementUnlockerDialog()
     val tmpDir = Core.settings.getDataDirectory().child("IonT.jar")
     var importing = false
     var errored = false
@@ -84,6 +87,8 @@ object IonSettings{
                     "pet the cheesy-chan" -> ui.showConfirm("Question","have you gotten [accent]consent[]?") { ui.showInfo("the cheesy-chan has been pet.") }
                     
                     "smiler" -> Utils.getAndWrite("https://cdn.discordapp.com/emojis/935868190012092466.png", Core.settings.getDataDirectory().child("sussmiler.png"), true){}
+                    
+                    "test unlocker" -> Utils.eachAchievement(IonAchievements.allTest){ acu.show() }
                 }
             }
             
@@ -95,6 +100,10 @@ object IonSettings{
                     it.delete()
                     ui.showInfoOnHidden("@info.mod-imported"){ app.exit() }
                 }
+            }.row()
+            
+            it.textButton("Achievements", wrap = false){
+                acl.show()
             }.row()
         }
     }

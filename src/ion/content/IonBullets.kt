@@ -95,7 +95,9 @@ object IonBullets{
                 width = 21.6f
                 height = 21.6f
                 chargeEffect = IonFx.ptCharge
+                shootEffect = IonFx.ptFire
                 status = IonStatusEffects.petrified
+                statusDuration = 258f
                 trailEffect = Fx.smoke
                 trailChance = 0.4f
                 backColor = Color.gray

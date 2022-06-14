@@ -10,6 +10,8 @@ import mindustry.*
 import mindustry.type.*
 import mindustry.type.ammo.*
 
+import ion.game.*
+
 //region units
 
 /** Sets this unit's shield health to its max health. */
@@ -53,6 +55,13 @@ object Utils{
             }
         } catch (e: Exception) {
             Vars.ui.showException("@error.http-get-error", e)
+        }
+    }
+    
+    /** Iterates through an array of Achievements. */
+    fun eachAchievement(achievements: Array<Achievement>, cons: Cons<Achievement>){
+        for(i in 0..achievements.size - 1){
+            cons.get(achievements[i])
         }
     }
 }
