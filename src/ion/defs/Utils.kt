@@ -12,35 +12,8 @@ import mindustry.type.ammo.*
 
 import ion.game.*
 
-//region units
-
-/** Sets this unit's shield health to its max health. */
-fun mindustry.gen.Unit.maxShield(){
-    this.shield = this.maxHealth
-}
-
-/** Splits this unit's health to half, with the other half going down under. */
-fun mindustry.gen.Unit.splitHealth(){
-    this.health -= this.health / 2f
-}
-
-fun UnitType.powerCapacity(
-    power: Float,
-    range: Float = 85f
-){
-    val p = PowerAmmoType(power)
-    p.range = range
-    this.ammoType = p
-}
-
 object Utils{
-    /**
-     Gets the result of a link and writes it to a file.
-     link: the link to get from
-     file: the file to write to
-     overwrite (default true): whether or not to overwrite the contents of the specified file
-     cons: script to run with the file
-    */
+    /** Gets the result of a link and writes it to a file. */
     fun getAndWrite(
         link: String,
         file: Fi,

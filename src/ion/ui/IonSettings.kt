@@ -20,7 +20,7 @@ object IonSettings{
     
     val acl = AchievementListDialog()
     val acu = AchievementUnlockerDialog()
-    val tmpDir = Core.settings.getDataDirectory().child("IonT.jar")
+    val tmpDir = Core.settings.getDataDirectory().child("ion.jar")
     var importing = false
     var errored = false
     

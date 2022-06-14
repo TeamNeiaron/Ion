@@ -42,17 +42,21 @@ object IonUnitTypes{
 
 
                 weapons.add(
-                    Weapon("orion-arc").apply{
-                        x = 0f
-                        y = 0f
-                        reload = 40f
-                        mirror = false
-                        shootSound = Sounds.spark
-                        shoot.shots = 2
-                        bullet = LightningBulletType().apply{
-                            damage = 14f
-                            lightningColor = IColor.energy
-                            lightningLength = 19
+                    object : Weapon("orion-arc"){
+                        init{
+                            x = 0f
+                            y = 0f
+                            reload = 40f
+                            mirror = false
+                            shootSound = Sounds.spark
+                            shoot.shots = 2
+                            bullet = object : LightningBulletType(){
+                                init{
+                                    damage = 14f
+                                    lightningColor = IColor.energy
+                                    lightningLength = 19
+                                }
+                            }
                         }
                     }
                 )
@@ -75,16 +79,20 @@ object IonUnitTypes{
 
 
                 weapons.add(
-                    Weapon("xender-lancer").apply{
-                        reload = 95f
-                        x = 0f
-                        y = -4.3f
-                        mirror = false
-                        shootStatusDuration = 5f;
-                        shoot = ShootSpread(2, 2f)
-                        bullet = LaserBulletType(34f).apply{
-                            length = 152f
-                            width = 5f
+                    object : Weapon("xender-lancer"){
+                        init{
+                            reload = 95f
+                            x = 0f
+                            y = -4.3f
+                            mirror = false
+                            shootStatusDuration = 5f;
+                            shoot = ShootSpread(2, 2f)
+                            bullet = object : LaserBulletType(34f){
+                                init{
+                                    length = 152f
+                                    width = 5f
+                                }
+                            }
                         }
                     }
                 )
@@ -108,14 +116,16 @@ object IonUnitTypes{
 
 
                 weapons.add(
-                    Weapon("electric-orb-launcher").apply{
-                        x = 0f
-                        reload = 180f
-                        mirror = false
-                        shootSound = Sounds.laser
-                        shoot.shots = 3
-                        shoot.shotDelay = 20f
-                        bullet = IonBullets.energyOrbBullet
+                    object : Weapon("electric-orb-launcher"){
+                        init{
+                            x = 0f
+                            reload = 180f
+                            mirror = false
+                            shootSound = Sounds.laser
+                            shoot.shots = 3
+                            shoot.shotDelay = 20f
+                            bullet = IonBullets.energyOrbBullet
+                        }
                     }
                 )
             }
@@ -138,15 +148,17 @@ object IonUnitTypes{
 
 
                 weapons.add(
-                    Weapon("geo-launcher").apply{
-                        x = 0f
-                        reload = 258f
-                        mirror = false
-                        shoot = ShootSpread(8, 2.3f)
-                        shootSound = Sounds.laser
-                        shoot.firstShotDelay = IonFx.geometryCharge.lifetime
-                        shoot.shotDelay = 6f
-                        bullet = IonBullets.geometricBullet
+                    object : Weapon("geo-launcher"){
+                        init{
+                            x = 0f
+                            reload = 258f
+                            mirror = false
+                            shoot = ShootSpread(8, 2.3f)
+                            shootSound = Sounds.laser
+                            shoot.firstShotDelay = IonFx.geometryCharge.lifetime
+                            shoot.shotDelay = 6f
+                            bullet = IonBullets.geometricBullet
+                        }
                     }
                 )
             }
@@ -170,26 +182,30 @@ object IonUnitTypes{
 
 
                 weapons.add(
-                    Weapon("energy-laser").apply{
-                        x = 0f
-                        y = -7f
-                        reload = 660f
-                        mirror = false
-                        continuous = true
-                        shootSound = Sounds.beam
-                        shoot.firstShotDelay = IonFx.chargeEffect.lifetime
-                        bullet = IonBullets.xeusLaser
-                        shootStatusDuration = 140f;
-                        shootStatus = StatusEffects.unmoving
-                    }, SpinnyWeapon("geo-caller").apply{
-                        x = 9f
-                        y = 4f
-                        reload = 10f
-                        top = true
-                        mirror = true
-                        shootSound = Sounds.laser
-                        shoot = ShootSpread(5, 72f)
-                        bullet = IonBullets.miniGeometricBullet
+                    object : Weapon("energy-laser"){
+                        init{
+                            x = 0f
+                            y = -7f
+                            reload = 660f
+                            mirror = false
+                            continuous = true
+                            shootSound = Sounds.beam
+                            shoot.firstShotDelay = IonFx.chargeEffect.lifetime
+                            bullet = IonBullets.xeusLaser
+                            shootStatusDuration = 140f;
+                            shootStatus = StatusEffects.unmoving
+                        }
+                    }, object : SpinnyWeapon("geo-caller"){
+                        init{
+                            x = 9f
+                            y = 4f
+                            reload = 10f
+                            top = true
+                            mirror = true
+                            shootSound = Sounds.laser
+                            shoot = ShootSpread(5, 72f)
+                            bullet = IonBullets.miniGeometricBullet
+                        }
                     }
                 )
             }
@@ -204,12 +220,15 @@ object IonUnitTypes{
                 Lines.stroke(2.3f)
                 Draw.color(IColor.energy)
                 Draw.z(Layer.effect)
+                
                 Fill.circle(unit.x, unit.y, 6f + s)
+                
                 for(sus in 1..Core.settings.getInt("xeuslinecount")){
                     var i = sus.toFloat()
                     Lines.spikes(unit.x, unit.y, i * spacing, 13f + s, mul, Time.time * i / slowness)
                     Lines.spikes(unit.x, unit.y, i * spacing, 13f + s, mul, 180f - -Time.time * i / slowness)
                 }
+                
                 Lines.circle(unit.x, unit.y, 15f + s)
                 if(!Core.settings.getBool("effectreduction")){
                     Fill.light(unit.x, unit.y, 4, 35f + Mathf.absin(20f, 25f), IColor.energy, Color.clear)

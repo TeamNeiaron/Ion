@@ -8,6 +8,8 @@ import ion.game.*
 import ion.defs.*
 import ion.content.*
 
+import com.github.mnemotechnician.mkui.*
+
 open class AchievementDisplayDialog : BaseDialog{
     constructor() : super("Achievement"){
         addCloseButton()
@@ -17,10 +19,11 @@ open class AchievementDisplayDialog : BaseDialog{
         cont.clear()
         val dat = ach.data(true)
         val t = Table()
-        t.margin(10f)
+        t.margin(5f)
         
-        t.table(){ s: Table ->
+        t.table{ s: Table ->
             if(ach.isUnlocked()){
+                s.addImage(ach.icon).row()
                 s.add("[accent]${dat[0]}[]").row()
                 s.add("Description: ${dat[1]}").row()
             } else {

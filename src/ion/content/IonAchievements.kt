@@ -16,9 +16,9 @@ object IonAchievements{
         }
 
         test2 = object : Achievement("test-2", "Another Test Achievement"){
-        	init{
-        		description = "\"How does one obtain me?\" - The achievement curiously asks."
-        	}
+            init{
+                description = "\"How does one obtain me?\" - The achievement curiously asks."
+            }
         }
         
         
