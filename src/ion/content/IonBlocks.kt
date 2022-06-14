@@ -27,6 +27,8 @@ object IonBlocks{
 
     //factories
     lateinit var brassSmelter: Block
+    lateinit var slagSolidifier: Block
+
     //defense
     lateinit var eorphosia: Block
     
@@ -202,6 +204,22 @@ object IonBlocks{
                         Items.coal, 1
                     )
                 )
+            }
+        }
+
+        slagSolidifier = object : GenericCrafter("slag-solidifier"){
+            init{
+                requirements(Category.crafting, ItemStack.with(
+                    Items.copper, 50,
+                    Items.lead, 80,
+                ))
+                health = 450
+                size = 3
+                craftTime = 60f
+                craftEffect = Fx.smeltsmoke
+                outputItem = ItemStack(IonItems.stone, 4)
+                consumePower(0.6f)
+                consumeLiquid(Liquids.slag, 0.5f)
             }
         }
         
