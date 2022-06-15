@@ -19,8 +19,8 @@ open class UnstableEnergyBulletType : BulletType{
     var orb = true
     var color = Color.white
     
-    constructor(lSpawnChance: Double) : super(){
-        lightningSpawnChance = lSpawnChance
+    constructor(lightningSpawnChance: Double) : super(){
+        this.lightningSpawnChance = lightningSpawnChance
     }
     
     override fun draw(b: Bullet){

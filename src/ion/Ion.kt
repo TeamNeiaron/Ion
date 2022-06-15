@@ -19,6 +19,7 @@ class Ion : Mod(){
         Log.info("Loaded main Ion class.")
         Events.on(ClientLoadEvent::class.java){
             IonAchievements.load()
+            IonVars.load()
             IonSettings.load()
             Vars.mods.getMod("ion").meta.description = Vars.tree["texts/desc.txt"].readString()
             

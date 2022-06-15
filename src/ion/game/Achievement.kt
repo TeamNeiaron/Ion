@@ -14,9 +14,9 @@ open class Achievement{
     var description = ""
     var icon = Icon.units
     
-    constructor(n: String, dn: String){
-        name = n
-        displayName = dn
+    constructor(name: String, displayName: String){
+        this.name = name
+        this.displayName = displayName
     }
     
     fun load(){

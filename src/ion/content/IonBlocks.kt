@@ -13,8 +13,10 @@ import mindustry.world.blocks.units.UnitFactory.UnitPlan
 import mindustry.entities.bullet.*
 import mindustry.entities.pattern.*
 
-import ion.content.*
 import mindustry.graphics.Layer.*
+
+import ion.defs.*
+import ion.content.*
 
 object IonBlocks{
     

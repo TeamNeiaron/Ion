@@ -13,7 +13,7 @@ open class AchievementUnlockerDialog : BaseDialog{
     constructor() : super("Achievement Unlocker"){
         addCloseButton()
         
-        Utils.eachAchievement(IonAchievements.allTest){ a: Achievement ->
+        Utils.eachAchievement(IonAchievements.all){ a: Achievement ->
             cont.button(a.icon){
                 if(!a.isUnlocked()){
                     a.unlock()

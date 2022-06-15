@@ -10,6 +10,7 @@ import mindustry.Vars.*
 import mindustry.ui.*
 import mindustry.gen.*
 
+import ion.*
 import ion.ui.dialogs.*
 import ion.defs.*
 import ion.content.*
@@ -18,17 +19,11 @@ import com.github.mnemotechnician.mkui.*
 
 object IonSettings{
     
-    val darkness = SilentDialog("SECRETS")
-    val acl = AchievementListDialog()
-    val acu = AchievementUnlockerDialog()
     val tmpDir = Core.settings.getDataDirectory().child("ion.jar")
     var importing = false
     var errored = false
     
     fun load(){
-        darkness.addCloseButton()
-        darkness.cont.add(tree["texts/darkness.txt"].readString())
-        
         
         ui.settings.addCategory("Ion: Global", Icon.right){
             
@@ -93,9 +88,9 @@ object IonSettings{
                     
                     "smiler" -> Utils.getAndWrite("https://cdn.discordapp.com/emojis/935868190012092466.png", Core.settings.getDataDirectory().child("sussmiler.png"), true){}
                     
-                    "test unlocker" -> Utils.eachAchievement(IonAchievements.allTest){ acu.show() }
+                    "test unlocker" -> Utils.eachAchievement(IonAchievements.all){ IonVars.achievementUnlocker.show() }
                     
-                    "darkness" -> darkness.show()
+                    "darkness" -> IonVars.secret.show(tree["texts/darkness.txt"].readString())
                 }
             }
             
@@ -110,7 +105,7 @@ object IonSettings{
             }.row()
             
             it.textButton("Achievements", wrap = false){
-                acl.show()
+                IonVars.achievementList.show()
             }.row()
         }
     }

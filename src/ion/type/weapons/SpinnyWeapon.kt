@@ -1,5 +1,6 @@
 package ion.type.weapons
 
+import arc.util.*
 import mindustry.type.Weapon
 import mindustry.entities.units.WeaponMount
 
@@ -23,8 +24,8 @@ open class SpinnyWeapon : Weapon{
     override fun update(unit: mindustry.gen.Unit, mount: WeaponMount){
         super.update(unit, mount)
         
-        mount.weapon.baseRotation += spinSpeed
-        mount.rotation += spinSpeed
-        mount.targetRotation += spinSpeed
+        mount.weapon.baseRotation += Time.delta * spinSpeed
+        mount.rotation += Time.delta * spinSpeed
+        mount.targetRotation += Time.delta * spinSpeed
     }
 }

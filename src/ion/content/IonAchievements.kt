@@ -5,8 +5,9 @@ import ion.game.*
 object IonAchievements{
     lateinit var test: Achievement
     lateinit var test2: Achievement
+    lateinit var groundDominance: Achievement
     
-    lateinit var allTest: Array<Achievement>
+    lateinit var all: Array<Achievement>
     
     fun load(){
         test = object : Achievement("test", "Test Achievement"){
@@ -21,7 +22,12 @@ object IonAchievements{
             }
         }
         
+        groundDominance = object : Achievement("ground-dominance", "Ground Dominance"){
+            init{
+                description = "Capture Ground Zero."
+            }
+        }
         
-        allTest = arrayOf(test, test2)
+        all = arrayOf(test, test2, groundDominance)
     }
 }
