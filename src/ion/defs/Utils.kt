@@ -1,5 +1,6 @@
 package ion.defs
 
+import arc.*
 import arc.func.*
 import arc.util.*
 import arc.util.io.*
@@ -36,5 +37,17 @@ object Utils{
         for(i in 0..achievements.size - 1){
             cons.get(achievements[i])
         }
+    }
+    
+    fun haltSound(){
+        Core.settings.put("musicvol", 0)
+        Core.settings.put("sfxvol", 0)
+        Core.settings.put("ambientvol", 0)
+    }
+    
+    fun restoreSound(){
+        Core.settings.put("musicvol", 100)
+        Core.settings.put("sfxvol", 100)
+        Core.settings.put("ambientvol", 100)
     }
 }
