@@ -18,6 +18,7 @@ import com.github.mnemotechnician.mkui.*
 
 object IonSettings{
     
+    val darkness = SilentDialog("SECRETS")
     val acl = AchievementListDialog()
     val acu = AchievementUnlockerDialog()
     val tmpDir = Core.settings.getDataDirectory().child("ion.jar")
@@ -25,6 +26,10 @@ object IonSettings{
     var errored = false
     
     fun load(){
+        darkness.addCloseButton()
+        darkness.cont.add(tree["texts/darkness.txt"].readString())
+        
+        
         ui.settings.addCategory("Ion: Global", Icon.right){
             
             it.sliderPref("Updater Timeout Threshold", 30, 1, 120, 5){
@@ -89,6 +94,8 @@ object IonSettings{
                     "smiler" -> Utils.getAndWrite("https://cdn.discordapp.com/emojis/935868190012092466.png", Core.settings.getDataDirectory().child("sussmiler.png"), true){}
                     
                     "test unlocker" -> Utils.eachAchievement(IonAchievements.allTest){ acu.show() }
+                    
+                    "darkness" -> darkness.show()
                 }
             }
             
