@@ -226,8 +226,9 @@ object IonBlocks{
                 consumeLiquid(Liquids.slag, 0.5f)
                 
                 drawer = DrawMulti(
-                DrawRegion("-under"),
+                DrawRegion("-bottom"),
                 DrawLiquidTile(Liquids.slag, 0f),
+                DrawBubbles(Liquids.slag.color.cpy()),
                 DrawDefault()
                 )
             }
