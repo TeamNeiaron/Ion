@@ -4,6 +4,7 @@ import mindustry.content.*
 import mindustry.gen.*
 import mindustry.type.*
 import mindustry.world.Block
+import mindustry.world.draw.*
 import mindustry.world.blocks.units.*
 import mindustry.world.blocks.defense.turrets.*
 import mindustry.world.blocks.environment.*
@@ -16,6 +17,7 @@ import ion.content.*
 import mindustry.graphics.Layer.*
 
 object IonBlocks{
+    
     //floors
     lateinit var oreZinc: Block
     //unit-based blocks
@@ -32,7 +34,9 @@ object IonBlocks{
     //defense
     lateinit var eorphosia: Block
     
+    
     fun load(){
+        
         //region ores
         oreZinc = object : OreBlock("ore-zinc", IonItems.zinc){
             init{
@@ -220,6 +224,12 @@ object IonBlocks{
                 outputItem = ItemStack(IonItems.stone, 4)
                 consumePower(0.6f)
                 consumeLiquid(Liquids.slag, 0.5f)
+                
+                drawer = DrawMulti(
+                DrawRegion("-under"),
+                DrawLiquidTile(Liquids.slag, 0f),
+                DrawDefault()
+                )
             }
         }
         
