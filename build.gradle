@@ -28,7 +28,7 @@ repositories{
 
 dependencies{
     compileOnly "com.github.Anuken.Arc:arc-core:master-SNAPSHOT"
-    compileOnly "com.github.Anuken.MindustryJitpack:core:bbe65d989f"
+    compileOnly "com.github.Anuken.MindustryJitpack:core:3c2f6dc721"
     implementation files("libs/mnemotechnician/MKUI.jar")
 }
 
