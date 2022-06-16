@@ -222,7 +222,7 @@ object IonBlocks{
                 health = 450
                 size = 3
                 craftTime = 60f
-                craftEffect = Fx.smeltsmoke
+                craftEffect = Fx.shockwave
                 outputItem = ItemStack(IonItems.stone, 4)
                 consumePower(0.6f)
                 consumeLiquid(Liquids.slag, 0.5f)
@@ -254,7 +254,7 @@ object IonBlocks{
                 velocityRnd = 0.25f
                 moveWhileCharging = false
                 shoot.shots = 15
-                shoot.firstShotDelay = IonFx.ptCharge.lifetime
+                shoot.firstShotDelay = IonFx.ptChargeRenewed.lifetime
                 consumePower(16.5f)
                 shootType = IonBullets.petrifierBullet
             }

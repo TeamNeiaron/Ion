@@ -7,6 +7,7 @@ import mindustry.entities.bullet.*
 import ion.content.*
 import ion.defs.IColor
 import ion.entities.bullet.*
+import mindustry.entities.effect.MultiEffect
 
 object IonBullets{
     
@@ -94,7 +95,7 @@ object IonBullets{
                 lifetime = 132f
                 width = 21.6f
                 height = 21.6f
-                chargeEffect = IonFx.ptCharge
+                chargeEffect = IonFx.ptChargeRenewed
                 shootEffect = IonFx.ptFire
                 status = IonStatusEffects.petrified
                 statusDuration = 258f

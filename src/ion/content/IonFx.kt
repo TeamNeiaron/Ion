@@ -8,6 +8,7 @@ import mindustry.entities.Effect.EffectContainer
 import mindustry.entities.effect.*
 
 import ion.defs.IColor
+import mindustry.content.Fx
 
 object IonFx{
     
@@ -48,6 +49,7 @@ object IonFx{
         Lines.circle(e.x, e.y, e.fin() * 15f)
     }
     
+    /*
     val ptCharge = Effect(80f){
         val e = it
         
@@ -58,15 +60,18 @@ object IonFx{
         Lines.square(e.x, e.y, e.fout(Interp.pow3Out) * 35f, e.fin(Interp.pow3Out) * 180f)
         Lines.circle(e.x, e.y, e.fout(Interp.pow5Out) * 40f)
     }
-    
+    */
     val ptFire = Effect(115f){
         val e = it
-        
+
         Draw.color(Color.gray)
         Lines.stroke(e.fout(Interp.pow5In) * 15f)
-        
+
         Lines.circle(e.x, e.y, e.fin(Interp.pow5Out) * 50f)
         Lines.square(e.x, e.y, e.fin(Interp.pow5Out) * 45f, e.fin(Interp.smooth) * 180f)
         Lines.square(e.x, e.y, e.fin(Interp.pow5Out) * 45f, e.fout(Interp.smooth) * 180f)
     }
+
+    val ptChargeRenewed = MultiEffect(Fx.smoke, Fx.shockwave, Fx.smokeCloud)
+
 }
