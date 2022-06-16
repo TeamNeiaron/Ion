@@ -1,11 +1,14 @@
 package ion.content
 
+import arc.*
 import mindustry.content.*
 import mindustry.gen.*
 import mindustry.type.*
 import mindustry.world.Block
 import mindustry.world.draw.*
+import mindustry.world.meta.*
 import mindustry.world.blocks.units.*
+import mindustry.world.blocks.logic.*
 import mindustry.world.blocks.defense.turrets.*
 import mindustry.world.blocks.environment.*
 import mindustry.world.blocks.production.*
@@ -35,6 +38,9 @@ object IonBlocks{
 
     //defense
     lateinit var eorphosia: Block
+    
+    //sandbox
+    lateinit var acatharticProcessor: Block
     
     
     fun load(){
@@ -257,6 +263,28 @@ object IonBlocks{
                 shoot.firstShotDelay = IonFx.ptChargeRenewed.lifetime
                 consumePower(16.5f)
                 shootType = IonBullets.petrifierBullet
+            }
+        }
+        
+        //endregion defense
+        //region sandbox
+        acatharticProcessor = object : LogicBlock("acathartic-processor"){
+            init{
+                size = 1
+                privileged = true
+                instructionsPerTick = 8
+                maxInstructionsPerTick = 100
+                range = Float.MAX_VALUE
+                targetable = false
+                canOverdrive = false
+                category = Category.logic
+                buildVisibility = BuildVisibility.sandboxOnly
+                
+                region = Core.atlas.find("world-processor")
+            }
+            
+            override fun accessible(): Boolean{
+                return true
             }
         }
     }

@@ -81,7 +81,7 @@ object IonFx{
         Lines.stroke(e.fout() * 3f)
         
         Angles.randLenVectors(e.id.toLong(), 1, e.fin() * 70f, e.rotation, e.fout(Interp.pow3Out) * 60f){ x: Float, y: Float ->
-        Lines.line(e.x, e.y, e.x + x, e.y + y)
+            Lines.line(e.x, e.y, e.x + x, e.y + y)
         }
     }
 }

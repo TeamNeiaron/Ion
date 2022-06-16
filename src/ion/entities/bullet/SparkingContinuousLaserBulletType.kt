@@ -13,8 +13,8 @@ open class SparkingContinuousLaserBulletType : ContinuousLaserBulletType{
     @JvmField var LightningLength = 24
     @JvmField var LightningColor = Color.white;
     
-    constructor(lSpawnChance: Double) : super(){
-        lightningSpawnChance = lSpawnChance
+    constructor(lightningSpawnChance: Double) : super(){
+        this.lightningSpawnChance = lightningSpawnChance
     }
     
     override fun update(b: Bullet){
