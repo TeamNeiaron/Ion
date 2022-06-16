@@ -99,7 +99,7 @@ object IonBullets{
                 shootEffect = IonFx.ptFire
                 status = IonStatusEffects.petrified
                 statusDuration = 258f
-                trailEffect = Fx.smoke
+                trailEffect = IonFx.ptBulletTrail
                 trailChance = 0.4f
                 backColor = Color.gray
                 frontColor = Color.darkGray

@@ -73,5 +73,15 @@ object IonFx{
     }
 
     val ptChargeRenewed = MultiEffect(Fx.smoke, Fx.shockwave, Fx.smokeCloud)
-
+    
+    val ptBulletTrail = Effect(40f){
+        val e = it
+        
+        Draw.color(Color.gray)
+        Lines.stroke(e.fout() * 3f)
+        
+        Angles.randLenVectors(e.id.toLong(), 1, e.fin() * 70f, e.rotation, e.fout(Interp.pow3Out) * 60f){ x: Float, y: Float ->
+        Lines.line(e.x, e.y, e.x + x, e.y + y)
+        }
+    }
 }
