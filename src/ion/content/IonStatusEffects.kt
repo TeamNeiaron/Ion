@@ -16,6 +16,7 @@ object IonStatusEffects{
                 speedMultiplier = 0f
                 healthMultiplier = 0.8f
                 reloadMultiplier = 0f
+                color = Color.valueOf("979aa6")
             }
             
             override fun draw(unit: mindustry.gen.Unit){
