@@ -229,7 +229,7 @@ object IonBlocks{
                 health = 450
                 size = 3
                 craftTime = 60f
-                craftEffect = Fx.shockwave
+                craftEffect = IonFx.slagCompact
                 outputItem = ItemStack(IonItems.stone, 4)
                 consumePower(0.6f)
                 consumeLiquid(Liquids.slag, 0.5f)

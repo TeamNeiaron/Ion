@@ -39,6 +39,14 @@ object IonFx{
     }
     
     val xeusCharge = MultiEffect(geometryCharge, chargeEffect)
+
+    val slagCompact = Effect(60f){
+        val e = it
+
+        Draw.color(IColor.slagHeat)
+        Lines.stroke(e.fout() * 3f)
+        Lines.circle(e.x, e.y, e.fin(Interp.pow5In) * 30f)
+    }
     
     val dissipate = Effect(60f){
         val e = it
