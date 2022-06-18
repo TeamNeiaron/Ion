@@ -224,6 +224,7 @@ object IonBlocks{
                 requirements(Category.crafting, ItemStack.with(
                     Items.copper, 50,
                     Items.lead, 80,
+                    Items.graphite, 120
                 ))
                 health = 450
                 size = 3
