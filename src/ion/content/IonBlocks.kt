@@ -277,7 +277,7 @@ object IonBlocks{
                 shootSound = Sounds.artillery
                 velocityRnd = 0.25f
                 moveWhileCharging = false
-                shoot.shots = 15
+                shoot.shots = 11
                 shoot.firstShotDelay = IonFx.ptChargeRenewed.lifetime
                 consumePower(16.5f)
                 shootType = IonBullets.petrifierBullet
