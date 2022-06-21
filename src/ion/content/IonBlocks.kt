@@ -256,6 +256,7 @@ object IonBlocks{
                 ))
                 health = 340
                 size = 3
+                consumePower(1.15f)
             }
         }
         

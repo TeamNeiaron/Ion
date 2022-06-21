@@ -1,14 +1,18 @@
 package ion.world.blocks.production
 
+import arc.*
 import arc.math.*
 import arc.util.*
 import arc.util.io.*
+import arc.graphics.*
+import arc.graphics.g2d.*
 import mindustry.gen.*
 import mindustry.type.*
 import mindustry.world.blocks.production.*
 import mindustry.world.blocks.environment.*
 import mindustry.content.*
 import mindustry.entities.*
+import mindustry.graphics.*
 
 import ion.world.blocks.*
 
@@ -18,6 +22,7 @@ open class SingleFloorDrill : LimitedBlock{
     var outputItem = Items.copper
     var drillEffect = Fx.none
     var drillTime = 120f
+    var drillBitSpeed = 2.3f
     var amount = 3
     
     constructor(name: String, floor: Floor, output: Item) : super(name, floor){
@@ -42,7 +47,7 @@ open class SingleFloorDrill : LimitedBlock{
                     dump(outputItem)
                 }
                 
-                progress += Time.delta
+                progress += Time.delta * efficiency()
                 
                 if(progress >= drillTime){
                     if(items.has(outputItem, itemCapacity)){
@@ -55,6 +60,32 @@ open class SingleFloorDrill : LimitedBlock{
                     }
                 }
             }
+        }
+        
+        override fun drawCracks(){}
+        
+        fun drawDefaultCracks(){
+            super.drawCracks()
+        }
+        
+        fun drillBitRot(): Float{
+            if(items.has(outputItem, itemCapacity)){
+                return 0f
+            }
+            return Time.time * drillBitSpeed * efficiency()
+        }
+        
+        override fun draw(){
+            Draw.z(Layer.block)
+            Draw.rect(region, x, y)
+            Draw.z(Layer.block - 2f)
+            Drawf.shadow(region, x, y)
+            Draw.z(Layer.blockCracks)
+            drawDefaultCracks()
+            
+            Draw.z(Layer.block)
+            Drawf.spinSprite(Core.atlas.find("${block.name}-rotator"), x, y, drillBitRot())
+            Draw.rect("${block.name}-top", x, y)
         }
         
         override fun write(write: Writes){
