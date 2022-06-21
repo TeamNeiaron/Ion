@@ -255,7 +255,7 @@ object IonBlocks{
                     Items.copper, 1 //todo
                 ))
                 health = 340
-                size = 2
+                size = 3
             }
         }
         
