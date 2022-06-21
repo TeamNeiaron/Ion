@@ -249,7 +249,7 @@ object IonBlocks{
         
         //endregion factories
         //region drills
-        stoneDrill = object : SingleFloorDrill("stone-drill", Blocks.stone as Floor, IonItems.stone){
+        stoneDrill = object : SingleFloorDrill("stone-drill", Blocks.stone.asFloor(), IonItems.stone){
             init{
                 requirements(Category.production, ItemStack.with(
                     Items.copper, 1 //todo
