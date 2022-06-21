@@ -19,6 +19,7 @@ import mindustry.entities.pattern.*
 import mindustry.graphics.Layer.*
 
 import ion.defs.*
+import ion.world.blocks.production.*
 import ion.content.*
 
 object IonBlocks{
@@ -35,6 +36,9 @@ object IonBlocks{
     //factories
     lateinit var brassSmelter: Block
     lateinit var slagSolidifier: Block
+
+    //drills
+    lateinit var stoneDrill: Block
 
     //defense
     lateinit var eorphosia: Block
@@ -244,6 +248,18 @@ object IonBlocks{
         }
         
         //endregion factories
+        //region drills
+        stoneDrill = object : SingleFloorDrill("stone-drill", Blocks.stone as Floor, IonItems.stone){
+            init{
+                requirements(Category.production, ItemStack.with(
+                    Items.copper, 1 //todo
+                ))
+                health = 340
+                size = 2
+            }
+        }
+        
+        //endregion drills
         //region defense
         eorphosia = object : PowerTurret("eorphosia"){
             init{
@@ -281,7 +297,13 @@ object IonBlocks{
                 category = Category.logic
                 buildVisibility = BuildVisibility.sandboxOnly
                 
-                region = Core.atlas.find("world-processor")
+            }
+            
+            override fun load(){
+                super.load()
+                //one of the things i do not like about kotlin
+                uiIcon = Core.atlas.find("world-processor")
+                region = uiIcon
             }
             
             override fun accessible(): Boolean{
