@@ -237,7 +237,7 @@ object IonBlocks{
                 size = 4
                 craftTime = 2 * 60f
                 craftEffect = Fx.blastExplosion
-                outputItem = ItemStack(Items.copper, 1) //todo
+                outputItem = ItemStack(IonItems.petrifiedCore, 6)
                 consumePower(1f)
                 consumeItems(
                     *ItemStack.with(
