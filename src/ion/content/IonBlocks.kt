@@ -36,6 +36,7 @@ object IonBlocks{
     //factories
     lateinit var brassSmelter: Block
     lateinit var slagSolidifier: Block
+    lateinit var petrifiedCoreConstructor: Block
 
     //drills
     lateinit var stoneDrill: Block
@@ -223,6 +224,30 @@ object IonBlocks{
             }
         }
 
+        petrifiedCoreConstructor = object : GenericCrafter("petrified-core-constructor"){
+            init {
+                requirements(Category.crafting, ItemStack.with(
+                    IonItems.stone, 210,
+                    IonItems.brass, 150,
+                    Items.copper, 340,
+                    Items.lead, 240,
+                    Items.titanium, 120
+                ))
+                health = 780
+                size = 4
+                craftTime = 2 * 60f
+                craftEffect = Fx.blastExplosion
+                outputItem = ItemStack(Items.copper, 1) //todo
+                consumePower(1f)
+                consumeItems(
+                    *ItemStack.with(
+                        IonItems.stone, 3,
+                        Items.titanium, 2
+                    )
+                )
+            }
+        }
+
         slagSolidifier = object : GenericCrafter("slag-solidifier"){
             init{
                 requirements(Category.crafting, ItemStack.with(
@@ -252,10 +277,14 @@ object IonBlocks{
         stoneDrill = object : SingleFloorDrill("stone-drill", Blocks.stone.asFloor(), IonItems.stone){
             init{
                 requirements(Category.production, ItemStack.with(
-                    Items.copper, 1 //todo
+                    Items.copper, 320,
+                    Items.lead, 200,
+                    Items.titanium, 120,
+                    Items.thorium, 120
                 ))
                 health = 340
                 size = 3
+                drillEffect = Fx.drillSteam
                 consumePower(1.15f)
             }
         }
