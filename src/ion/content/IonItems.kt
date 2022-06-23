@@ -33,7 +33,7 @@ object IonItems{
         }
 
         petrifiedCore = object : Item("petrified-core", Color.valueOf("292a2e")){
-            init {
+            init{
                 explosiveness = 2f
                 radioactivity = 1f
                 hardness = 2
