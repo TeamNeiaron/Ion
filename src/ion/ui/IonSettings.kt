@@ -91,6 +91,10 @@ object IonSettings{
                     "test unlocker" -> Utils.eachAchievement(IonAchievements.all){ IonVars.achievementUnlocker.show() }
                     
                     "darkness" -> IonVars.secret.show(tree["texts/darkness.txt"].readString())
+                    
+                    "cheesy" -> IonItems.zinc.localizedName = "Cheese Stick (Real)"
+                    
+                    "smorekeys" -> Threads.throwAppException(RuntimeException("to hell with you"))
                 }
             }
             
