@@ -113,7 +113,7 @@ object IonBullets{
             init{
                 damage = 45f
                 speed = 6f
-                lifetime = 500f
+                lifetime = 167f
                 width = 10f
                 height = 20f
                 chargeEffect = IonFx.ptChargeRenewed
