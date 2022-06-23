@@ -43,6 +43,7 @@ object IonBlocks{
 
     //defense
     lateinit var eorphosia: Block
+    lateinit var defunction: Block
     
     //sandbox
     lateinit var acatharticProcessor: Block
@@ -291,10 +292,15 @@ object IonBlocks{
         
         //endregion drills
         //region defense
-        eorphosia = object : PowerTurret("eorphosia"){
+        eorphosia = object : ItemTurret("eorphosia"){
             init{
                 requirements(Category.turret, ItemStack.with(
-                    Items.copper, 1 //todo
+                    Items.copper, 750,
+                    Items.lead, 680,
+                    Items.titanium, 500,
+                    Items.plastanium, 380,
+                    IonItems.stone, 400,
+                    IonItems.petrifiedCore, 120
                 ))
                 health = 5550
                 size = 5
@@ -309,8 +315,38 @@ object IonBlocks{
                 shoot.shots = 11
                 shoot.firstShotDelay = IonFx.ptChargeRenewed.lifetime
                 consumePower(16.5f)
-                shootType = IonBullets.petrifierBullet
+                ammo(
+                    IonItems.petrifiedCore, IonBullets.petrifierBullet
+                )
             }
+        }
+
+        defunction = object : ItemTurret("disfunction"){
+            init {
+                requirements(Category.turret, ItemStack.with(
+                    Items.lead, 380,
+                    Items.graphite, 640,
+                    Items.thorium, 250,
+                    IonItems.stone, 340,
+                ))
+                health = 5550
+                size = 4
+                reload = 25f
+                range = 500f
+                rotateSpeed = 1.3f
+                inaccuracy = 1f
+                recoil = 5f
+                shootSound = Sounds.artillery
+                velocityRnd = 0.25f
+                moveWhileCharging = false
+                shoot.shots = 2
+                shoot.firstShotDelay = IonFx.ptChargeRenewed.lifetime
+                consumePower(10.2f)
+                ammo(
+                    IonItems.stone, IonBullets.disFunctionBullet
+                )
+            }
+
         }
         
         //endregion defense
