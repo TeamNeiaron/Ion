@@ -36,14 +36,12 @@ object IonBlocks{
     //factories
     lateinit var brassSmelter: Block
     lateinit var slagSolidifier: Block
-    lateinit var petrifiedCoreConstructor: Block
 
     //drills
     lateinit var stoneDrill: Block
 
     //defense
     lateinit var eorphosia: Block
-    lateinit var defunction: Block
     
     //sandbox
     lateinit var acatharticProcessor: Block
@@ -225,30 +223,6 @@ object IonBlocks{
             }
         }
 
-        petrifiedCoreConstructor = object : GenericCrafter("petrified-core-constructor"){
-            init {
-                requirements(Category.crafting, ItemStack.with(
-                    IonItems.stone, 210,
-                    IonItems.brass, 150,
-                    Items.copper, 340,
-                    Items.lead, 240,
-                    Items.titanium, 120
-                ))
-                health = 780
-                size = 4
-                craftTime = 2 * 60f
-                craftEffect = Fx.blastExplosion
-                outputItem = ItemStack(IonItems.petrifiedCore, 6)
-                consumePower(1f)
-                consumeItems(
-                    *ItemStack.with(
-                        IonItems.stone, 3,
-                        Items.titanium, 2
-                    )
-                )
-            }
-        }
-
         slagSolidifier = object : GenericCrafter("slag-solidifier"){
             init{
                 requirements(Category.crafting, ItemStack.with(
@@ -278,29 +252,23 @@ object IonBlocks{
         stoneDrill = object : SingleFloorDrill("stone-drill", Blocks.stone.asFloor(), IonItems.stone){
             init{
                 requirements(Category.production, ItemStack.with(
-                    Items.copper, 320,
-                    Items.lead, 200,
-                    Items.titanium, 120,
-                    Items.thorium, 120
+                    Items.copper, 45,
+                    Items.lead, 20,
+                    Items.silicon, 15,
+                    IonItems.zinc, 8
                 ))
                 health = 340
                 size = 3
-                drillEffect = Fx.drillSteam
                 consumePower(1.15f)
             }
         }
         
         //endregion drills
         //region defense
-        eorphosia = object : ItemTurret("eorphosia"){
+        eorphosia = object : PowerTurret("eorphosia"){
             init{
                 requirements(Category.turret, ItemStack.with(
-                    Items.copper, 750,
-                    Items.lead, 680,
-                    Items.titanium, 500,
-                    Items.plastanium, 380,
-                    IonItems.stone, 400,
-                    IonItems.petrifiedCore, 120
+                    Items.copper, 1 //todo
                 ))
                 health = 5550
                 size = 5
@@ -315,38 +283,8 @@ object IonBlocks{
                 shoot.shots = 11
                 shoot.firstShotDelay = IonFx.ptChargeRenewed.lifetime
                 consumePower(16.5f)
-                ammo(
-                    IonItems.petrifiedCore, IonBullets.petrifierBullet
-                )
+                shootType = IonBullets.petrifierBullet
             }
-        }
-
-        defunction = object : ItemTurret("disfunction"){
-            init {
-                requirements(Category.turret, ItemStack.with(
-                    Items.lead, 380,
-                    Items.graphite, 640,
-                    Items.thorium, 250,
-                    IonItems.stone, 340,
-                ))
-                health = 5550
-                size = 4
-                reload = 25f
-                range = 500f
-                rotateSpeed = 1.3f
-                inaccuracy = 1f
-                recoil = 5f
-                shootSound = Sounds.artillery
-                velocityRnd = 0.25f
-                moveWhileCharging = false
-                shoot.shots = 2
-                shoot.firstShotDelay = IonFx.ptChargeRenewed.lifetime
-                consumePower(10.2f)
-                ammo(
-                    IonItems.stone, IonBullets.disFunctionBullet
-                )
-            }
-
         }
         
         //endregion defense

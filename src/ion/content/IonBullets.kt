@@ -16,7 +16,6 @@ object IonBullets{
     lateinit var energyOrbBullet: BulletType
     lateinit var xeusLaser: BulletType
     lateinit var petrifierBullet: BulletType
-    lateinit var disFunctionBullet: BulletType
     
     fun load(){
         geometricBullet = object : GeometricBulletType(3, 10){
@@ -99,27 +98,7 @@ object IonBullets{
                 chargeEffect = IonFx.ptChargeRenewed
                 shootEffect = IonFx.ptFire
                 status = IonStatusEffects.petrified
-                statusDuration = 258f
-                trailEffect = IonFx.ptBulletTrail
-                trailChance = 0.4f
-                backColor = Color.gray
-                frontColor = Color.darkGray
-                despawnEffect = IonFx.dissipate
-                hitEffect = IonFx.dissipate
-            }
-        }
-
-        disFunctionBullet = object : BasicBulletType(){
-            init{
-                damage = 45f
-                speed = 6f
-                lifetime = 500f
-                width = 10f
-                height = 20f
-                chargeEffect = IonFx.ptChargeRenewed
-                shootEffect = Fx.shockwave
-                status = IonStatusEffects.petrified
-                statusDuration = 150f
+                statusDuration = 222f
                 trailEffect = IonFx.ptBulletTrail
                 trailChance = 0.4f
                 backColor = Color.gray
