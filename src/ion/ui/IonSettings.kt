@@ -92,7 +92,7 @@ object IonSettings{
                     
                     "darkness" -> IonVars.secret.show(tree["texts/darkness.txt"].readString())
                     
-                    "cheesy" -> IonItems.zinc.localizedName = "Cheese Stick (Real)"
+                    "cheesy" -> Utils.cheese()
                     
                     "smorekeys" -> Threads.throwAppException(RuntimeException("to hell with you"))
                 }

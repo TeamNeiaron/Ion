@@ -12,6 +12,7 @@ import mindustry.type.*
 import mindustry.type.ammo.*
 
 import ion.game.*
+import ion.content.*
 
 object Utils{
     /** Gets the result of a link and writes it to a file. */
@@ -49,5 +50,10 @@ object Utils{
         Core.settings.put("musicvol", 100)
         Core.settings.put("sfxvol", 100)
         Core.settings.put("ambientvol", 100)
+    }
+    
+    fun cheese(){
+        IonItems.brass.localizedName = "Cheesestick"
+        IonItems.brass.description = "Delicious!"
     }
 }
