@@ -18,14 +18,19 @@ import ion.defs.*
 import ion.type.weapons.*
 import ion.content.*
 import ion.entities.bullet.*
+import mindustry.entities.abilities.UnitSpawnAbility
 
 object IonUnitTypes{
 
+    //geom
     lateinit var orion: UnitType
     lateinit var xender: UnitType
     lateinit var astro: UnitType
     lateinit var geometry: UnitType
     lateinit var xeus: UnitType
+
+    //caretaker
+    lateinit var caretaker: UnitType
 
     fun load(){
         orion = object : UnitType("orion"){
@@ -236,6 +241,47 @@ object IonUnitTypes{
                 
                 Draw.color()
                 Lines.stroke(1f)
+            }
+        }
+
+        caretaker = object : UnitType("caretaker"){
+            init{
+                flying = true
+                health = 380f
+                speed = 2.85f
+                accel = 0.12f
+                drag = 0.05f
+                engineOffset = 7f
+                hitSize = 13f
+
+                constructor = Prov<mindustry.gen.Unit> { UnitEntity.create() }
+
+                weapons.add(
+                    object : Weapon("caretaker-orb"){
+                        init{
+                            x = 0f
+                            y = 4f
+                            reload = 40f
+                            mirror = false
+
+                            shootSound = Sounds.pulse
+                            shoot.shots = 2
+                            abilities.add(UnitSpawnAbility(UnitTypes.flare, 4 * 60f, 0f, 0f))
+                            bullet = object : EmpBulletType(){
+                                init{
+                                    damage = 20f
+                                    radius = 30f
+                                    lightRadius = 15f
+                                    trailLength = 12
+                                    lifetime = 60f
+                                    range = 60f
+                                    backColor = Color.valueOf("bf8c2e")
+                                    frontColor = Color.valueOf("#e6e153")
+                                }
+                            }
+                        }
+                    }
+                )
             }
         }
     }
