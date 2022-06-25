@@ -334,7 +334,7 @@ object IonBlocks{
                 reload = 25f
                 range = 500f
                 rotateSpeed = 1.3f
-                inaccuracy = 1f
+                inaccuracy = 0f
                 recoil = 5f
                 shootSound = Sounds.artillery
                 velocityRnd = 0.25f
