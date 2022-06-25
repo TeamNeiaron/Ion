@@ -278,12 +278,12 @@ object IonBlocks{
         stoneDrill = object : SingleFloorDrill("stone-drill", Blocks.stone.asFloor(), IonItems.stone){
             init{
                 requirements(Category.production, ItemStack.with(
-                    Items.copper, 320,
-                    Items.lead, 200,
-                    Items.titanium, 120,
-                    Items.thorium, 120
+                    Items.copper, 60,
+                    Items.lead, 45,
+                    Items.titanium, 30,
+                    IonItems.zinc, 15
                 ))
-                health = 340
+                health = 550
                 size = 3
                 drillEffect = Fx.drillSteam
                 consumePower(1.15f)

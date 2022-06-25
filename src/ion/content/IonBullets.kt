@@ -99,7 +99,7 @@ object IonBullets{
                 chargeEffect = IonFx.ptChargeRenewed
                 shootEffect = IonFx.ptFire
                 status = IonStatusEffects.petrified
-                statusDuration = 258f
+                statusDuration = 222f
                 trailEffect = IonFx.ptBulletTrail
                 trailChance = 0.4f
                 backColor = Color.gray
@@ -113,7 +113,7 @@ object IonBullets{
             init{
                 damage = 45f
                 speed = 6f
-                lifetime = 500f
+                lifetime = 167f
                 width = 10f
                 height = 20f
                 chargeEffect = IonFx.ptChargeRenewed
