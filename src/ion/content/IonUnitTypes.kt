@@ -267,10 +267,9 @@ object IonUnitTypes{
                             shootSound = Sounds.pulse
                             shoot.shots = 2
                             abilities.add(UnitSpawnAbility(UnitTypes.flare, 13f * 60f, 0f, 0f))
-                            bullet = object : EmpBulletType(){
+                            bullet = object : BasicBulletType(){
                                 init{
-                                    damage = 20f
-                                    radius = 30f
+                                    damage = 3f
                                     lightRadius = 15f
                                     trailLength = 12
                                     lifetime = 60f
