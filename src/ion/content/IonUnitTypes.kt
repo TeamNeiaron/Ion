@@ -264,7 +264,7 @@ object IonUnitTypes{
                             reload = 40f
                             mirror = false
 
-                            shootSound = Sounds.pulse
+                            shootSound = Sounds.pew
                             shoot.shots = 2
                             abilities.add(UnitSpawnAbility(UnitTypes.flare, 13f * 60f, 0f, 0f))
                             bullet = object : BasicBulletType(){
