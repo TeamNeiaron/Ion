@@ -266,7 +266,7 @@ object IonUnitTypes{
 
                             shootSound = Sounds.pulse
                             shoot.shots = 2
-                            abilities.add(UnitSpawnAbility(UnitTypes.flare, 4 * 60f, 0f, 0f))
+                            abilities.add(UnitSpawnAbility(UnitTypes.flare, 13f * 60f, 0f, 0f))
                             bullet = object : EmpBulletType(){
                                 init{
                                     damage = 20f
@@ -276,7 +276,7 @@ object IonUnitTypes{
                                     lifetime = 60f
                                     range = 60f
                                     backColor = Color.valueOf("bf8c2e")
-                                    frontColor = Color.valueOf("#e6e153")
+                                    frontColor = Color.valueOf("e6e153")
                                 }
                             }
                         }
