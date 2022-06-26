@@ -255,6 +255,7 @@ object IonUnitTypes{
                 hitSize = 13f
 
                 constructor = Prov<mindustry.gen.Unit> { UnitEntity.create() }
+                abilities.add(UnitSpawnAbility(UnitTypes.flare, 13f * 60f, 0f, 0f))
 
                 weapons.add(
                     object : Weapon("caretaker-orb"){
@@ -266,7 +267,6 @@ object IonUnitTypes{
 
                             shootSound = Sounds.pulse
                             shoot.shots = 2
-                            abilities.add(UnitSpawnAbility(UnitTypes.flare, 13f * 60f, 0f, 0f))
                             bullet = object : BasicBulletType(){
                                 init{
                                     damage = 3f
