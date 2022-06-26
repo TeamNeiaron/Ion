@@ -275,6 +275,7 @@ object IonUnitTypes{
                                     trailLength = 12
                                     lifetime = 60f
                                     range = 60f
+                                    speed = 5f
                                     backColor = Color.valueOf("bf8c2e")
                                     frontColor = Color.valueOf("e6e153")
                                 }
