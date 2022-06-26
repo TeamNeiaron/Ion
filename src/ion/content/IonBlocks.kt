@@ -75,12 +75,21 @@ object IonBlocks{
                 health = 450
                 size = 4
                 consumePower(2f)
-                plans.addAll(
+                plans.add(
                     UnitPlan(
                         IonUnitTypes.orion, 20f * 60f, ItemStack.with(
                             Items.silicon, 10,
                             Items.titanium, 25,
                             IonItems.zinc, 5
+                        )
+                    )
+                )
+                plans.add(
+                    UnitPlan(
+                        IonUnitTypes.caretaker, 25f * 60f, ItemStack.with(
+                            Items.silicon, 6,
+                            IonItems.brass, 10,
+                            Items.metaglass, 5
                         )
                     )
                 )
