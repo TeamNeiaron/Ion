@@ -265,7 +265,7 @@ object IonUnitTypes{
                             reload = 40f
                             mirror = false
 
-                            shootSound = Sounds.pulse
+                            shootSound = Sounds.lasershoot
                             shoot.shots = 2
                             bullet = object : BasicBulletType(){
                                 init{
