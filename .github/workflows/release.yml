@@ -22,10 +22,13 @@ jobs:
     - name: Build mod jar
       run: ./gradlew deploy -Duse-k2
     - name: Upload built jar file
-      uses: svenstaro/upload-release-action@2.2.1
+      uses: svenstaro/upload-release-action@2.3.0
       with:
         repo_token: ${{ secrets.GTOKEN }}
         repo_name: TeamNeiaron/IonBuilds
         file: build/libs/Ion.jar
         tag: ${{ github.run_number }}
-        body: 'Generated from [${{ github.repository }}](${{ github.repositoryUrl }})\n\nUse the "Update" button within the mod\'s ingame settings to use this version.'
+        body: |
+          'Generated from [${{ github.repository }}](${{ github.repositoryUrl }})
+
+          Use the "Update" button within the mod\'s ingame settings to use this version.'
