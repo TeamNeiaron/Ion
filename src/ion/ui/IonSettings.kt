@@ -25,7 +25,7 @@ object IonSettings{
     
     fun load(){
         
-        ui.settings.addCategory("Ion: Global", Icon.right){
+        ui.settings.addCategory("Ion", Icon.right){
             
             it.sliderPref("Updater Timeout Threshold", 30, 1, 120, 5){
                 Core.settings.put("updatertimeout", it.toFloat())
@@ -95,6 +95,8 @@ object IonSettings{
                     "cheesy" -> Utils.cheese()
                     
                     "smorekeys" -> Threads.throwAppException(RuntimeException("to hell with you"))
+                    
+                    "explosion" -> Sounds.explosionbig.play(1984f) //well time to delete my ears
                 }
             }
             
