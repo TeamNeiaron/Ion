@@ -40,6 +40,15 @@ object IonFx{
     
     val xeusCharge = MultiEffect(geometryCharge, chargeEffect)
 
+    val bombHit = Effect(70f){
+        val e = it
+
+        Draw.color(IColor.mothershipGoldLight)
+        Lines.stroke(e.fout() * 20f)
+        Lines.square(e.x, e.y, e.fin(Interp.sineOut) * 35f, e.fin(Interp.smooth) * 180f)
+        Lines.square(e.x, e.y, e.fin(Interp.sineIn) * 10f, e.fout(Interp.smooth) * 180f)
+    }
+
     val slagCompact = Effect(60f){
         val e = it
 

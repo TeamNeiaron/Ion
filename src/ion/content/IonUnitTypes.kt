@@ -31,6 +31,7 @@ object IonUnitTypes{
 
     //caretaker
     lateinit var caretaker: UnitType
+    lateinit var leader: UnitType
 
     fun load(){
         orion = object : UnitType("orion"){
@@ -277,6 +278,76 @@ object IonUnitTypes{
                                     speed = 5f
                                     backColor = Color.valueOf("bf8c2e")
                                     frontColor = Color.valueOf("e6e153")
+                                }
+                            }
+                        }
+                    }
+                )
+            }
+        }
+
+        leader = object : UnitType("leader"){
+            init{
+                flying = true
+                health = 560f
+                speed = 2.56f
+                accel = 0.14f
+                drag = 0.02f
+                engineOffset = 10f
+                hitSize = 13f
+                engineSize = 3f
+
+                constructor = Prov<mindustry.gen.Unit> { UnitEntity.create() }
+
+                weapons.add(
+                    object : Weapon("caretaker-orb"){
+                        init{
+                            x = 0f
+                            y = 0f
+                            reload = 40f
+                            mirror = false
+
+                            shootSound = Sounds.pulse
+                            shoot.shots = 2
+                            abilities.add(UnitSpawnAbility(UnitTypes.flare, 7.8f * 60f, 0f, 2f))
+                            bullet = object : BasicBulletType(){
+                                init{
+                                    sprite = "ion-leader-drop-bomb"
+                                    width = 120/4f
+                                    height = 120/4f
+                                    reload = 50f
+
+                                    maxRange = 30f
+                                    ignoreRotation = true
+
+                                    backColor = IColor.mothershipGoldDark
+                                    frontColor = IColor.mothershipGoldLight
+                                    mixColorTo = IColor.mothershipGoldLight
+
+                                    hitSound = Sounds.plasmaboom
+
+                                    shootCone = 180f
+                                    ejectEffect = Fx.none
+                                    hitShake = 4f
+
+                                    collidesAir = false
+
+                                    lifetime = 70f
+
+                                    keepVelocity = false
+                                    spin = 2f
+
+                                    shrinkX = 0.7f
+                                    shrinkY = 0.7f
+
+                                    speed = 0f
+                                    collides = false
+
+                                    healPercent = 15f
+                                    splashDamage = 220f
+                                    splashDamageRadius = 80f
+
+                                    hitEffect = IonFx.bombHit
                                 }
                             }
                         }
