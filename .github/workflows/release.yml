@@ -28,3 +28,4 @@ jobs:
         repo_name: TeamNeiaron/IonBuilds
         file: build/libs/Ion.jar
         tag: ${{ github.run_number }}
+        body: 'Generated from [${{ github.repository }}](${{ github.repositoryUrl }})\n\nUse the "Update" button within the mod\'s ingame settings to use this version.'
