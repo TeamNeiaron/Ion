@@ -308,7 +308,7 @@ object IonUnitTypes{
                             reload = 250f
                             mirror = false
 
-                            shootSound = Sounds.artillery
+                            shootSound = Sounds.plasmadrop
                             shoot.shots = 2
                             bullet = object : BasicBulletType(){
                                 init{
