@@ -300,14 +300,14 @@ object IonUnitTypes{
                 constructor = Prov<mindustry.gen.Unit> { UnitEntity.create() }
 
                 weapons.add(
-                    object : Weapon("caretaker-orb"){
+                    object : Weapon("leader-bomb"){
                         init{
                             x = 0f
                             y = 0f
-                            reload = 40f
+                            reload = 250f
                             mirror = false
 
-                            shootSound = Sounds.pulse
+                            shootSound = Sounds.artillery
                             shoot.shots = 2
                             abilities.add(UnitSpawnAbility(UnitTypes.flare, 7.8f * 60f, 0f, 2f))
                             bullet = object : BasicBulletType(){
