@@ -298,6 +298,7 @@ object IonUnitTypes{
                 engineSize = 3f
 
                 constructor = Prov<mindustry.gen.Unit> { UnitEntity.create() }
+                abilities.add(UnitSpawnAbility(UnitTypes.flare, 7.8f * 60f, 0f, 2f))
 
                 weapons.add(
                     object : Weapon("leader-bomb"){
@@ -309,7 +310,6 @@ object IonUnitTypes{
 
                             shootSound = Sounds.artillery
                             shoot.shots = 2
-                            abilities.add(UnitSpawnAbility(UnitTypes.flare, 7.8f * 60f, 0f, 2f))
                             bullet = object : BasicBulletType(){
                                 init{
                                     sprite = "ion-leader-drop-bomb"
