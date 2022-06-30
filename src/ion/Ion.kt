@@ -24,6 +24,7 @@ class Ion : Mod(){
             Vars.mods.getMod("ion").meta.description = Vars.tree["texts/desc.txt"].readString()
             
             Vars.mods.getScripts().runConsole(Vars.tree["scripts/http.js"].readString())
+            Vars.mods.getScripts().runConsole(Vars.tree["scripts/core.js"].readString())
         }
     }
     
