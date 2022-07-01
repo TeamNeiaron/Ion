@@ -17,7 +17,7 @@ open class PodBulletType : BulletType{
     
     override fun draw(b: Bullet){
         super.draw(b)
-        Draw.rect(sprite, b.x, b.y, b.rotation())
-        Drawf.shadow(sprite, b.x, b.y - 3f, b.rotation())
+        Draw.rect(sprite as TextureRegion, b.x, b.y, b.rotation())
+        Drawf.shadow(sprite as TextureRegion, b.x, b.y, b.rotation())
     }
 }
