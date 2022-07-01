@@ -1,9 +1,9 @@
 function getInstance(name){
-    return Reflect.get(Class.forName(name, true, Vars.mods.mainLoader()), "INSTANCE")
+    return Reflect.get(Vars.mods.getMod("ion").loader.loadClass(name), "INSTANCE")
 }
 
 function obtain(name){
-    return Class.forName(name, true, Vars.mods.mainLoader())
+    return Vars.mods.getMod("ion").loader.loadClass(name)
 }
 
 //objects

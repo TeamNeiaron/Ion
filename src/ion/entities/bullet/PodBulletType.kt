@@ -1,5 +1,6 @@
 package ion.entities.bullet
 
+import arc.*
 import arc.graphics.g2d.*
 import arc.graphics.g2d.TextureAtlas.*
 import mindustry.gen.*
