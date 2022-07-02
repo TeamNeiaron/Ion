@@ -7,18 +7,22 @@ import mindustry.gen.*
 import mindustry.graphics.*
 import mindustry.entities.bullet.*
 
-//TODO test run
 open class PodBulletType : BulletType{
     
-    var sprite = Core.atlas.find("launchpod")
+    var sprite = "launchpod"
     
-    constructor(sprite: AtlasRegion) : super(){
+    constructor() : super(){}
+    
+    constructor(sprite: String) : super(){
         this.sprite = sprite
     }
     
+    //TODO engine draw
     override fun draw(b: Bullet){
         super.draw(b)
-        Draw.rect(sprite as TextureRegion, b.x, b.y, b.rotation())
-        Drawf.shadow(sprite as TextureRegion, b.x, b.y, b.rotation())
+        Draw.z(Layer.flyingUnit)
+        Draw.rect(sprite, b.x, b.y, b.rotation())
+        Draw.z(Layer.flyingUnit - 0.01f)
+        Drawf.shadow(Core.atlas.find(sprite), b.x - 7f, b.y - 13f, b.rotation())
     }
 }

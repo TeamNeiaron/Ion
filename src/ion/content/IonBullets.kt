@@ -1,7 +1,8 @@
 package ion.content
 
+import arc.*
 import arc.graphics.Color
-import mindustry.content.Fx
+import mindustry.content.*
 import mindustry.entities.bullet.*
 
 import ion.content.*
@@ -17,6 +18,8 @@ object IonBullets{
     lateinit var xeusLaser: BulletType
     lateinit var petrifierBullet: BulletType
     lateinit var disFunctionBullet: BulletType
+    
+    lateinit var testPod: BulletType
     
     fun load(){
         geometricBullet = object : GeometricBulletType(3, 10){
@@ -126,6 +129,15 @@ object IonBullets{
                 frontColor = Color.darkGray
                 despawnEffect = IonFx.dissipate
                 hitEffect = IonFx.dissipate
+            }
+        }
+        
+        testPod = object : PodBulletType("launchpod"){
+            init{
+                damage = 20f
+                speed = 0.87f
+                lifetime = 600f
+                despawnUnit = UnitTypes.flare
             }
         }
     }
