@@ -26,6 +26,7 @@ class Ion : Mod(){
             Vars.mods.getScripts().runConsole(Vars.tree["scripts/http.js"].readString())
             Vars.mods.getScripts().runConsole(Vars.tree["scripts/core.js"].readString())
         }
+        
     }
     
     
