@@ -28,6 +28,7 @@ object IonUnitTypes{
     lateinit var astro: UnitType
     lateinit var geometry: UnitType
     lateinit var xeus: UnitType
+    lateinit var erea: UnitType
 
     //caretaker
     lateinit var caretaker: UnitType
@@ -242,6 +243,23 @@ object IonUnitTypes{
                 
                 Draw.color()
                 Lines.stroke(1f)
+            }
+        }
+
+        erea = object : UnitType("erea"){
+            init{
+                flying = true
+                health = 42825f
+                armor = 23f
+                speed = 0.58f
+                accel = 0.35f
+                drag = 0.04f
+                engineSize = 20f
+                engineOffset = 47f
+                hitSize = 76f
+                rotateSpeed = 0.7f
+                
+                constructor = Prov<mindustry.gen.Unit> { UnitEntity.create() }
             }
         }
 
