@@ -23,6 +23,6 @@ open class PodBulletType : BulletType{
         Draw.z(Layer.flyingUnit)
         Draw.rect(sprite, b.x, b.y, b.rotation())
         Draw.z(Layer.flyingUnit - 0.01f)
-        Drawf.shadow(Core.atlas.find(sprite), b.x - 7f, b.y - 13f, b.rotation())
+        Drawf.shadow(Core.atlas.find(sprite), b.x - 9f, b.y - 13f, b.rotation())
     }
 }
