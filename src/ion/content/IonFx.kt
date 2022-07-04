@@ -101,7 +101,7 @@ object IonFx{
         Lines.square(e.x, e.y, ln, e.fin(Interp.pow3Out) * 180f)
         Lines.square(e.x, e.y, ln, e.fout(Interp.pow3In) * 180f)
         
-        Angles.randLenVectors(e.id, 40, e.fin(Interp.pow3Out) * 250f, e.rotation, e.fin() * 25f){ x: Float, y: Float ->
+        Angles.randLenVectors(e.id.toLong(), 40, e.fin(Interp.pow3Out) * 250f, e.rotation, e.fin() * 25f){ x: Float, y: Float ->
             Lines.line(e.x, e.y, e.x + x, e.y + y)
         }
     }
