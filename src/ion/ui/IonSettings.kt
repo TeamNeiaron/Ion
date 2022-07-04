@@ -32,7 +32,7 @@ object IonSettings{
                 
                 "$it seconds"
             }
-            
+            /*
             it.sliderPref("Xeus Line Effect Count", 10, 0, 100, 1){
                 Core.settings.put("xeuslinecount", it)
                 
@@ -56,7 +56,7 @@ object IonSettings{
                 
                 "x$it"
             }
-            
+            */
             it.checkPref("Effect Reduction", false){
                 Core.settings.put("effectreduction", it)
             }

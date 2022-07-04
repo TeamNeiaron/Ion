@@ -219,6 +219,7 @@ object IonUnitTypes{
             
             override fun draw(unit: mindustry.gen.Unit){
                 super.draw(unit)
+                /*
                 var s = Mathf.absin(15f, 3f)
                 var slowness = Core.settings.getFloat("xeuslineeffectslowness")
                 var spacing = Core.settings.getFloat("xeuslineeffectspacing")
@@ -243,6 +244,9 @@ object IonUnitTypes{
                 
                 Draw.color()
                 Lines.stroke(1f)
+                */
+                
+                
             }
         }
 

@@ -89,4 +89,20 @@ object IonFx{
             Lines.line(e.x, e.y, e.x + x, e.y + y)
         }
     }
+    
+    val ereaFire = Effect(120f){
+        val e = it
+        var ln = e.fin(Interp.pow3Out) * 120f
+        
+        Draw.color(IColor.energy)
+        Lines.stroke(e.fout(Interp.pow5Out) * 2f)
+        
+        Lines.circle(e.x, e.y, ln)
+        Lines.square(e.x, e.y, ln, e.fin(Interp.pow3Out) * 180f)
+        Lines.square(e.x, e.y, ln, e.fout(Interp.pow3In) * 180f)
+        
+        Angles.randLenVectors(e.id, 40, e.fin(Interp.pow3Out) * 250f, e.rotation, e.fin() * 25f){ x: Float, y: Float ->
+            Lines.line(e.x, e.y, e.x + x, e.y + y)
+        }
+    }
 }
