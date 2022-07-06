@@ -37,7 +37,7 @@ open class UnstableEnergyBulletType : BulletType{
     override fun update(b: Bullet){
         super.update(b);
         
-        if(Mathf.chance(lightningSpawnChance)){
+        if(Mathf.chanceDelta(lightningSpawnChance)){
             Lightning.create(b.team, lightningColor, lightningDamage, b.x, b.y, Mathf.random(-360f, 360f), lightningLength);
         }
     }

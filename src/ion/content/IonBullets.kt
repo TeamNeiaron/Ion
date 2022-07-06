@@ -18,6 +18,7 @@ object IonBullets{
     lateinit var xeusLaser: BulletType
     lateinit var petrifierBullet: BulletType
     lateinit var disFunctionBullet: BulletType
+    lateinit var ereaBullet: BulletType
     
     lateinit var testPod: BulletType
     
@@ -129,6 +130,20 @@ object IonBullets{
                 frontColor = Color.darkGray
                 despawnEffect = IonFx.dissipate
                 hitEffect = IonFx.dissipate
+            }
+        }
+        
+        ereaBullet = object : GeometricBulletType(3, 15){
+            init{
+                damage = 2550f
+                speed = 2.5f
+                lifetime = 270f
+                hitSize = 48f
+                spinSpeed = 2.4f
+                pierce = true
+                pierceCap = 3
+                
+                
             }
         }
         
