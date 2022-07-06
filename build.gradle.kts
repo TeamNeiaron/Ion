@@ -4,11 +4,13 @@ version = "1.0"
 plugins {
     kotlin("jvm") version "1.7.0"
 }
+
 val mindustryVersion = "v130"
 repositories {
     mavenCentral()
     maven("https://jitpack.io")
 }
+
 sourceSets {
     main {
         java.srcDirs("src")
@@ -17,12 +19,19 @@ sourceSets {
         java.srcDir("test")
     }
 }
+
 dependencies {
     compileOnly("com.github.Anuken.Arc:arc-core:master-SNAPSHOT")
     compileOnly("com.github.Anuken.MindustryJitpack:core:13cf282470")
     implementation(files("libs/mnemotechnician/MKUI.jar"))
     // implementation("com.github.mnemotechnician:mkui:33") use this instead
 }
+
+java {
+	sourceCompatibility = JavaVersion.VERSION_1_8
+	targetCompatibility = JavaVersion.VERSION_1_8
+}
+
 tasks.register("jarAndroid") {
     group = "build"
     dependsOn("jar")
