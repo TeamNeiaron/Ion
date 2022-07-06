@@ -87,7 +87,7 @@ tasks.jar {
         include("icon.png")
     }
 
-    from("../assets/") {
+    from("$rootDir/assets/") {
         include("**")
     }
 }
