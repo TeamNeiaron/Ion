@@ -15,14 +15,18 @@ public class IonTechTree{
     
     public static void load(){
         margeNode(siliconSmelter, () -> {
-            node(IonBlocks.brassSmelter, Seq.with(new Research(IonItems.zinc)), () -> {
-                
-            });
+            node(IonBlocks.brassSmelter, Seq.with(new Research(IonItems.zinc)), () -> {});
         });
         
         margeNode(copper, () -> {
-            node(IonItems.zinc, Seq.with(new Produce(IonItems.zinc)), () -> {
-                
+            node(IonItems.zinc, Seq.with(new Produce(IonItems.zinc)), () -> {});
+        });
+
+        margeNode(airFactory, () -> {
+            node(IonBlocks.gonicReconstructor, Seq.with(new Research(additiveReconstructor)), () -> {
+                node(IonBlocks.alephReconstructor, () -> {
+                    node(IonBlocks.titanReconstructor);
+                });
             });
         });
     }
