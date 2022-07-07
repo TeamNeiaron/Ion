@@ -14,7 +14,7 @@ public class IonTechTree{
     
     public static void load(){
         margeNode(siliconSmelter, () -> {
-            node(IonBlocks.brassSmelter);
+            node(IonBlocks.brassSmelter, Seq.with(new Research(siliconSmelter)));
         });
 
 
@@ -41,6 +41,10 @@ public class IonTechTree{
 
     private static void node(UnlockableContent content, Seq<Objective> objectives, Runnable children){
         node(content, content.researchRequirements(), objectives, children);
+    }
+
+    private static void node(UnlockableContent content, Seq<Objective> objectives){
+        node(content, objectives, () -> {});
     }
 
     private static void node(UnlockableContent content, Runnable children){
