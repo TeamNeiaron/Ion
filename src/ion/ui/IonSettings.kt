@@ -90,13 +90,15 @@ object IonSettings{
                     
                     "test unlocker" -> Utils.eachAchievement(IonAchievements.all){ IonVars.achievementUnlocker.show() }
                     
-                    "darkness" -> IonVars.secret.show(tree["texts/darkness.txt"].readString())
+                    "darkness" -> IonVars.secret.show(tree["texts/darkness.txt"].readString(), false)
                     
                     "cheesy" -> Utils.cheese()
                     
                     "smorekeys" -> Threads.throwAppException(RuntimeException("to hell with you"))
                     
                     "explosion" -> Sounds.explosionbig.play(1984f) //well time to delete my ears
+                    
+                    "reset" -> IonVars.secret.show(tree["texts/change.txt"].readString(), true)
                 }
             }
             

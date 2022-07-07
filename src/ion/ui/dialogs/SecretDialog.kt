@@ -3,6 +3,7 @@ package ion.ui.dialogs
 import arc.scene.ui.*
 import arc.scene.ui.layout.*
 import arc.scene.style.*
+import arc.flabel.*
 import mindustry.ui.dialogs.*
 import mindustry.gen.*
 
@@ -16,13 +17,17 @@ open class SecretDialog : BaseDialog{
     }
     
     
-    fun show(icon: Drawable, secret: String){
+    fun show(icon: Drawable, secret: String, flabel: Boolean){
         cont.clear()
         val t = Table()
         
         t.table{ s: Table ->
             s.addImage(icon).row()
-            s.add(secret).row()
+            if(flabel){
+                s.add(FLabel("{wave}$secret")).row()
+            } else {
+                s.add(secret).row()
+            }
         }
         
         val s = ScrollPane(t)
@@ -30,7 +35,7 @@ open class SecretDialog : BaseDialog{
         show()
     }
     
-    fun show(secret: String){
-        show(Icon.admin, secret)
+    fun show(secret: String, flabel: Boolean){
+        show(Icon.admin, secret, flabel)
     }
 }
