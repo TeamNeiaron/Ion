@@ -417,6 +417,7 @@ object IonUnitTypes{
                         init{
                             x = 11f
                             y = 11f
+                            shootY = 0f
                             mirror = true
                             targetBuildings = true
                             targetUnits = true
@@ -439,10 +440,11 @@ object IonUnitTypes{
                         init{
                             x = 11f
                             y = -10f
+                            shootY = 0f
                             mirror = true
                             targetBuildings = true
                             targetUnits = true
-                            repairSpeed = 0.25f
+                            repairSpeed = 1.11f
                             
                             parts.add(
                                 object : ShapePart(){
