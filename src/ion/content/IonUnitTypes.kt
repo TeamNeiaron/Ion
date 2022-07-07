@@ -8,9 +8,11 @@ import arc.graphics.*
 import arc.graphics.g2d.*
 import mindustry.gen.*
 import mindustry.type.*
+import mindustry.type.weapons.*
 import mindustry.game.*
 import mindustry.content.*
 import mindustry.graphics.*
+import mindustry.entities.part.*
 import mindustry.entities.bullet.*
 import mindustry.entities.pattern.*
 
@@ -30,9 +32,10 @@ object IonUnitTypes{
     lateinit var xeus: UnitType
     lateinit var erea: UnitType
 
-    //caretaker
+    //caretakers
     lateinit var caretaker: UnitType
     lateinit var leader: UnitType
+    lateinit var hive: UnitType
 
     fun load(){
         orion = object : UnitType("orion"){
@@ -187,6 +190,22 @@ object IonUnitTypes{
 
                 constructor = Prov<mindustry.gen.Unit> { UnitEntity.create() }
 
+                parts.add(
+                    object : HaloPart(){
+                        init{
+                            x = 15f
+                            y = 0f
+                            mirror = true
+                            hollow = true
+                            sides = 5
+                            radius = 6.7f
+                            stroke = 1.67f
+                            haloRotateSpeed = 1.3f
+                            colorTo = IColor.energy
+                            layer = Layer.effect
+                        }
+                    }
+                )
 
                 weapons.add(
                     object : Weapon("energy-laser"){
@@ -316,8 +335,8 @@ object IonUnitTypes{
                 accel = 0.14f
                 drag = 0.02f
                 engineOffset = 10f
-                hitSize = 13f
                 engineSize = 3f
+                hitSize = 13f
 
                 constructor = Prov<mindustry.gen.Unit> { UnitEntity.create() }
                 abilities.add(UnitSpawnAbility(UnitTypes.flare, 7.8f * 60f, 0f, 2f))
@@ -372,6 +391,72 @@ object IonUnitTypes{
                                     hitEffect = IonFx.bombHit
                                 }
                             }
+                        }
+                    }
+                )
+            }
+        }
+        
+        hive = object : UnitType("hive"){
+            init{
+                flying = true
+                lowAltitude = true
+                health = 1330f
+                armor = 3.4f
+                speed = 2.15f
+                accel = 0.12f
+                drag = 0.06f
+                engineSize = 8f
+                engineOffset = 20f
+                hitSize = 29f
+                
+                constructor = Prov<mindustry.gen.Unit> { UnitEntity.create() }
+                
+                weapons.add(
+                    object : RepairBeamWeapon("healers-1"){
+                        init{
+                            x = 11f
+                            y = 11f
+                            shootY = 0f
+                            mirror = true
+                            targetBuildings = true
+                            targetUnits = true
+                            repairSpeed = 0.25f
+                            
+                            parts.add(
+                                object : ShapePart(){
+                                    init{
+                                        hollow = true
+                                        rotateSpeed = 1.7f
+                                        radius = 7.5f
+                                        color = IColor.mothershipGoldLight
+                                        layer = Layer.effect
+                                    }
+                                }
+                            )
+                        }
+                    },
+                    object : RepairBeamWeapon("healers-2"){
+                        init{
+                            x = 11f
+                            y = -10f
+                            shootY = 0f
+                            mirror = true
+                            targetBuildings = true
+                            targetUnits = true
+                            repairSpeed = 1.11f
+                            
+                            parts.add(
+                                object : ShapePart(){
+                                    init{
+                                        hollow = true
+                                        rotateSpeed = 1.7f
+                                        radius = 7.5f
+                                        color = IColor.mothershipGoldLight
+                                        layer = Layer.effect
+                                    }
+                                }
+                            )
                         }
                     }
                 )
