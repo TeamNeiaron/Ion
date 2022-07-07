@@ -6,6 +6,7 @@ import mindustry.game.Objectives.*;
 import mindustry.ctype.*;
 import ion.content.*;
 
+import static mindustry.content.Items.*;
 import static mindustry.content.Blocks.*;
 import static mindustry.content.TechTree.*;
 
@@ -14,7 +15,15 @@ public class IonTechTree{
     
     public static void load(){
         margeNode(siliconSmelter, () -> {
-            node(IonBlocks.brassSmelter, Seq.with(new Research(siliconSmelter)));
+            node(IonBlocks.brassSmelter, Seq.with(new Research(IonItems.zinc)), () -> {
+                
+            });
+        });
+        
+        margeNode(copper, () -> {
+            node(IonItems.zinc, Seq.with(new Produce(IonItems.zinc)), () -> {
+                
+            });
         });
     }
     
