@@ -16,6 +16,8 @@ public class IonTechTree{
         margeNode(siliconSmelter, () -> {
             node(IonBlocks.brassSmelter);
         });
+
+
     }
     
     private static void margeNode(UnlockableContent parent, Runnable orphan){
