@@ -24,7 +24,7 @@ open class SecretDialog : BaseDialog{
         t.table{ s: Table ->
             s.addImage(icon).row()
             if(flabel){
-                s.add(FLabel("{wave}$secret")).row()
+                s.add(FLabel(secret)).row()
             } else {
                 s.add(secret).row()
             }
@@ -34,7 +34,7 @@ open class SecretDialog : BaseDialog{
         cont.add(s)
         show()
     }
-    
+    //real shit sherlock
     fun show(secret: String, flabel: Boolean){
         show(Icon.admin, secret, flabel)
     }

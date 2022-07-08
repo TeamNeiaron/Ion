@@ -1,4 +1,4 @@
-its time to [gray]reset[]
+{shake}its time to [gray]reset[]
 
 but somethings changed
 changed
