@@ -8,10 +8,10 @@ object IonAchievements{
     lateinit var makingEndsMeet: Achievement
     lateinit var reunited: Achievement
     
-    lateinit var all: Array<Achievement>
-    
     fun load(){
-        test = object : Achievement("test", "Test Achievement"){
+        test = object : Achievement("test", "Test Achievement", {
+            if(test2.isUnlocked()) it.unlock()
+        }){
             init{
                 description = "A test achievement."
             }
@@ -35,6 +35,6 @@ object IonAchievements{
             }
         }
         
-        all = arrayOf(test, test2, makingEndsMeet, reunited)
+        
     }
 }

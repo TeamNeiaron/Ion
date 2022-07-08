@@ -33,13 +33,6 @@ object Utils{
         }
     }
     
-    /** Iterates through an array of Achievements. */
-    fun eachAchievement(achievements: Array<Achievement>, cons: Cons<Achievement>){
-        for(i in 0..achievements.size - 1){
-            cons.get(achievements[i])
-        }
-    }
-    
     fun haltSound(){
         Core.settings.put("musicvol", 0)
         Core.settings.put("sfxvol", 0)

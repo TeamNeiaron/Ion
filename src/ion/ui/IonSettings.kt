@@ -88,7 +88,7 @@ object IonSettings{
                     
                     "smiler" -> Utils.getAndWrite("https://cdn.discordapp.com/emojis/935868190012092466.png", Core.settings.getDataDirectory().child("sussmiler.png"), true){}
                     
-                    "test unlocker" -> Utils.eachAchievement(IonAchievements.all){ IonVars.achievementUnlocker.show() }
+                    "test unlocker" -> IonVars.achievementUnlocker.show()
                     
                     "darkness" -> IonVars.secret.show(tree["texts/darkness.txt"].readString(), false)
                     
