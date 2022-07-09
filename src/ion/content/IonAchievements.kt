@@ -15,6 +15,7 @@ object IonAchievements{
     lateinit var malice: Achievement
     lateinit var killingSpree: Achievement
     lateinit var unhinged: Achievement
+    lateinit var genocide: Achievement
     
     fun load(){
         test = object : Achievement("test", "Test Achievement", {
