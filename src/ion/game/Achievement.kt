@@ -1,9 +1,13 @@
 package ion.game
 
 import arc.*
+import arc.util.*
+import arc.func.*
 import mindustry.*
 import mindustry.gen.*
 import mindustry.ctype.*
+
+import ion.*
 
 open class Achievement{
     
@@ -17,6 +21,12 @@ open class Achievement{
     constructor(name: String, displayName: String){
         this.name = name
         this.displayName = displayName
+        
+        IonVars.achievements.add(this)
+    }
+    
+    constructor(name: String, displayName: String, unlocker: Cons<Achievement>) : this(name, displayName){
+        Timer.schedule({ if(!this.isUnlocked()) unlocker.get(this) }, 1f, 1f, -1)
     }
     
     fun load(){

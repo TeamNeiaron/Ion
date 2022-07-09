@@ -4,6 +4,7 @@ import arc.scene.ui.*
 import arc.scene.ui.layout.*
 import mindustry.ui.dialogs.*
 
+import ion.*
 import ion.ui.dialogs.*
 import ion.game.*
 import ion.defs.*
@@ -14,7 +15,7 @@ open class AchievementListDialog : BaseDialog{
     constructor() : super("Achievements"){
         addCloseButton()
         
-        Utils.eachAchievement(IonAchievements.all){ a: Achievement ->
+        IonVars.achievements.each(){ a: Achievement ->
             cont.button(a.icon){
                 ach.show(a)
             }

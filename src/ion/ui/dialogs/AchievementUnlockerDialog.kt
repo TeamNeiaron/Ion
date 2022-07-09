@@ -5,6 +5,7 @@ import arc.scene.ui.layout.*
 import mindustry.*
 import mindustry.ui.dialogs.*
 
+import ion.*
 import ion.game.*
 import ion.defs.*
 import ion.content.*
@@ -13,7 +14,7 @@ open class AchievementUnlockerDialog : BaseDialog{
     constructor() : super("Achievement Unlocker"){
         addCloseButton()
         
-        Utils.eachAchievement(IonAchievements.all){ a: Achievement ->
+        IonVars.achievements.each(){ a: Achievement ->
             cont.button(a.icon){
                 if(!a.isUnlocked()){
                     a.unlock()

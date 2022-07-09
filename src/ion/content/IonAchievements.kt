@@ -5,12 +5,13 @@ import ion.game.*
 object IonAchievements{
     lateinit var test: Achievement
     lateinit var test2: Achievement
-    lateinit var groundDominance: Achievement
-    
-    lateinit var all: Array<Achievement>
+    lateinit var makingEndsMeet: Achievement
+    lateinit var reunited: Achievement
     
     fun load(){
-        test = object : Achievement("test", "Test Achievement"){
+        test = object : Achievement("test", "Test Achievement", {
+            if(test2.isUnlocked()) it.unlock()
+        }){
             init{
                 description = "A test achievement."
             }
@@ -22,12 +23,18 @@ object IonAchievements{
             }
         }
         
-        groundDominance = object : Achievement("ground-dominance", "Ground Dominance"){
+        makingEndsMeet = object : Achievement("making-ends-meet", "Making Ends Meet"){
             init{
-                description = "Capture Ground Zero."
+                description = "Obtain 100 of every single item."
             }
         }
         
-        all = arrayOf(test, test2, groundDominance)
+        reunited = object : Achievement("reunited", "Reunited"){
+            init{
+                description = "[lightgray]...Smol?[]\nFind Yellow-chan."
+            }
+        }
+        
+        
     }
 }

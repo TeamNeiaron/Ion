@@ -3,6 +3,9 @@ package ion.content
 import arc.*
 import arc.graphics.Color
 import mindustry.content.*
+import mindustry.graphics.*
+import mindustry.entities.part.*
+import mindustry.entities.part.DrawPart.*
 import mindustry.entities.bullet.*
 
 import ion.content.*
@@ -152,7 +155,27 @@ object IonBullets{
                 damage = 20f
                 speed = 0.87f
                 lifetime = 600f
-                despawnUnit = UnitTypes.flare
+                
+                parts.add(
+                    object : HaloPart(){
+                        init{
+                            rotateSpeed = 1.3f
+                            layer = Layer.effect
+                        }
+                    },
+                    object : ShapePart(){
+                        init{
+                            hollow = true
+                            sides = 6
+                            radius = 9f
+                            radiusTo = 0f
+                            rotateSpeed = 1f
+                            progress = PartProgress.life
+                            layer = Layer.effect
+                            
+                        }
+                    }
+                )
             }
         }
     }
