@@ -409,7 +409,7 @@ object IonUnitTypes{
                 engineSize = 8f
                 engineOffset = 20f
                 hitSize = 29f
-                abilities.add(UnitSpawnAbility(UnitTypes.flare, 8f * 60f, 0f, 0f))
+                abilities.add(UnitSpawnAbility(UnitTypes.flare, 30f * 60f, 0f, 0f))
                 
                 constructor = Prov<mindustry.gen.Unit> { UnitEntity.create() }
                 
@@ -423,14 +423,18 @@ object IonUnitTypes{
                             targetBuildings = true
                             targetUnits = true
                             repairSpeed = 0.25f
+                            laserColor = IColor.mothershipHeal
+                            laserTopColor = Color.white.cpy()
+                            healColor = IColor.mothershipHeal
                             
                             parts.add(
                                 object : ShapePart(){
                                     init{
                                         hollow = true
                                         rotateSpeed = 1.7f
-                                        radius = 7.5f
+                                        radius = 5f
                                         color = IColor.mothershipGoldLight
+                                        stroke = 3f
                                         layer = Layer.effect
                                     }
                                 }
@@ -446,13 +450,17 @@ object IonUnitTypes{
                             targetBuildings = true
                             targetUnits = true
                             repairSpeed = 1.11f
+                            laserColor = IColor.mothershipHeal
+                            laserTopColor = Color.white.cpy()
+                            healColor = IColor.mothershipHeal
                             
                             parts.add(
                                 object : ShapePart(){
                                     init{
                                         hollow = true
                                         rotateSpeed = 1.7f
-                                        radius = 7.5f
+                                        radius = 5f
+                                        stroke = 3f
                                         color = IColor.mothershipGoldLight
                                         layer = Layer.effect
                                     }
