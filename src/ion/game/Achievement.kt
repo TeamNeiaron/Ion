@@ -43,7 +43,7 @@ open class Achievement{
      * A (more or less) simple example of this is making a listener that listens to all unit death events. For every death, expVar goes up by 1. 
      * Inside the condition listener, expVar is checked every second. Once it hits a max threshold, this achievement gets unlocked.
      */
-    constructor(name: String, displayName: String, conditions: Cons<Achievement>, event: Class<T>, listener: Cons<T>) : this(name, displayName, conditions){
+    constructor(name: String, displayName: String, conditions: Cons<Achievement>, event: Class<Any>, listener: Cons<Any>) : this(name, displayName, conditions){
         Events.on(event, listener)
     }
     
