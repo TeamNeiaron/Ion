@@ -8,6 +8,7 @@ import ion.content.*;
 
 import static mindustry.content.Items.*;
 import static mindustry.content.Blocks.*;
+import static mindustry.content.UnitTypes.*;
 import static mindustry.content.TechTree.*;
 
 public class IonTechTree{
@@ -23,9 +24,23 @@ public class IonTechTree{
         });
 
         margeNode(airFactory, () -> {
-            node(IonBlocks.gonicReconstructor, Seq.with(new Research(additiveReconstructor)), () -> {
+            node(IonBlocks.gonicReconstructor, Seq.with(new Research(additiveReconstructor), new Research(IonItems.zinc)), () -> {
                 node(IonBlocks.alephReconstructor, () -> {
-                    node(IonBlocks.titanReconstructor);
+                    node(IonBlocks.titanReconstructor, () -> {
+                        node(IonBlocks.colossalReconstructor);
+                    });
+                });
+            });
+        });
+
+        margeNode(flare, () -> {
+            node(IonUnitTypes.orion, Seq.with(new Research(IonItems.zinc)), () -> {
+                node(IonUnitTypes.xender, () -> {
+                    node(IonUnitTypes.astro, () -> {
+                        node(IonUnitTypes.geometry, () -> {
+                            node(IonUnitTypes.xeus);
+                        });
+                    });
                 });
             });
         });
