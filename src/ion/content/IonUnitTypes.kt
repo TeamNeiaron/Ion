@@ -449,7 +449,7 @@ object IonUnitTypes{
                             mirror = true
                             targetBuildings = true
                             targetUnits = true
-                            repairSpeed = 1.11f
+                            repairSpeed = 0.55f
                             laserColor = IColor.mothershipHeal
                             laserTopColor = Color.white.cpy()
                             healColor = IColor.mothershipHeal
