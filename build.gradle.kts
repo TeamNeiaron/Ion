@@ -23,8 +23,7 @@ sourceSets {
 dependencies {
     compileOnly("com.github.Anuken.Arc:arc-core:master-SNAPSHOT")
     compileOnly("com.github.Anuken.MindustryJitpack:core:06cd8f47c9")
-    implementation(files("libs/mnemotechnician/MKUI.jar"))
-    // implementation("com.github.mnemotechnician:mkui:33") use this instead
+    implementation("com.github.mnemotechnician:mkui:v1.0")
 }
 
 java {

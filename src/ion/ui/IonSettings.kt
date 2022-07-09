@@ -15,7 +15,7 @@ import ion.ui.dialogs.*
 import ion.defs.*
 import ion.content.*
 
-import com.github.mnemotechnician.mkui.*
+import com.github.mnemotechnician.mkui.extensions.dsl.*
 
 object IonSettings{
     

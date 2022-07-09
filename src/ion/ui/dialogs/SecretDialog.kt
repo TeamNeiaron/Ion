@@ -9,7 +9,7 @@ import mindustry.gen.*
 
 import ion.ui.dialogs.*
 
-import com.github.mnemotechnician.mkui.*
+import com.github.mnemotechnician.mkui.extensions.dsl.*
 
 open class SecretDialog : BaseDialog{
     constructor() : super("SECRETS"){

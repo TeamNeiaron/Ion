@@ -8,7 +8,7 @@ import ion.game.*
 import ion.defs.*
 import ion.content.*
 
-import com.github.mnemotechnician.mkui.*
+import com.github.mnemotechnician.mkui.extensions.dsl.*
 
 open class AchievementDisplayDialog : BaseDialog{
     constructor() : super("Achievement"){

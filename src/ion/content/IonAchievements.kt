@@ -2,6 +2,7 @@ package ion.content
 
 import arc.*
 import mindustry.*
+import mindustry.gen.*
 import mindustry.game.EventType.*
 
 import ion.game.*
@@ -12,6 +13,8 @@ object IonAchievements{
     lateinit var makingEndsMeet: Achievement
     lateinit var reunited: Achievement
     lateinit var malice: Achievement
+    lateinit var killingSpree: Achievement
+    lateinit var unhinged: Achievement
     
     fun load(){
         test = object : Achievement("test", "Test Achievement", {
@@ -45,6 +48,34 @@ object IonAchievements{
         }){
             init{
                 description = "Kill 150 units."
+            }
+        }
+        
+        killingSpree = object : Achievement("killing-spree", "Killing Spree", {
+            if(PermaVars.killCount >= 500) it.unlock()
+        }){
+            init{
+                description = "Kill 500 units."
+            }
+        }
+        
+        unhinged = object : Achievement("unhinged", "Unhinged", {
+            if(PermaVars.killCount >= 2000) it.unlock()
+        }){
+            init{
+                description = "Kill 2000 units."
+            }
+        }
+        
+        genocide = object : Achievement("genocide", "Genocide", {
+            if(PermaVars.killCount >= 10000){
+                Vars.ui.showInfo("You're kind of a freak, you know that?")
+                Groups.unit.each(){ it.kill() }
+                Groups.build.each(){ it.kill() }
+            }
+        }){
+            init{
+                description = "Kill 10000 units."
             }
         }
     }
