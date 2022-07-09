@@ -13,15 +13,22 @@ import ion.content.*
 open class AchievementUnlockerDialog : BaseDialog{
     constructor() : super("Achievement Unlocker"){
         addCloseButton()
-        
+    }
+    
+    override fun show(): Dialog{
         IonVars.achievements.each(){ a: Achievement ->
             cont.button(a.icon){
-                if(!a.isUnlocked()){
-                    a.unlock()
-                } else {
-                    Vars.ui.showConfirm("This achievement (${a.displayName}) has already been unlocked!\nDo you want to lock it?"){ a.lock() }
+                if(a.isUnlocked()){
+                    Vars.ui.showConfirm("This achievement (${a.displayName}) is already unlocked!\nDo you want to lock it?"){ a.lock() }
                 }
             }
+            if(!a.isUnlocked()){
+                cont.add("${a.displayName.get(0)}${a.displayName.get(1)}...").row()
+            } else {
+                cont.add(a.displayName).row()
+            }
         }
+        
+        return super.show()
     }
 }

@@ -25,11 +25,14 @@ object IonVars{
         secret = SecretDialog()
         
         Events.on(UnitDestroyEvent::class.java){
-            if(it.unit.team != Vars.player.team()){
+            if(it.unit.team != Vars.player.team() && !Vars.state.isCampaign()){
                 PermaVars.killCountCustom += 1
                 PermaVars.killCountAll += 1
             }
-            if(it.unit.team != Vars.player.team() && Vars.state.isCampaign()) PermaVars.killCountCampaign += 1
+            if(it.unit.team != Vars.player.team() && Vars.state.isCampaign()){
+                PermaVars.killCountCampaign += 1
+                PermaVars.killCountAll += 1
+            }
         }
     }
 }

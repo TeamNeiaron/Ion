@@ -14,11 +14,20 @@ open class AchievementListDialog : BaseDialog{
     val ach = AchievementDisplayDialog()
     constructor() : super("Achievements"){
         addCloseButton()
-        
+    }
+    
+    override fun show(): Dialog{
         IonVars.achievements.each(){ a: Achievement ->
             cont.button(a.icon){
                 ach.show(a)
             }
+            if(!a.isUnlocked()){
+                cont.add("${a.displayName.get(0)}${a.displayName.get(1)}...").row()
+            } else {
+                cont.add(a.displayName).row()
+            }
         }
+        
+        return super.show()
     }
 }
