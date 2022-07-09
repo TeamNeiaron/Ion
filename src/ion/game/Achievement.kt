@@ -9,6 +9,8 @@ import mindustry.ctype.*
 
 import ion.*
 
+import java.lang.*
+
 open class Achievement{
     
     val front = "achievement"
@@ -17,7 +19,7 @@ open class Achievement{
     var displayName = "Achievement"
     var description = ""
     var icon = Icon.units
-    
+    /** Creates a new Achievement with no condition listener, making this impossible to obtain outside normal means. */
     constructor(name: String, displayName: String){
         this.name = name
         this.displayName = displayName
@@ -25,8 +27,24 @@ open class Achievement{
         IonVars.achievements.add(this)
     }
     
-    constructor(name: String, displayName: String, unlocker: Cons<Achievement>) : this(name, displayName){
-        Timer.schedule({ if(!this.isUnlocked()) unlocker.get(this) }, 1f, 1f, -1)
+    /**
+     * Creates a new Achievement with a condition listener.
+     * A simple example of this is checking if another Achievement has already been unlocked.
+     * See IonAchievements for more info.
+     */
+    constructor(name: String, displayName: String, conditions: Cons<Achievement>) : this(name, displayName){
+        Timer.schedule({ if(!this.isUnlocked()) conditions.get(this) }, 1f, 1f, -1)
+    }
+    
+    /**
+     * Creates a new Achievement with a condition listener.
+     * Also comes with an event listener, allowing for more simple/complex conditions.
+     * (integer variable expVar)
+     * A (more or less) simple example of this is making a listener that listens to all unit death events. For every death, expVar goes up by 1. 
+     * Inside the condition listener, expVar is checked every second. Once it hits a max threshold, this achievement gets unlocked.
+     */
+    constructor(name: String, displayName: String, conditions: Cons<Achievement>, event: Class<T>, listener: Cons<T>) : this(name, displayName, conditions){
+        Events.on(event, listener)
     }
     
     fun load(){
