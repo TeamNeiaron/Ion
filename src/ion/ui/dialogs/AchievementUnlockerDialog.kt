@@ -16,6 +16,8 @@ open class AchievementUnlockerDialog : BaseDialog{
     }
     
     override fun show(): Dialog{
+        cont.clear()
+        
         IonVars.achievements.each(){ a: Achievement ->
             cont.button(a.icon){
                 if(a.isUnlocked()){
