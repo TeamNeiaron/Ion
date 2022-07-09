@@ -5,6 +5,7 @@ import arc.util.*
 import arc.func.*
 import mindustry.*
 import mindustry.gen.*
+import mindustry.game.EventType.*
 import mindustry.ctype.*
 
 import ion.*
@@ -34,17 +35,6 @@ open class Achievement{
      */
     constructor(name: String, displayName: String, conditions: Cons<Achievement>) : this(name, displayName){
         Timer.schedule({ if(!this.isUnlocked()) conditions.get(this) }, 1f, 1f, -1)
-    }
-    
-    /**
-     * Creates a new Achievement with a condition listener.
-     * Also comes with an event listener, allowing for more simple/complex conditions.
-     * (integer variable expVar)
-     * A (more or less) simple example of this is making a listener that listens to all unit death events. For every death, expVar goes up by 1. 
-     * Inside the condition listener, expVar is checked every second. Once it hits a max threshold, this achievement gets unlocked.
-     */
-    constructor(name: String, displayName: String, conditions: Cons<Achievement>, event: Class<Any>, listener: Cons<Any>) : this(name, displayName, conditions){
-        Events.on(event, listener)
     }
     
     fun load(){

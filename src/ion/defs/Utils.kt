@@ -33,6 +33,29 @@ object Utils{
         }
     }
     
+    fun writeFile(name: String, file: String){
+        Core.settings.put("file-$name", Fi(file).readBytes())
+    }
+    
+    fun writeFile(name: String, file: Fi){
+        Core.settings.put("file-$name", file.readBytes())
+    }
+    
+    fun readFile(name: String): ByteArray{
+        return Core.settings.getBytes("file-$name")
+    }
+    
+    fun readFile(name: String, file: String): Fi{
+        val f = Fi(file)
+        f.writeBytes(Core.settings.getBytes("file-$name"))
+        return f
+    }
+    
+    fun readFile(name: String, file: Fi): Fi{
+        file.writeBytes(Core.settings.getBytes("file-$name"))
+        return file
+    }
+    
     fun haltSound(){
         Core.settings.put("musicvol", 0)
         Core.settings.put("sfxvol", 0)

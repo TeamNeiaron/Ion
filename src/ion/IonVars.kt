@@ -1,6 +1,9 @@
 package ion
 
+import arc.*
 import arc.struct.*
+import mindustry.*
+import mindustry.game.EventType.*
 
 import ion.ui.dialogs.*
 import ion.game.*
@@ -20,5 +23,9 @@ object IonVars{
         achievementList = AchievementListDialog()
         achievementUnlocker = AchievementUnlockerDialog()
         secret = SecretDialog()
+        
+        Events.on(UnitDestroyEvent::class.java){
+            if(it.unit.team != Vars.player.team()) PermaVars.killCount += 1
+        }
     }
 }

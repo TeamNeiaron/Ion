@@ -24,6 +24,7 @@ class Ion : Mod(){
             
             Vars.mods.getScripts().runConsole(Vars.tree["scripts/http.js"].readString())
             Vars.mods.getScripts().runConsole(Vars.tree["scripts/core.js"].readString())
+            Vars.mods.getScripts().runConsole(Vars.tree["scripts/core2.js"].readString())
         }
         
         Events.on(FileTreeInitEvent::class.java){

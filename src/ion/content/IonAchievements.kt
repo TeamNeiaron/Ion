@@ -1,5 +1,9 @@
 package ion.content
 
+import arc.*
+import mindustry.*
+import mindustry.game.EventType.*
+
 import ion.game.*
 
 object IonAchievements{
@@ -7,6 +11,7 @@ object IonAchievements{
     lateinit var test2: Achievement
     lateinit var makingEndsMeet: Achievement
     lateinit var reunited: Achievement
+    lateinit var malice: Achievement
     
     fun load(){
         test = object : Achievement("test", "Test Achievement", {
@@ -35,6 +40,12 @@ object IonAchievements{
             }
         }
         
-        
+        malice = object : Achievement("malice", "Malice", {
+            if(PermaVars.killCount >= 150) it.unlock()
+        }){
+            init{
+                description = "Kill 150 units."
+            }
+        }
     }
 }

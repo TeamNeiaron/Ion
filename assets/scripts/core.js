@@ -2,18 +2,10 @@ function getInstance(name){
     return Reflect.get(Vars.mods.getMod("ion").loader.loadClass(name), "INSTANCE")
 }
 
-function obtain(name){
-    return Vars.mods.getMod("ion").loader.loadClass(name)
-}
-
-//classes
-const GeometricBulletType = obtain("ion.entities.bullet.GeometricBulletType")
-const PodBulletType = obtain("ion.entities.bullet.PodBulletType")
-const SparkingContinuousLaserBulletType = obtain("ion.entities.bullet.SparkingContinuousLaserBulletType")
-const UnstableEnergyBulletType = obtain("ion.entities.bullet.UnstableEnergyBulletType")
-const LimitedBlock = obtain("ion.world.blocks.LimitedBlock")
-
 //objects
+const Utils = getInstance("ion.defs.Utils")
+const TempVars = getInstance("ion.game.TempVars")
+const PermaVars = getInstance("ion.game.PermaVars")
 const IonAchievements = getInstance("ion.content.IonAchievements")
 const IonVars = getInstance("ion.IonVars")
 const IonUnitTypes = getInstance("ion.content.IonUnitTypes")
@@ -26,4 +18,3 @@ const IonTechTree = getInstance("ion.content.IonTechTree")
 const IColor = getInstance("ion.defs.IColor")
 const IDraw = getInstance("ion.defs.IDraw")
 const ISettings = getInstance("ion.ui.ISettings")
-const Utils = getInstance("ion.defs.Utils")
