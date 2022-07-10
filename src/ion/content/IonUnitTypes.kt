@@ -6,6 +6,7 @@ import arc.func.*
 import arc.math.*
 import arc.graphics.*
 import arc.graphics.g2d.*
+import arc.math.geom.Circle
 import mindustry.gen.*
 import mindustry.type.*
 import mindustry.type.weapons.*
@@ -20,7 +21,9 @@ import ion.defs.*
 import ion.type.weapons.*
 import ion.content.*
 import ion.entities.bullet.*
+import mindustry.entities.abilities.RepairFieldAbility
 import mindustry.entities.abilities.UnitSpawnAbility
+import mindustry.gen.Unit
 
 object IonUnitTypes{
 
@@ -36,6 +39,7 @@ object IonUnitTypes{
     lateinit var caretaker: UnitType
     lateinit var leader: UnitType
     lateinit var hive: UnitType
+    lateinit var commander: UnitType
 
     fun load(){
         orion = object : UnitType("orion"){
@@ -469,6 +473,24 @@ object IonUnitTypes{
                         }
                     }
                 )
+            }
+        }
+
+        commander = object : UnitType("commander"){
+            init{
+                flying = true
+                lowAltitude = true
+                health = 2300f
+                armor = 3.4f
+                speed = 1.85f
+                accel = 0.8f
+                drag = 0.04f
+                engineSize = 10f
+                engineOffset = 23f
+                hitSize = 45f
+                abilities.add(UnitSpawnAbility(UnitTypes.horizon, 30f, 0f, 0f))
+                abilities.add(RepairFieldAbility(20f, 10f, 200f))
+                constructor = Prov<mindustry.gen.Unit> { UnitEntity.create() }
             }
         }
     }
