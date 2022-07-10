@@ -6,9 +6,12 @@ import com.github.mnemotechnician.mkui.delegates.*
 
 /** Variable sets that are saved to your save file. Does not reset when the game is closed. */
 object PermaVars{
-    var testInt by setting(5, "ion-")
-    var testFloat by setting(7f, "ion-")
-    var killCountCampaign by setting(0, "ion-")
-    var killCountCustom by setting(0, "ion-")
-    var killCountAll by setting(0, "ion-")
+    val syn = "ion-"
+    
+    var testInt by setting(5, syn)
+    var testFloat by setting(7f, syn)
+    var killCountCampaign by setting(0, syn)
+    var killCountCustom by setting(0, syn)
+    var killCountAll by setting(0, syn)
+    var petCount by setting(0, syn)
 }

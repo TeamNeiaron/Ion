@@ -84,7 +84,7 @@ object IonAchievements{
         }
         
         cheesyPet = object : Achievement("cheesy-pet", "Cheesy Pet", {
-            if(TempVars.petCheese) it.unlock()
+            if(PermaVars.petCount > 0) it.unlock()
         }){
             init{
                 description = "Pet the Cheesy-chan. [pink]qwq[]"

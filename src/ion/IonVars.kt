@@ -9,12 +9,15 @@ import ion.ui.dialogs.*
 import ion.game.*
 import ion.content.*
 
+import java.time.*
+
 object IonVars{
 
     lateinit var achievementDisplay: AchievementDisplayDialog
     lateinit var achievementList: AchievementListDialog
     lateinit var achievementUnlocker: AchievementUnlockerDialog
     lateinit var secret: SecretDialog
+    lateinit var stats: StatsDialog
     
     val achievements = Seq<Achievement>(Achievement::class.java)
     val achievementInfo = Seq<String>(String::class.java)
@@ -24,6 +27,7 @@ object IonVars{
         achievementList = AchievementListDialog()
         achievementUnlocker = AchievementUnlockerDialog()
         secret = SecretDialog()
+        stats = StatsDialog()
         
         achievements.each(){
             achievementInfo.add("${it.displayName} - ${it.description}")

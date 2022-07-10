@@ -87,7 +87,7 @@ object IonSettings{
                     
                     "pet the cheesy-chan" -> ui.showConfirm("Question","have you gotten [accent]consent[]?"){
                         ui.showInfo("the cheesy-chan has been pet.")
-                        TempVars.petCheese = true
+                        PermaVars.petCount += 1
                     }
                     
                     "smiler" -> Utils.getAndWrite("https://cdn.discordapp.com/emojis/935868190012092466.png", Core.settings.getDataDirectory().child("sussmiler.png"), true){}
@@ -118,6 +118,10 @@ object IonSettings{
             
             it.textButton("Achievements", wrap = false){
                 IonVars.achievementList.show()
+            }.row()
+            
+            it.textButton("Stats", wrap = false){
+                IonVars.stats.show()
             }.row()
         }
     }
