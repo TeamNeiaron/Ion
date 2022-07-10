@@ -6,11 +6,14 @@ import arc.util.*
 import arc.util.io.*
 import arc.files.*
 import arc.scene.ui.*
+import arc.scene.style.*
 import arc.scene.ui.layout.*
+import arc.graphics.g2d.*
 import mindustry.*
 import mindustry.type.*
 import mindustry.type.ammo.*
 
+import ion.*
 import ion.game.*
 import ion.content.*
 
@@ -56,6 +59,10 @@ object Utils{
         return file
     }
     
+    fun clipboardAchievements(){
+        Core.app.setClipboardText(IonVars.achievementInfo.toString().replace(", ", "\n"))
+    }
+    
     fun haltSound(){
         Core.settings.put("musicvol", 0)
         Core.settings.put("sfxvol", 0)
@@ -71,5 +78,15 @@ object Utils{
     fun cheese(){
         IonItems.brass.localizedName = "Cheesestick"
         IonItems.brass.description = "Delicious!"
+    }
+    
+    fun checkMod(name: String): Boolean{
+        return Core.settings.getBool("mod-$name-enabled")
+    }
+    
+    fun draw(sprite: String): TextureRegionDrawable{
+        var a = TextureRegionDrawable(Core.atlas.find(sprite) as TextureRegion)
+        
+        return a
     }
 }

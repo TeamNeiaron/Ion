@@ -22,7 +22,7 @@ open class AchievementListDialog : BaseDialog{
         IonVars.achievements.each(){ a: Achievement ->
             cont.button(a.icon){
                 ach.show(a)
-            }
+            }.size(65f)
             if(!a.isUnlocked()){
                 cont.add("${a.displayName.get(0)}${a.displayName.get(1)}...").row()
             } else {

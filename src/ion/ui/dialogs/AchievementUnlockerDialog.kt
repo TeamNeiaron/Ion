@@ -23,7 +23,7 @@ open class AchievementUnlockerDialog : BaseDialog{
                 if(a.isUnlocked()){
                     Vars.ui.showConfirm("This achievement (${a.displayName}) is already unlocked!\nDo you want to lock it?"){ a.lock() }
                 } else { a.unlock() }
-            }
+            }.size(65f)
             if(!a.isUnlocked()){
                 cont.add("${a.displayName.get(0)}${a.displayName.get(1)}...").row()
             } else {

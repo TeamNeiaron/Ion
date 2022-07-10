@@ -23,7 +23,7 @@ open class AchievementDisplayDialog : BaseDialog{
         
         t.table{ s: Table ->
             if(ach.isUnlocked()){
-                s.addImage(ach.icon).row()
+                s.addImage(ach.icon).size(165f).row()
                 s.add("[accent]${dat[0]}[]").row()
                 s.add("Description: ${dat[1]}").row()
             } else {

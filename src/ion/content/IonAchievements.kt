@@ -5,6 +5,7 @@ import mindustry.*
 import mindustry.gen.*
 import mindustry.game.EventType.*
 
+import ion.defs.*
 import ion.game.*
 
 object IonAchievements{
@@ -16,6 +17,8 @@ object IonAchievements{
     lateinit var killingSpree: Achievement
     lateinit var unhinged: Achievement
     lateinit var genocide: Achievement
+    lateinit var cheesyPet: Achievement
+    lateinit var sk: Achievement
     
     fun load(){
         test = object : Achievement("test", "Test Achievement", {
@@ -77,6 +80,24 @@ object IonAchievements{
         }){
             init{
                 description = "Kill 10000 units."
+            }
+        }
+        
+        cheesyPet = object : Achievement("cheesy-pet", "Cheesy Pet", {
+            if(TempVars.petCheese) it.unlock()
+        }){
+            init{
+                description = "Pet the Cheesy-chan. [pink]qwq[]"
+                icon = Utils.draw("ion-cheesy-chan")
+            }
+        }
+        
+        sk = object : Achievement("sk", "Sk", {
+            if(Utils.checkMod("betamindy")) it.unlock()
+        }){
+            init{
+                description = "[pink]Do the SK."
+                icon = Utils.draw("ion-sk7725")
             }
         }
     }

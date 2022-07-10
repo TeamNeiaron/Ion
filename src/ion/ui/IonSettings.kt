@@ -11,6 +11,7 @@ import mindustry.ui.*
 import mindustry.gen.*
 
 import ion.*
+import ion.game.*
 import ion.ui.dialogs.*
 import ion.defs.*
 import ion.content.*
@@ -84,7 +85,10 @@ object IonSettings{
                     
                     "tantos" -> Threads.throwAppException(RuntimeException(tree["texts/tantos.txt"].readString()))
                     
-                    "pet the cheesy-chan" -> ui.showConfirm("Question","have you gotten [accent]consent[]?") { ui.showInfo("the cheesy-chan has been pet.") }
+                    "pet the cheesy-chan" -> ui.showConfirm("Question","have you gotten [accent]consent[]?"){
+                        ui.showInfo("the cheesy-chan has been pet.")
+                        TempVars.petCheese = true
+                    }
                     
                     "smiler" -> Utils.getAndWrite("https://cdn.discordapp.com/emojis/935868190012092466.png", Core.settings.getDataDirectory().child("sussmiler.png"), true){}
                     

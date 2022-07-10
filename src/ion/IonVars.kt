@@ -17,12 +17,17 @@ object IonVars{
     lateinit var secret: SecretDialog
     
     val achievements = Seq<Achievement>(Achievement::class.java)
+    val achievementInfo = Seq<String>(String::class.java)
     
     fun load(){
         achievementDisplay = AchievementDisplayDialog()
         achievementList = AchievementListDialog()
         achievementUnlocker = AchievementUnlockerDialog()
         secret = SecretDialog()
+        
+        achievements.each(){
+            achievementInfo.add("${it.displayName} - ${it.description}")
+        }
         
         Events.on(UnitDestroyEvent::class.java){
             if(it.unit.team != Vars.player.team() && !Vars.state.isCampaign()){
