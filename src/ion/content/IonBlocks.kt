@@ -37,6 +37,7 @@ object IonBlocks{
     lateinit var brassSmelter: Block
     lateinit var slagSolidifier: Block
     lateinit var petrifiedCoreConstructor: Block
+    lateinit var zincCondenser: Block
 
     //drills
     lateinit var stoneDrill: Block
@@ -278,6 +279,29 @@ object IonBlocks{
                 DrawLiquidTile(Liquids.slag, 0f),
                 DrawBubbles(Liquids.slag.color.cpy()),
                 DrawDefault()
+                )
+            }
+        }
+
+        zincCondenser = object : GenericCrafter("zinc-condenser"){
+            init{
+                requirements(Category.crafting, ItemStack.with(
+                    Items.lead, 120,
+                    Items.titanium, 120,
+                    Items.graphite, 140,
+                    Items.silicon, 150
+                ))
+                health = 400
+                size = 2
+                craftTime = 45f
+                craftEffect = Fx.fireSmoke
+                outputItem = ItemStack(IonItems.zinc, 2)
+                consumePower(1.4f)
+                consumeItems(
+                    *ItemStack.with(
+                        Items.titanium, 1,
+                        Items.coal, 1
+                    )
                 )
             }
         }

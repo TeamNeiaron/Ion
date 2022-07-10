@@ -23,7 +23,8 @@ object IonFx{
         Lines.square(e.x, e.y, e.fout(Interp.pow10In) * 50f, e.fin(Interp.smooth) * -180f)
         Lines.square(e.x, e.y, e.fout(Interp.pow10Out) * 50f, e.fin(Interp.smooth) * 180f)
     }
-    
+
+    /*
     val chargeEffect = Effect(140f){
         val e = it
         
@@ -37,6 +38,18 @@ object IonFx{
         Lines.line(e.x, e.y, e.x + e.fout(Interp.pow5In) * 40f, e.y + e.fout(Interp.pow5Out) * -50f)
         Lines.line(e.x, e.y, e.x + e.fout(Interp.pow5In) * -40f, e.y + e.fout(Interp.pow5Out) * -50f)
     }
+    */
+
+    val chargeEffect = Effect(140f){
+        val e = it
+
+        Draw.color(IColor.energy)
+        Lines.stroke(e.fin(Interp.smoother) * 7f)
+
+        Lines.circle(e.x, e.y, e.fout(Interp.pow5Out) * 50f)
+        Lines.circle(e.x, e.y, e.fout(Interp.pow3Out) * 30f)
+    }
+
     
     val xeusCharge = MultiEffect(geometryCharge, chargeEffect)
 

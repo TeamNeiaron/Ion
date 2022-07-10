@@ -17,6 +17,7 @@ public class IonTechTree{
     public static void load(){
         margeNode(siliconSmelter, () -> {
             node(IonBlocks.brassSmelter, Seq.with(new Research(IonItems.zinc)), () -> {});
+            node(IonBlocks.zincCondenser);
         });
         
         margeNode(copper, () -> {
@@ -45,7 +46,8 @@ public class IonTechTree{
             });
         });
     }
-    
+
+
     private static void margeNode(UnlockableContent parent, Runnable orphan){
         context = all.find(t -> t.content == parent);
         orphan.run(); /* kill() */
