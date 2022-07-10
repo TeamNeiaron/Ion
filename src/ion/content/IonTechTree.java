@@ -22,13 +22,34 @@ public class IonTechTree{
         
         margeNode(copper, () -> {
             node(IonItems.zinc, Seq.with(new Produce(IonItems.zinc)), () -> {});
+            node(IonItems.stone, Seq.with(new Produce(IonItems.stone)), () -> {
+                node(IonItems.petrifiedCore, Seq.with(new Produce(IonItems.petrifiedCore)), () -> {
+                });
+            });
+        });
+
+        margeNode(pneumaticDrill, () -> {
+            node(IonBlocks.stoneDrill, Seq.with(new Research(pneumaticDrill)), () -> {
+                node(IonBlocks.slagSolidifier, Seq.with(new Produce(IonItems.stone)), () -> {
+                    node(IonBlocks.petrifiedCoreConstructor, Seq.with(new Research(IonBlocks.stoneDrill)), () -> {});
+                });
+            });
+        });
+
+        margeNode(cyclone, () -> {
+            node(IonBlocks.defunction, Seq.with(new Produce(IonItems.stone)), () -> {
+                node(IonBlocks.eorphosia, Seq.with(new Produce(IonItems.petrifiedCore)), () -> {
+                });
+            });
         });
 
         margeNode(airFactory, () -> {
-            node(IonBlocks.gonicReconstructor, Seq.with(new Research(additiveReconstructor), new Research(IonItems.zinc)), () -> {
-                node(IonBlocks.alephReconstructor, () -> {
-                    node(IonBlocks.titanReconstructor, () -> {
-                        node(IonBlocks.colossalReconstructor);
+            node(IonBlocks.advancedAirFactory, () -> {
+                node(IonBlocks.gonicReconstructor, Seq.with(new Research(additiveReconstructor), new Research(IonItems.zinc)), () -> {
+                    node(IonBlocks.alephReconstructor, Seq.with(new Research(IonBlocks.gonicReconstructor)), () -> {
+                        node(IonBlocks.titanReconstructor, Seq.with(new Research(IonBlocks.alephReconstructor)), () -> {
+                            node(IonBlocks.colossalReconstructor, Seq.with(new Research(IonBlocks.titanReconstructor)), () -> {});
+                        });
                     });
                 });
             });
@@ -36,10 +57,10 @@ public class IonTechTree{
 
         margeNode(flare, () -> {
             node(IonUnitTypes.orion, Seq.with(new Research(IonItems.zinc)), () -> {
-                node(IonUnitTypes.xender, () -> {
-                    node(IonUnitTypes.astro, () -> {
-                        node(IonUnitTypes.geometry, () -> {
-                            node(IonUnitTypes.xeus);
+                node(IonUnitTypes.xender, Seq.with(new Research(IonUnitTypes.orion)),() -> {
+                    node(IonUnitTypes.astro, Seq.with(new Research(IonUnitTypes.xender)),() -> {
+                        node(IonUnitTypes.geometry, Seq.with(new Research(IonUnitTypes.astro)),() -> {
+                            node(IonUnitTypes.xeus, Seq.with(new Research(IonUnitTypes.geometry)));
                         });
                     });
                 });
