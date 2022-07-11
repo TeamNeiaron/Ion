@@ -9,6 +9,7 @@ import arc.graphics.g2d.*
 import arc.math.geom.Circle
 import mindustry.gen.*
 import mindustry.type.*
+import mindustry.type.unit.*
 import mindustry.type.weapons.*
 import mindustry.game.*
 import mindustry.content.*
@@ -482,14 +483,71 @@ object IonUnitTypes{
                 lowAltitude = true
                 health = 2300f
                 armor = 3.4f
-                speed = 1.85f
+                speed = 1.12f
                 accel = 0.8f
                 drag = 0.04f
                 engineSize = 10f
                 engineOffset = 23f
                 hitSize = 45f
+                rotateSpeed= 1.1f
+                
                 abilities.add(UnitSpawnAbility(UnitTypes.horizon, 20f * 60f, 0f, 0f))
                 constructor = Prov<mindustry.gen.Unit> { UnitEntity.create() }
+                
+                weapons.add(
+                    object : Weapon("interceptor"){
+                        init{
+                            x = 20f
+                            y = 5f
+                            mirror = true
+                            rotate = false
+                            reload = 180f
+                            baseRotation = -60f
+                            shootCone = 360f
+                            bullet.spawnUnit = object : MissileUnitType("distractor"){
+                                init{
+                                    health = 35f
+                                    speed = 3.4f
+                                    lifetime = 120f
+                                    rotateSpeed = 3.4f
+                                    engineSize = 1f
+                                    engineOffset = 0f
+                                }
+                                
+                                override fun load(){
+                                    super.load()
+                                    region = Core.atlas.find("clear")
+                                }
+                            }
+                        }
+                    },
+                    object : Weapon("interceptor-2"){
+                        init{
+                            x = 20f
+                            y = -5f
+                            mirror = true
+                            rotate = false
+                            reload = 185f
+                            baseRotation = -90f
+                            shootCone = 360f
+                            bullet.spawnUnit = object : MissileUnitType("distractor-2"){
+                                init{
+                                    health = 35f
+                                    speed = 3.4f
+                                    lifetime = 120f
+                                    rotateSpeed = 3.4f
+                                    engineSize = 1f
+                                    engineOffset = 0f
+                                }
+                                
+                                override fun load(){
+                                    super.load()
+                                    region = Core.atlas.find("clear")
+                                }
+                            }
+                        }
+                    }
+                )
             }
         }
     }
