@@ -488,8 +488,7 @@ object IonUnitTypes{
                 engineSize = 10f
                 engineOffset = 23f
                 hitSize = 45f
-                abilities.add(UnitSpawnAbility(UnitTypes.horizon, 30f, 0f, 0f))
-                abilities.add(RepairFieldAbility(20f, 10f, 200f))
+                abilities.add(UnitSpawnAbility(UnitTypes.horizon, 20f * 60f, 0f, 0f))
                 constructor = Prov<mindustry.gen.Unit> { UnitEntity.create() }
             }
         }
