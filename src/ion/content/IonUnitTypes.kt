@@ -504,6 +504,8 @@ object IonUnitTypes{
                             reload = 180f
                             baseRotation = -60f
                             shootCone = 360f
+                            inaccuracy = 25f
+                            shoot.shots = 3
                             bullet.spawnUnit = object : MissileUnitType("distractor"){
                                 init{
                                     health = 35f
@@ -530,6 +532,8 @@ object IonUnitTypes{
                             reload = 185f
                             baseRotation = -90f
                             shootCone = 360f
+                            inaccuracy = 25f
+                            shoot.shots = 3
                             bullet.spawnUnit = object : MissileUnitType("distractor-2"){
                                 init{
                                     health = 35f

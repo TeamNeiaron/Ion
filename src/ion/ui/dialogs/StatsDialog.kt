@@ -20,6 +20,7 @@ open class StatsDialog : BaseDialog{
         cont.add("Kill Count (Campaign): ${PermaVars.killCountCampaign}").row()
         cont.add("Kill Count (Custom): ${PermaVars.killCountCustom}").row()
         cont.add("Kill Count (Campaign + Custom): ${PermaVars.killCountAll}").row()
+        //i ponder
         cont.add("Headpat Count (Cheesy-chan): ${PermaVars.petCount}").row()
         
         return super.show()
