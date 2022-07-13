@@ -88,7 +88,7 @@ object IonAchievements{
         }){
             init{
                 description = "Pet the Cheesy-chan. [pink]qwq[]"
-                icon = Utils.draw("ion-cheesy-chan")
+                icon = Utils.draw("ion-cheesy-chan", 50f)
             }
         }
         
@@ -97,7 +97,7 @@ object IonAchievements{
         }){
             init{
                 description = "[pink]Do the SK."
-                icon = Utils.draw("ion-sk7725")
+                icon = Utils.draw("ion-sk7725", 50f)
             }
         }
     }

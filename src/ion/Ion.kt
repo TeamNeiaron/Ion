@@ -12,7 +12,6 @@ import mindustry.ui.dialogs.*
 import ion.ui.*
 import ion.content.*
 
-
 class Ion : Mod(){
     
     init{
@@ -21,6 +20,9 @@ class Ion : Mod(){
             IonAchievements.load()
             IonVars.load()
             IonSettings.load()
+            
+            val control = ControlButton()
+            control.build(Vars.ui.hudGroup)
             
             Vars.mods.getScripts().runConsole(Vars.tree["scripts/http.js"].readString())
             Vars.mods.getScripts().runConsole(Vars.tree["scripts/core.js"].readString())

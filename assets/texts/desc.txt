@@ -1,5 +1,7 @@
 A mindustry mod project.
 
-Authors:
-SMOLKEYS (Mod Owner/Main Coder)
+Contributors:
+SMOLKEYS (Mod Owner/Coder)
 xjammuux/xjamiex (Spriter/Coder)
+Cheesy-chan (Made the headpatted cheesy-chan image)
+Liplum (Made the custom buildscript for this mod)

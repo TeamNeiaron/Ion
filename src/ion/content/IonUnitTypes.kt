@@ -22,6 +22,7 @@ import ion.defs.*
 import ion.type.weapons.*
 import ion.content.*
 import ion.entities.bullet.*
+import ion.entities.abilities.*
 import mindustry.entities.abilities.RepairFieldAbility
 import mindustry.entities.abilities.UnitSpawnAbility
 import mindustry.gen.Unit
@@ -302,7 +303,7 @@ object IonUnitTypes{
                 hitSize = 13f
 
                 constructor = Prov<mindustry.gen.Unit> { UnitEntity.create() }
-                abilities.add(UnitSpawnAbility(UnitTypes.flare, 13f * 60f, 0f, 0f))
+                abilities.add(ControllableUnitSpawnAbility(UnitTypes.flare, 13f * 60f, 0f, 0f))
 
                 weapons.add(
                     object : Weapon("caretaker-orb"){
@@ -344,7 +345,7 @@ object IonUnitTypes{
                 hitSize = 13f
 
                 constructor = Prov<mindustry.gen.Unit> { UnitEntity.create() }
-                abilities.add(UnitSpawnAbility(UnitTypes.flare, 7.8f * 60f, 0f, 2f))
+                abilities.add(ControllableUnitSpawnAbility(UnitTypes.flare, 7.8f * 60f, 0f, 2f))
 
                 weapons.add(
                     object : Weapon("leader-bomb"){
@@ -414,7 +415,7 @@ object IonUnitTypes{
                 engineSize = 8f
                 engineOffset = 20f
                 hitSize = 29f
-                abilities.add(UnitSpawnAbility(UnitTypes.flare, 30f * 60f, 0f, 0f))
+                abilities.add(ControllableUnitSpawnAbility(UnitTypes.flare, 30f * 60f, 0f, 0f))
                 
                 constructor = Prov<mindustry.gen.Unit> { UnitEntity.create() }
                 
@@ -491,7 +492,7 @@ object IonUnitTypes{
                 hitSize = 45f
                 rotateSpeed= 1.1f
                 
-                abilities.add(UnitSpawnAbility(UnitTypes.horizon, 20f * 60f, 0f, 0f))
+                abilities.add(ControllableUnitSpawnAbility(UnitTypes.horizon, 20f * 60f, 0f, 0f))
                 constructor = Prov<mindustry.gen.Unit> { UnitEntity.create() }
                 
                 weapons.add(
@@ -515,6 +516,11 @@ object IonUnitTypes{
                                     engineSize = 1f
                                     engineOffset = 0f
                                 }
+                                
+                                override fun load(){
+                                    super.load()
+                                    region = Core.atlas.find("clear")
+                                }
                             }
                         }
                     },
@@ -537,6 +543,11 @@ object IonUnitTypes{
                                     rotateSpeed = 3.4f
                                     engineSize = 1f
                                     engineOffset = 0f
+                                }
+                                
+                                override fun load(){
+                                    super.load()
+                                    region = Core.atlas.find("clear")
                                 }
                             }
                         }

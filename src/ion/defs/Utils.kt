@@ -84,8 +84,8 @@ object Utils{
         return Core.settings.getBool("mod-$name-enabled")
     }
     
-    fun draw(sprite: String): TextureRegionDrawable{
-        var a = TextureRegionDrawable(Core.atlas.find(sprite) as TextureRegion)
+    fun draw(sprite: String, scale: Float): TextureRegionDrawable{
+        var a = TextureRegionDrawable(Core.atlas.find(sprite) as TextureRegion, scale)
         
         return a
     }
