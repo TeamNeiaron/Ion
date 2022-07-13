@@ -11,10 +11,10 @@ author: "TeamNeiaron"
 main: "ion.Ion"
 
 #the mod description as seen in the mod dialog
-description: "once apon a time, a mod was born, it consists of the darkest energy known to man..."
+description: "Chaos ensues. Open the game with this mod enabled for the description to update correctly."
 
 #the mod version
-version: 0
+version: "0.1.0"
 
 #the minimum game build required to run this mod
 minGameVersion: 136
