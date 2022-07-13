@@ -515,11 +515,6 @@ object IonUnitTypes{
                                     engineSize = 1f
                                     engineOffset = 0f
                                 }
-                                
-                                override fun load(){
-                                    super.load()
-                                    region = Core.atlas.find("clear")
-                                }
                             }
                         }
                     },
@@ -542,11 +537,6 @@ object IonUnitTypes{
                                     rotateSpeed = 3.4f
                                     engineSize = 1f
                                     engineOffset = 0f
-                                }
-                                
-                                override fun load(){
-                                    super.load()
-                                    region = Core.atlas.find("clear")
                                 }
                             }
                         }
