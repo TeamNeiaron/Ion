@@ -509,12 +509,13 @@ object IonUnitTypes{
                             shoot.shots = 3
                             bullet.spawnUnit = object : MissileUnitType("distractor"){
                                 init{
-                                    health = 35f
+                                    health = 1000f
                                     speed = 3.4f
-                                    lifetime = 120f
+                                    lifetime = 250f
                                     rotateSpeed = 3.4f
                                     engineSize = 1f
                                     engineOffset = 0f
+                                    hitSize = 10f
                                 }
                             }
                         }
@@ -532,12 +533,13 @@ object IonUnitTypes{
                             shoot.shots = 3
                             bullet.spawnUnit = object : MissileUnitType("distractor-2"){
                                 init{
-                                    health = 35f
+                                    health = 1000f
                                     speed = 3.4f
-                                    lifetime = 120f
+                                    lifetime = 250f
                                     rotateSpeed = 3.4f
                                     engineSize = 1f
                                     engineOffset = 0f
+                                    hitSize = 10f
                                 }
                             }
                         }
