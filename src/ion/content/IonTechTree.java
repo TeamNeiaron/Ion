@@ -66,6 +66,14 @@ public class IonTechTree{
                 });
             });
         });
+
+        margeNode(flare, () -> {
+            node(IonUnitTypes.caretaker, Seq.with(new Research(IonItems.zinc)), () -> {
+                node(IonUnitTypes.leader, Seq.with(new Research(IonUnitTypes.caretaker)),() -> {
+                    node(IonUnitTypes.hive, Seq.with(new Research(IonUnitTypes.leader)),() -> {});
+                });
+            });
+        });
     }
 
 
