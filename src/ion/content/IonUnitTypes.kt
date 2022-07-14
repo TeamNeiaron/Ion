@@ -489,7 +489,6 @@ object IonUnitTypes{
                 engineOffset = 23f
                 hitSize = 45f
                 rotateSpeed= 1.1f
-
                 abilities.add(ForceFieldAbility(150f, 2f, 1000f, 60f * 10));
                 abilities.add(ControllableUnitSpawnAbility(UnitTypes.horizon, 20f * 60f, 0f, 0f))
                 constructor = Prov<mindustry.gen.Unit> { UnitEntity.create() }
@@ -515,6 +514,7 @@ object IonUnitTypes{
                                     engineSize = 1f
                                     engineOffset = 0f
                                     hitSize = 10f
+                                    trailLength = 10
                                 }
                             }
                         }
@@ -539,6 +539,7 @@ object IonUnitTypes{
                                     engineSize = 1f
                                     engineOffset = 0f
                                     hitSize = 10f
+                                    trailLength = 10
                                 }
                             }
                         }
