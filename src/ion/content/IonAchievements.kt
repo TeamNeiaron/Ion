@@ -18,6 +18,8 @@ object IonAchievements{
     lateinit var unhinged: Achievement
     lateinit var genocide: Achievement
     lateinit var cheesyPet: Achievement
+    lateinit var cheesyPet2: Achievement
+    lateinit var cheesyPet3: Achievement
     lateinit var sk: Achievement
     
     fun load(){
@@ -84,11 +86,29 @@ object IonAchievements{
         }
         
         cheesyPet = object : Achievement("cheesy-pet", "Cheesy Pet", {
-            if(PermaVars.petCount > 0) it.unlock()
+            if(PermaVars.petCount >= 1) it.unlock()
         }){
             init{
-                description = "Pet the Cheesy-chan. [pink]qwq[]"
-                icon = Utils.draw("ion-cheesy-chan", 50f)
+                description = "Pet Cheesy-chan. [pink]qwq[]"
+                icon = Utils.draw("ion-cheesy-chan", 1.3f)
+            }
+        }
+        
+        cheesyPet2 = object : Achievement("cheesy-pet-2", "Cheesy Pet 2", {
+            if(PermaVars.petCount >= 10) it.unlock()
+        }){
+            init{
+                description = "Pet Cheesy-chan 10 times. [pink]owo[]"
+                icon = Utils.draw("ion-cheesy-chan", 1.3f)
+            }
+        }
+        
+        cheesyPet3 = object : Achievement("cheesy-pet-3", "Cheesy Pet 3", {
+            if(PermaVars.petCount >= 50) it.unlock()
+        }){
+            init{
+                description = "Pet Cheesy-chan 50 times. [pink]uwu[]"
+                icon = Utils.draw("ion-cheesy-chan", 1.3f)
             }
         }
         
@@ -97,7 +117,7 @@ object IonAchievements{
         }){
             init{
                 description = "[pink]Do the SK."
-                icon = Utils.draw("ion-sk7725", 50f)
+                icon = Utils.draw("ion-sk7725", 1.3f)
             }
         }
     }
