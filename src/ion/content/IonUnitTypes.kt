@@ -1,31 +1,29 @@
 package ion.content
 
 import arc.*
-import arc.util.*
 import arc.func.*
-import arc.math.*
 import arc.graphics.*
 import arc.graphics.g2d.*
-import arc.math.geom.Circle
+import arc.math.*
+import arc.util.*
+import ion.content.*
+import ion.defs.*
+import ion.entities.abilities.*
+import ion.entities.bullet.*
+import ion.type.weapons.*
+import mindustry.content.*
+import mindustry.entities.abilities.ForceFieldAbility
+import mindustry.entities.bullet.*
+import mindustry.entities.part.*
+import mindustry.entities.pattern.*
+import mindustry.game.*
 import mindustry.gen.*
+import mindustry.graphics.*
 import mindustry.type.*
 import mindustry.type.unit.*
 import mindustry.type.weapons.*
-import mindustry.game.*
-import mindustry.content.*
-import mindustry.graphics.*
-import mindustry.entities.part.*
-import mindustry.entities.bullet.*
-import mindustry.entities.pattern.*
+import mindustry.world.meta.Stat
 
-import ion.defs.*
-import ion.type.weapons.*
-import ion.content.*
-import ion.entities.bullet.*
-import ion.entities.abilities.*
-import mindustry.entities.abilities.RepairFieldAbility
-import mindustry.entities.abilities.UnitSpawnAbility
-import mindustry.gen.Unit
 
 object IonUnitTypes{
 
@@ -491,7 +489,8 @@ object IonUnitTypes{
                 engineOffset = 23f
                 hitSize = 45f
                 rotateSpeed= 1.1f
-                
+
+                abilities.add(ForceFieldAbility(150f, 2f, 1000f, 60f * 10));
                 abilities.add(ControllableUnitSpawnAbility(UnitTypes.horizon, 20f * 60f, 0f, 0f))
                 constructor = Prov<mindustry.gen.Unit> { UnitEntity.create() }
                 
