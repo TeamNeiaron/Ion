@@ -10,6 +10,7 @@ import mindustry.game.EventType.*
 import mindustry.ctype.*
 
 import ion.*
+import ion.defs.*
 
 import java.lang.*
 
@@ -35,7 +36,7 @@ open class Achievement{
      * See IonAchievements for more info.
      */
     constructor(name: String, displayName: String, conditions: Cons<Achievement>) : this(name, displayName){
-        Timer.schedule({ if(!this.isUnlocked()) conditions.get(this) }, 1f, 1f, -1)
+        Utils.loop(0.5f){ if(!this.isUnlocked()) conditions.get(this) }
     }
     
     fun load(){

@@ -85,9 +85,21 @@ object IonSettings{
                     
                     "tantos" -> Threads.throwAppException(RuntimeException(tree["texts/tantos.txt"].readString()))
                     
-                    "pet the cheesy-chan" -> ui.showConfirm("Question","have you gotten [accent]consent[]?"){
-                        ui.showInfo("the cheesy-chan has been pet.")
-                        PermaVars.petCount += 1
+                    "pet the cheesy-chan" -> ui.showConfirm("Question","Do so?"){
+                        if(PermaVars.messyHair){
+                            if(PermaVars.suspensive){
+                                ui.showInfo("Cheesy-chan has been pet.\nHer hair is all messy now.\n\nI'll be more than just a mere \"pet\"...")
+                                PermaVars.messyHair = false
+                                PermaVars.petCount += 1
+                            } else {
+                                ui.showInfo("Cheesy-chan has been pet.\nHer hair is all messy now.\nShe is now sad. Do something about it.")
+                                PermaVars.messyHair = false
+                                PermaVars.petCount += 1
+                            }
+                        } else {
+                            ui.showInfo("Cheesy-chan has been pet.")
+                            PermaVars.petCount += 1
+                        }
                     }
                     
                     "smiler" -> Utils.getAndWrite("https://cdn.discordapp.com/emojis/935868190012092466.png", Core.settings.getDataDirectory().child("sussmiler.png"), true){}
@@ -103,6 +115,8 @@ object IonSettings{
                     "explosion" -> Sounds.explosionbig.play(1984f) //well time to delete my ears
                     
                     "reset" -> IonVars.secret.show(tree["texts/change.txt"].readString(), true)
+                    
+                    "time to be sussy" -> PermaVars.suspensive = true
                 }
             }
             

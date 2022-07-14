@@ -75,6 +75,7 @@ object IonAchievements{
         
         genocide = object : Achievement("genocide", "Genocide", {
             if(PermaVars.killCountCampaign >= 10000){
+                it.unlock()
                 Vars.ui.showInfo("You're kind of a freak, you know that?")
                 Groups.unit.each(){ it.kill() }
                 Groups.build.each(){ it.kill() }
@@ -95,11 +96,14 @@ object IonAchievements{
         }
         
         cheesyPet2 = object : Achievement("cheesy-pet-2", "Cheesy Pet 2", {
-            if(PermaVars.petCount >= 10) it.unlock()
+            if(PermaVars.petCount >= 10){
+                it.unlock()
+                PermaVars.messyHair = true
+            }
         }){
             init{
-                description = "Pet Cheesy-chan 10 times. [pink]owo[]"
-                icon = Utils.draw("ion-cheesy-chan", 1.3f)
+                description = "Pet Cheesy-chan 10 times. [cyan]TwT[]"
+                icon = Utils.draw("ion-cheesy-chan-sad", 1.3f)
             }
         }
         
@@ -107,7 +111,7 @@ object IonAchievements{
             if(PermaVars.petCount >= 50) it.unlock()
         }){
             init{
-                description = "Pet Cheesy-chan 50 times. [pink]uwu[]"
+                description = "Pet Cheesy-chan 50 times. [scarlet]>_<[]"
                 icon = Utils.draw("ion-cheesy-chan", 1.3f)
             }
         }

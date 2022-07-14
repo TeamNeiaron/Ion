@@ -95,4 +95,8 @@ object Utils{
         
         return a
     }
+    
+    fun loop(delay: Float, runnable: () -> Unit){
+        Timer.schedule(runnable, delay, delay, -1)
+    }
 }

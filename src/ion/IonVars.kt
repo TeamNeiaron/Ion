@@ -6,6 +6,7 @@ import mindustry.*
 import mindustry.game.EventType.*
 
 import ion.ui.dialogs.*
+import ion.defs.*
 import ion.game.*
 import ion.content.*
 
@@ -41,7 +42,10 @@ object IonVars{
             if(it.unit.team != Vars.player.team() && Vars.state.isCampaign()){
                 PermaVars.killCountCampaign += 1
                 PermaVars.killCountAll += 1
+                TempVars.kill5 += 1
             }
         }
+        
+        Utils.loop(5f){ TempVars.kill5 = 0 }
     }
 }

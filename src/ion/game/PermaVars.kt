@@ -14,4 +14,6 @@ object PermaVars{
     var killCountCustom by setting(0, syn)
     var killCountAll by setting(0, syn)
     var petCount by setting(0, syn)
+    var messyHair by setting(false, syn)
+    var suspensive by setting(false, syn)
 }
