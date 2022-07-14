@@ -102,7 +102,7 @@ object IonAchievements{
             }
         }){
             init{
-                description = "Pet Cheesy-chan 10 times. [cyan]TwT[]"
+                description = "Pet Cheesy-chan 10 times. [cyan]T~T[]"
                 icon = Utils.draw("ion-cheesy-chan-sad", 1.3f)
             }
         }
