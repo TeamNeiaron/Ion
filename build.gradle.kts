@@ -21,8 +21,8 @@ sourceSets {
 }
 
 dependencies {
-    compileOnly("com.github.Anuken.Arc:arc-core:master-SNAPSHOT")
-    compileOnly("com.github.Anuken.MindustryJitpack:core:06cd8f47c9")
+    compileOnly("com.github.Anuken.Arc:arc-core:47925a7b91")
+    compileOnly("com.github.Anuken.MindustryJitpack:core:191e05f23f")
     implementation("com.github.mnemotechnician:mkui:v1.0")
 }
 

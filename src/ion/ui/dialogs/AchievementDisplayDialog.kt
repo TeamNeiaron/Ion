@@ -27,7 +27,7 @@ open class AchievementDisplayDialog : BaseDialog{
                 s.add("[accent]${dat[0]}[]").row()
                 s.add("Description: ${dat[1]}").row()
             } else {
-                for(i in 0..1){
+                for(i in 0..2){
                     s.add("???").row()
                 }
             }
