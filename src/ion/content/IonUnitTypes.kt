@@ -1,28 +1,27 @@
 package ion.content
 
-import arc.*
-import arc.func.*
-import arc.graphics.*
-import arc.graphics.g2d.*
-import arc.math.*
-import arc.util.*
-import ion.content.*
-import ion.defs.*
-import ion.entities.abilities.*
-import ion.entities.bullet.*
-import ion.type.weapons.*
-import mindustry.content.*
+import arc.func.Prov
+import arc.graphics.Color
+import ion.defs.IColor
+import ion.entities.abilities.ControllableUnitSpawnAbility
+import ion.type.weapons.SpinnyWeapon
+import mindustry.content.Fx
+import mindustry.content.StatusEffects
+import mindustry.content.UnitTypes
 import mindustry.entities.abilities.ForceFieldAbility
-import mindustry.entities.bullet.*
-import mindustry.entities.part.*
-import mindustry.entities.pattern.*
-import mindustry.game.*
-import mindustry.gen.*
-import mindustry.graphics.*
-import mindustry.type.*
-import mindustry.type.unit.*
-import mindustry.type.weapons.*
-import mindustry.world.meta.Stat
+import mindustry.entities.bullet.BasicBulletType
+import mindustry.entities.bullet.LaserBulletType
+import mindustry.entities.bullet.LightningBulletType
+import mindustry.entities.part.HaloPart
+import mindustry.entities.part.ShapePart
+import mindustry.entities.pattern.ShootSpread
+import mindustry.gen.Sounds
+import mindustry.gen.UnitEntity
+import mindustry.graphics.Layer
+import mindustry.type.UnitType
+import mindustry.type.Weapon
+import mindustry.type.unit.MissileUnitType
+import mindustry.type.weapons.RepairBeamWeapon
 
 
 object IonUnitTypes{
@@ -99,7 +98,7 @@ object IonUnitTypes{
                             x = 0f
                             y = -4.3f
                             mirror = false
-                            shootStatusDuration = 5f;
+                            shootStatusDuration = 5f
                             shoot = ShootSpread(2, 2f)
                             bullet = object : LaserBulletType(34f){
                                 init{
@@ -222,7 +221,7 @@ object IonUnitTypes{
                             shootSound = Sounds.beam
                             shoot.firstShotDelay = IonFx.chargeEffect.lifetime
                             bullet = IonBullets.xeusLaser
-                            shootStatusDuration = 140f;
+                            shootStatusDuration = 140f
                             shootStatus = StatusEffects.unmoving
                         }
                     }, object : SpinnyWeapon("geo-caller"){
@@ -489,7 +488,7 @@ object IonUnitTypes{
                 engineOffset = 23f
                 hitSize = 45f
                 rotateSpeed= 1.1f
-                abilities.add(ForceFieldAbility(150f, 2f, 1000f, 60f * 10));
+                abilities.add(ForceFieldAbility(150f, 2f, 1000f, 60f * 10))
                 abilities.add(ControllableUnitSpawnAbility(UnitTypes.horizon, 20f * 60f, 0f, 0f))
                 constructor = Prov<mindustry.gen.Unit> { UnitEntity.create() }
                 
