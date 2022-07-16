@@ -15,9 +15,10 @@ import mindustry.Vars.*
 import mindustry.gen.Icon
 import mindustry.gen.Sounds
 
+@Suppress("SpellCheckingInspection")
 object IonSettings{
     
-    val tmpDir: Fi = Core.settings.getDataDirectory().child("ion.jar")
+    val tmpDir: Fi = Core.settings.dataDirectory.child("ion.jar")
 
     fun load(){
         
@@ -97,7 +98,7 @@ object IonSettings{
                         }
                     }
                     
-                    "smiler" -> Utils.getAndWrite("https://cdn.discordapp.com/emojis/935868190012092466.png", Core.settings.getDataDirectory().child("sussmiler.png"), true){}
+                    "smiler" -> Utils.getAndWrite("https://cdn.discordapp.com/emojis/935868190012092466.png", Core.settings.dataDirectory.child("sussmiler.png"), true){}
                     
                     "test unlocker" -> IonVars.achievementUnlocker.show()
                     

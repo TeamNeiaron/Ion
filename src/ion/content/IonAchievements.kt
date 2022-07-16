@@ -75,8 +75,8 @@ object IonAchievements{
             if(PermaVars.killCountCampaign >= 10000){
                 it.unlock()
                 Vars.ui.showInfo("You're kind of a freak, you know that?")
-                Groups.unit.each(){ it.kill() }
-                Groups.build.each(){ it.kill() }
+                Groups.unit.each{ it.kill() }
+                Groups.build.each{ it.kill() }
             }
         }){
             init{

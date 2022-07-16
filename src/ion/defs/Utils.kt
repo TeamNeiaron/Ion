@@ -1,5 +1,3 @@
-@file:Suppress("unused", "SpellCheckingInspection", "UNUSED_EXPRESSION")
-
 package ion.defs
 
 import arc.Core
@@ -14,6 +12,7 @@ import ion.IonVars
 import ion.content.IonItems
 import mindustry.Vars
 
+@Suppress("unused", "SpellCheckingInspection", "UNUSED_EXPRESSION")
 object Utils{
     /** Gets the result of a link and writes it to a file. */
     fun getAndWrite(

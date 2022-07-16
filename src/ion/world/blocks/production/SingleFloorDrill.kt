@@ -17,7 +17,8 @@ import mindustry.type.Item
 import mindustry.world.blocks.environment.Floor
 
 /** A Drill that can only be placed on a specific floor. Exists to prevent conflicts with other mods. */
-open class SingleFloorDrill(name: String, floor: Floor, output: Item) : LimitedBlock(name, floor) {
+@Suppress("unused")
+open class SingleFloorDrill(name: String, floor: Floor, output: Item?) : LimitedBlock(name, floor) {
     
     var outputItem = output
     var drillEffect: Effect = Fx.none

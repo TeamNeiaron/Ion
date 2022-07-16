@@ -4,6 +4,7 @@ import arc.util.Time
 import mindustry.entities.units.WeaponMount
 import mindustry.type.Weapon
 
+/** An extension of Weapon that rotates indefinitely. */
 open class SpinnyWeapon(name: String) : Weapon(name) {
     
     var spinSpeed = 0.8f
