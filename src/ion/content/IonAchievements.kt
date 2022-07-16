@@ -1,12 +1,10 @@
 package ion.content
 
-import arc.*
-import mindustry.*
-import mindustry.gen.*
-import mindustry.game.EventType.*
-
-import ion.defs.*
-import ion.game.*
+import ion.defs.Utils
+import ion.game.Achievement
+import ion.game.PermaVars
+import mindustry.Vars
+import mindustry.gen.Groups
 
 object IonAchievements{
     lateinit var test: Achievement

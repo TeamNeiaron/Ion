@@ -1,17 +1,13 @@
 package ion.ui.dialogs
 
-import arc.scene.ui.*
-import arc.scene.ui.layout.*
-import mindustry.ui.dialogs.*
+import arc.scene.ui.ScrollPane
+import arc.scene.ui.layout.Table
+import com.github.mnemotechnician.mkui.extensions.dsl.addImage
+import ion.game.Achievement
+import mindustry.ui.dialogs.BaseDialog
 
-import ion.game.*
-import ion.defs.*
-import ion.content.*
-
-import com.github.mnemotechnician.mkui.extensions.dsl.*
-
-open class AchievementDisplayDialog : BaseDialog{
-    constructor() : super("Achievement"){
+open class AchievementDisplayDialog : BaseDialog("Achievement") {
+    init{
         addCloseButton()
     }
     

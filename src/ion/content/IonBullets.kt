@@ -1,17 +1,13 @@
 package ion.content
 
-import arc.*
 import arc.graphics.Color
 import mindustry.content.*
 import mindustry.graphics.*
 import mindustry.entities.part.*
-import mindustry.entities.part.DrawPart.*
 import mindustry.entities.bullet.*
 
-import ion.content.*
 import ion.defs.IColor
 import ion.entities.bullet.*
-import mindustry.entities.effect.MultiEffect
 
 object IonBullets{
     

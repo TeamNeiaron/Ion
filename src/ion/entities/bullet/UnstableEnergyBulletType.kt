@@ -1,28 +1,19 @@
 package ion.entities.bullet
 
-import arc.math.*
-import arc.graphics.*
-import arc.graphics.g2d.*
-import mindustry.gen.*
-import mindustry.entities.*
-import mindustry.entities.bullet.*
-import mindustry.graphics.*
+import arc.graphics.Color
+import arc.graphics.g2d.Draw
+import arc.graphics.g2d.Fill
+import arc.math.Mathf
+import mindustry.entities.Lightning
+import mindustry.entities.bullet.BulletType
+import mindustry.gen.Bullet
+import mindustry.graphics.Layer
 
-import ion.defs.*
+open class UnstableEnergyBulletType(var lightningSpawnChance: Double) : BulletType() {
 
-open class UnstableEnergyBulletType : BulletType{
-    
-    var lightningSpawnChance = 0.1
-    @JvmField var lightningDamage = 1f
-    @JvmField var lightningLength = 17
-    @JvmField var lightningColor = Color.white
     var orb = true
-    var color = Color.white
-    
-    constructor(lightningSpawnChance: Double) : super(){
-        this.lightningSpawnChance = lightningSpawnChance
-    }
-    
+    var color: Color? = Color.white
+
     override fun draw(b: Bullet){
         Draw.z(Layer.bullet)
         Draw.color(color)
@@ -35,10 +26,10 @@ open class UnstableEnergyBulletType : BulletType{
     }
     
     override fun update(b: Bullet){
-        super.update(b);
-        
+        super.update(b)
+
         if(Mathf.chanceDelta(lightningSpawnChance)){
-            Lightning.create(b.team, lightningColor, lightningDamage, b.x, b.y, Mathf.random(-360f, 360f), lightningLength);
+            Lightning.create(b.team, lightningColor, lightningDamage, b.x, b.y, Mathf.random(-360f, 360f), lightningLength)
         }
     }
 }

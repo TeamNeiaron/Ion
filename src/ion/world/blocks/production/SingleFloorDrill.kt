@@ -1,32 +1,31 @@
 package ion.world.blocks.production
 
-import arc.*
-import arc.math.*
-import arc.util.*
-import arc.util.io.*
-import arc.graphics.*
-import arc.graphics.g2d.*
-import mindustry.gen.*
-import mindustry.type.*
-import mindustry.world.blocks.production.*
-import mindustry.world.blocks.environment.*
-import mindustry.content.*
-import mindustry.entities.*
-import mindustry.graphics.*
-
-import ion.world.blocks.*
+import arc.Core
+import arc.graphics.g2d.Draw
+import arc.math.Mathf
+import arc.util.Time
+import arc.util.io.Reads
+import arc.util.io.Writes
+import ion.world.blocks.LimitedBlock
+import mindustry.content.Fx
+import mindustry.entities.Effect
+import mindustry.gen.Building
+import mindustry.graphics.Drawf
+import mindustry.graphics.Layer
+import mindustry.type.Category
+import mindustry.type.Item
+import mindustry.world.blocks.environment.Floor
 
 /** A Drill that can only be placed on a specific floor. Exists to prevent conflicts with other mods. */
-open class SingleFloorDrill : LimitedBlock{
+open class SingleFloorDrill(name: String, floor: Floor, output: Item) : LimitedBlock(name, floor) {
     
-    var outputItem = Items.copper
-    var drillEffect = Fx.none
+    var outputItem = output
+    var drillEffect: Effect = Fx.none
     var drillTime = 120f
     var drillBitSpeed = 2.3f
     var amount = 3
-    
-    constructor(name: String, floor: Floor, output: Item) : super(name, floor){
-        outputItem = output
+
+    init{
         update = true
         solid = true
         hasItems = true
@@ -42,21 +41,21 @@ open class SingleFloorDrill : LimitedBlock{
             super.updateTile()
             if(floor() != floor) kill() //yeah screw you payload unit users
             if(outputItem != null){
-                
+
                 if(!items.empty()){
                     dump(outputItem)
                 }
-                
+
                 progress += Time.delta * efficiency()
-                
+
                 if(progress >= drillTime){
-                    if(items.has(outputItem, itemCapacity)){
+                    progress = if(items.has(outputItem, itemCapacity)){
                         items.set(outputItem, itemCapacity)
-                        progress = 0f;
+                        0f
                     } else {
                         items.add(outputItem, amount)
                         drillEffect.at(x + Mathf.range(block.size * 6), y + Mathf.range(block.size * 6))
-                        progress = 0f;
+                        0f
                     }
                 }
             }

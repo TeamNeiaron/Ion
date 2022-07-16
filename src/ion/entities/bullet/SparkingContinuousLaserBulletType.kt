@@ -1,22 +1,12 @@
 package ion.entities.bullet
 
-import arc.math.*
-import arc.graphics.*
-import mindustry.gen.*
-import mindustry.entities.*
-import mindustry.entities.bullet.*
+import arc.math.Mathf
+import mindustry.entities.Lightning
+import mindustry.entities.bullet.ContinuousLaserBulletType
+import mindustry.gen.Bullet
 
-open class SparkingContinuousLaserBulletType : ContinuousLaserBulletType{
-    
-    var lightningSpawnChance = 0.3
-    @JvmField var LightningDamage = 1f
-    @JvmField var LightningLength = 24
-    @JvmField var LightningColor = Color.white;
-    
-    constructor(lightningSpawnChance: Double) : super(){
-        this.lightningSpawnChance = lightningSpawnChance
-    }
-    
+open class SparkingContinuousLaserBulletType(var lightningSpawnChance: Double) : ContinuousLaserBulletType() {
+
     override fun update(b: Bullet){
         super.update(b)
         

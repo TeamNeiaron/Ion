@@ -1,15 +1,17 @@
 package ion.content;
 
-import arc.struct.*;
-import mindustry.type.*;
-import mindustry.game.Objectives.*;
-import mindustry.ctype.*;
-import ion.content.*;
+import arc.struct.Seq;
+import mindustry.ctype.UnlockableContent;
+import mindustry.game.Objectives.Objective;
+import mindustry.game.Objectives.Produce;
+import mindustry.game.Objectives.Research;
+import mindustry.type.ItemStack;
 
-import static mindustry.content.Items.*;
 import static mindustry.content.Blocks.*;
-import static mindustry.content.UnitTypes.*;
-import static mindustry.content.TechTree.*;
+import static mindustry.content.Items.copper;
+import static mindustry.content.TechTree.TechNode;
+import static mindustry.content.TechTree.all;
+import static mindustry.content.UnitTypes.flare;
 
 public class IonTechTree{
     static TechNode context = null;

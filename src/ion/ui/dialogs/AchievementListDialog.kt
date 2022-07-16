@@ -1,30 +1,26 @@
 package ion.ui.dialogs
 
-import arc.scene.ui.*
-import arc.scene.ui.layout.*
-import mindustry.ui.dialogs.*
+import arc.scene.ui.Dialog
+import ion.IonVars
+import ion.game.Achievement
+import mindustry.ui.dialogs.BaseDialog
 
-import ion.*
-import ion.ui.dialogs.*
-import ion.game.*
-import ion.defs.*
-import ion.content.*
-
-open class AchievementListDialog : BaseDialog{
+open class AchievementListDialog() : BaseDialog("Achievements") {
     val ach = AchievementDisplayDialog()
-    constructor() : super("Achievements"){
+
+    init{
         addCloseButton()
     }
     
     override fun show(): Dialog{
         cont.clear()
         
-        IonVars.achievements.each(){ a: Achievement ->
+        IonVars.achievements.each{ a: Achievement ->
             cont.button(a.icon){
                 ach.show(a)
             }.size(65f)
             if(!a.isUnlocked()){
-                cont.add("${a.displayName.get(0)}${a.displayName.get(1)}...").row()
+                cont.add("${a.displayName[0]}${a.displayName[1]}...").row()
             } else {
                 cont.add(a.displayName).row()
             }

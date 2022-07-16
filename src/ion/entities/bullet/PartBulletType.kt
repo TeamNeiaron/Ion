@@ -1,12 +1,10 @@
 package ion.entities.bullet
 
-import arc.util.*
-import arc.struct.*
-import mindustry.gen.*
-import mindustry.entities.part.*
-import mindustry.entities.bullet.*
-
-import java.lang.*
+import arc.struct.Seq
+import arc.util.Time
+import mindustry.entities.bullet.BulletType
+import mindustry.entities.part.DrawPart
+import mindustry.gen.Bullet
 
 open class PartBulletType : BulletType(){
     
@@ -22,7 +20,7 @@ open class PartBulletType : BulletType(){
     override fun update(b: Bullet){
         super.update(b)
         val data = b.data() as FloatArray
-        data[0] = Math.min(data[0] + Time.delta, data[1])
+        data[0] = (data[0] + Time.delta).coerceAtMost(data[1])
     }
     
     override fun draw(b: Bullet){
@@ -33,10 +31,10 @@ open class PartBulletType : BulletType(){
             
             DrawPart.params.set(0f, 0f, 0f, 0f, 0f, 0f, b.x, b.y, b.rotation())
             DrawPart.params.life = data[0] / data[1]
-            
-            for(i in 0..parts.size - 1){
-                var part = parts[i]
-                
+
+            for (i in 0..parts.size - 1) {
+                val part = parts[i]
+
                 part.draw(DrawPart.params)
             }
         }

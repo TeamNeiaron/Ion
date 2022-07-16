@@ -1,30 +1,15 @@
 package ion.entities.bullet
 
-import arc.*
-import arc.util.*
-import arc.struct.*
-import arc.graphics.g2d.*
-import arc.graphics.g2d.TextureAtlas.*
-import mindustry.gen.*
-import mindustry.game.*
-import mindustry.content.*
-import mindustry.graphics.*
-import mindustry.entities.*
-import mindustry.entities.part.*
-import mindustry.entities.bullet.*
+import arc.Core
+import arc.graphics.g2d.Draw
+import mindustry.content.Fx
+import mindustry.gen.Bullet
+import mindustry.graphics.Drawf
+import mindustry.graphics.Layer
 
-import ion.entities.bullet.*
+open class PodBulletType(var sprite: String) : PartBulletType() {
 
-import java.lang.Math
-
-open class PodBulletType : PartBulletType{
-    
-    var sprite = "launchpod"
-    
-    constructor() : super(){}
-    
-    constructor(sprite: String) : super(){
-        this.sprite = sprite
+    init{
         hitEffect = Fx.none
         despawnEffect = Fx.none
     }

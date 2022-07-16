@@ -1,14 +1,14 @@
 package ion.content
 
-import arc.math.*
-import arc.graphics.*
-import arc.graphics.g2d.*
-import mindustry.entities.*
-import mindustry.entities.Effect.EffectContainer
-import mindustry.entities.effect.*
-
+import arc.graphics.Color
+import arc.graphics.g2d.Draw
+import arc.graphics.g2d.Lines
+import arc.math.Angles
+import arc.math.Interp
 import ion.defs.IColor
 import mindustry.content.Fx
+import mindustry.entities.Effect
+import mindustry.entities.effect.MultiEffect
 
 object IonFx{
     
@@ -105,7 +105,7 @@ object IonFx{
     
     val ereaFire = Effect(120f){
         val e = it
-        var ln = e.fin(Interp.pow3Out) * 120f
+        val ln = e.fin(Interp.pow3Out) * 120f
         
         Draw.color(IColor.energy)
         Lines.stroke(e.fout(Interp.pow5Out) * 2f)

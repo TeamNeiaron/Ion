@@ -1,21 +1,18 @@
+@file:Suppress("unused", "SpellCheckingInspection", "UNUSED_EXPRESSION")
+
 package ion.defs
 
-import arc.*
-import arc.func.*
-import arc.util.*
-import arc.util.io.*
-import arc.files.*
-import arc.scene.ui.*
-import arc.scene.style.*
-import arc.scene.ui.layout.*
-import arc.graphics.g2d.*
-import mindustry.*
-import mindustry.type.*
-import mindustry.type.ammo.*
-
-import ion.*
-import ion.game.*
-import ion.content.*
+import arc.Core
+import arc.files.Fi
+import arc.func.Cons
+import arc.graphics.g2d.TextureRegion
+import arc.scene.style.TextureRegionDrawable
+import arc.util.Http
+import arc.util.Timer
+import arc.util.io.Streams
+import ion.IonVars
+import ion.content.IonItems
+import mindustry.Vars
 
 object Utils{
     /** Gets the result of a link and writes it to a file. */
@@ -27,7 +24,7 @@ object Utils{
     ){
         try{
             Http.get(link){
-                Streams.copyProgress(it.getResultAsStream(), file.write(!overwrite), it.getContentLength(), 4096){69f}
+                Streams.copyProgress(it.resultAsStream, file.write(!overwrite), it.contentLength, 4096){1f}
                 
                 cons.get(file)
             }
@@ -60,7 +57,7 @@ object Utils{
     }
     
     fun clipboardAchievements(){
-        Core.app.setClipboardText(IonVars.achievementInfo.toString().replace(", ", "\n"))
+        Core.app.clipboardText = IonVars.achievementInfo.toString().replace(", ", "\n")
     }
     
     fun haltSound(){
@@ -83,17 +80,15 @@ object Utils{
     fun checkMod(name: String): Boolean{
         return Core.settings.getBool("mod-$name-enabled")
     }
-    
-    fun draw(sprite: String): TextureRegionDrawable{
-        var a = TextureRegionDrawable(Core.atlas.find(sprite) as TextureRegion)
-        
-        return a
+
+    fun draw(sprite: String): TextureRegionDrawable {
+
+        return TextureRegionDrawable(Core.atlas.find(sprite) as TextureRegion)
     }
-    
-    fun draw(sprite: String, scale: Float): TextureRegionDrawable{
-        var a = TextureRegionDrawable(Core.atlas.find(sprite) as TextureRegion, scale)
-        
-        return a
+
+    fun draw(sprite: String, scale: Float): TextureRegionDrawable {
+
+        return TextureRegionDrawable(Core.atlas.find(sprite) as TextureRegion, scale)
     }
     
     fun loop(delay: Float, runnable: () -> Unit){

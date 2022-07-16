@@ -1,15 +1,13 @@
 package ion.ui.dialogs
 
-import arc.scene.ui.*
-import mindustry.ui.dialogs.*
-import mindustry.entities.abilities.*
+import arc.scene.ui.Dialog
+import com.github.mnemotechnician.mkui.extensions.dsl.textButton
+import ion.entities.abilities.ControllableUnitSpawnAbility
+import mindustry.entities.abilities.Ability
+import mindustry.ui.dialogs.BaseDialog
 
-import ion.entities.abilities.*
-
-import com.github.mnemotechnician.mkui.extensions.dsl.*
-
-open class ControlDialog : BaseDialog{
-    constructor() : super("Unit Spawn Control"){
+open class ControlDialog : BaseDialog("Unit Spawn Control") {
+    init{
         addCloseButton()
     }
     

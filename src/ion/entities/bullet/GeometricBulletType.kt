@@ -1,30 +1,26 @@
 package ion.entities.bullet
 
-import arc.util.Time
-import arc.math.Mathf
 import arc.graphics.Color
-import arc.graphics.g2d.*
-import mindustry.gen.*
-import mindustry.game.Team
-import mindustry.graphics.Layer
-import mindustry.entities.*
+import arc.graphics.g2d.Draw
+import arc.graphics.g2d.Fill
+import arc.graphics.g2d.Lines
+import arc.math.Mathf
+import arc.util.Time
+import mindustry.entities.Mover
 import mindustry.entities.bullet.BulletType
+import mindustry.game.Team
+import mindustry.gen.Bullet
+import mindustry.gen.Entityc
+import mindustry.graphics.Layer
 
-open class GeometricBulletType : BulletType{
+open class GeometricBulletType(min: Int, max: Int) : BulletType() {
     
-    var minSides = 3
-    var maxSides = 7
+    var minSides = min
+    var maxSides = max
     var spinSpeed = 0.08f
     var color = Color.white
     var hollow = false
-    
-    constructor(min: Int, max: Int) : super(){
-        minSides = min
-        maxSides = max
-    }
-    
-    constructor() : super(){}
-    
+
     override fun draw(b: Bullet){
         super.draw(b)
         Draw.z(Layer.bullet)

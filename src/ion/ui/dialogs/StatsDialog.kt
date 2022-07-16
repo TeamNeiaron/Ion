@@ -1,16 +1,11 @@
 package ion.ui.dialogs
 
-import arc.scene.ui.*
-import arc.scene.ui.layout.*
-import arc.scene.style.*
-import mindustry.ui.dialogs.*
-import mindustry.gen.*
+import arc.scene.ui.Dialog
+import ion.game.PermaVars
+import mindustry.ui.dialogs.BaseDialog
 
-import ion.game.*
-import ion.defs.*
-
-open class StatsDialog : BaseDialog{
-    constructor() : super("Stats (Ion)"){
+open class StatsDialog() : BaseDialog("Stats (Ion)") {
+    init{
         addCloseButton()
     }
     

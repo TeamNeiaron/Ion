@@ -2,32 +2,27 @@ package ion.ui
 
 import arc.Core
 import arc.Core.app
-import arc.util.*
-import arc.util.io.*
-import arc.files.*
+import arc.files.Fi
 import arc.math.Mathf
+import arc.util.Log
+import arc.util.Threads
+import arc.util.Time
+import com.github.mnemotechnician.mkui.extensions.dsl.textButton
+import ion.IonVars
+import ion.defs.Utils
+import ion.game.PermaVars
 import mindustry.Vars.*
-import mindustry.ui.*
-import mindustry.gen.*
-
-import ion.*
-import ion.game.*
-import ion.ui.dialogs.*
-import ion.defs.*
-import ion.content.*
-
-import com.github.mnemotechnician.mkui.extensions.dsl.*
+import mindustry.gen.Icon
+import mindustry.gen.Sounds
 
 object IonSettings{
     
-    val tmpDir = Core.settings.getDataDirectory().child("ion.jar")
-    var importing = false
-    var errored = false
-    
+    val tmpDir: Fi = Core.settings.getDataDirectory().child("ion.jar")
+
     fun load(){
         
-        ui.settings.addCategory("Ion", Icon.right){
-            
+        ui.settings.addCategory("Ion", Icon.right){ it ->
+
             it.sliderPref("Updater Timeout Threshold", 30, 1, 120, 5){
                 Core.settings.put("updatertimeout", it.toFloat())
                 
@@ -69,7 +64,7 @@ object IonSettings{
                     "amogus" -> ui.showInfo("sugosmu garitesu")
                     
                     "seq" -> {
-                        var waitLength = Mathf.random(600f)
+                        val waitLength = Mathf.random(600f)
                         ui.loadfrag.show("""
                             seqs uwu
                             wait ${waitLength / 60f} seconds...

@@ -1,18 +1,15 @@
 package ion.ui.dialogs
 
-import arc.scene.ui.*
-import arc.scene.ui.layout.*
-import arc.scene.style.*
-import arc.flabel.*
-import mindustry.ui.dialogs.*
-import mindustry.gen.*
+import arc.flabel.FLabel
+import arc.scene.style.Drawable
+import arc.scene.ui.ScrollPane
+import arc.scene.ui.layout.Table
+import com.github.mnemotechnician.mkui.extensions.dsl.addImage
+import mindustry.gen.Icon
+import mindustry.ui.dialogs.BaseDialog
 
-import ion.ui.dialogs.*
-
-import com.github.mnemotechnician.mkui.extensions.dsl.*
-
-open class SecretDialog : BaseDialog{
-    constructor() : super("SECRETS"){
+open class SecretDialog : BaseDialog("SECRETS") {
+    init{
         addCloseButton()
     }
     

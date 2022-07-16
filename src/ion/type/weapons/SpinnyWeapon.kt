@@ -1,26 +1,19 @@
 package ion.type.weapons
 
-import arc.util.*
-import mindustry.type.Weapon
+import arc.util.Time
 import mindustry.entities.units.WeaponMount
+import mindustry.type.Weapon
 
-open class SpinnyWeapon : Weapon{
+open class SpinnyWeapon(name: String) : Weapon(name) {
     
     var spinSpeed = 0.8f
-    
-    constructor(name: String) : super(name){
+
+    init{
         rotate = false
         shootCone = 360f
         baseRotation = 1f
     }
-    
-    constructor(name: String, rSpeed: Float) : super(name){
-        spinSpeed = rSpeed
-        rotate = false
-        shootCone = 360f
-        baseRotation = 1f
-    }
-    
+
     override fun update(unit: mindustry.gen.Unit, mount: WeaponMount){
         super.update(unit, mount)
         

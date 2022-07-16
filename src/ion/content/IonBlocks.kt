@@ -1,26 +1,23 @@
 package ion.content
 
-import arc.*
-import mindustry.content.*
-import mindustry.gen.*
-import mindustry.type.*
+import arc.Core
+import ion.world.blocks.production.SingleFloorDrill
+import mindustry.content.Blocks
+import mindustry.content.Fx
+import mindustry.content.Items
+import mindustry.content.Liquids
+import mindustry.gen.Sounds
+import mindustry.type.Category
+import mindustry.type.ItemStack
 import mindustry.world.Block
+import mindustry.world.blocks.defense.turrets.ItemTurret
+import mindustry.world.blocks.environment.OreBlock
+import mindustry.world.blocks.logic.LogicBlock
+import mindustry.world.blocks.production.GenericCrafter
+import mindustry.world.blocks.units.Reconstructor
+import mindustry.world.blocks.units.UnitFactory
 import mindustry.world.draw.*
-import mindustry.world.meta.*
-import mindustry.world.blocks.units.*
-import mindustry.world.blocks.logic.*
-import mindustry.world.blocks.defense.turrets.*
-import mindustry.world.blocks.environment.*
-import mindustry.world.blocks.production.*
-import mindustry.world.blocks.units.UnitFactory.UnitPlan
-import mindustry.entities.bullet.*
-import mindustry.entities.pattern.*
-
-import mindustry.graphics.Layer.*
-
-import ion.defs.*
-import ion.world.blocks.production.*
-import ion.content.*
+import mindustry.world.meta.BuildVisibility
 
 object IonBlocks{
     

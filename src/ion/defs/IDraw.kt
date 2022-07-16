@@ -1,11 +1,6 @@
 package ion.defs
 
-import arc.math.*
-import arc.graphics.*
-import arc.graphics.g2d.*
-import mindustry.gen.*
-import mindustry.type.*
-import mindustry.world.*
+import arc.graphics.g2d.Draw
 
 object IDraw{
     fun unit(unit: mindustry.gen.Unit){
