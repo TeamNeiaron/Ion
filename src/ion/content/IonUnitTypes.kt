@@ -22,6 +22,7 @@ import mindustry.type.UnitType
 import mindustry.type.Weapon
 import mindustry.type.unit.MissileUnitType
 import mindustry.type.weapons.RepairBeamWeapon
+import mindustry.gen.Unit as MUnit
 
 
 object IonUnitTypes{
@@ -51,7 +52,7 @@ object IonUnitTypes{
                 engineOffset = 7f
                 hitSize = 13f
 
-                constructor = Prov<mindustry.gen.Unit> { UnitEntity.create() }
+                constructor = Prov<MUnit> { UnitEntity.create() }
 
 
                 weapons.add(
@@ -88,7 +89,7 @@ object IonUnitTypes{
                 engineOffset = 9f
                 hitSize = 16f
 
-                constructor = Prov<mindustry.gen.Unit> { UnitEntity.create() }
+                constructor = Prov<MUnit> { UnitEntity.create() }
 
 
                 weapons.add(
@@ -125,7 +126,7 @@ object IonUnitTypes{
                 hitSize = 27f
                 rotateSpeed = 3f
 
-                constructor = Prov<mindustry.gen.Unit> { UnitEntity.create() }
+                constructor = Prov<MUnit> { UnitEntity.create() }
 
 
                 weapons.add(
@@ -157,7 +158,7 @@ object IonUnitTypes{
                 hitSize = 33f
                 rotateSpeed = 2f
 
-                constructor = Prov<mindustry.gen.Unit> { UnitEntity.create() }
+                constructor = Prov<MUnit> { UnitEntity.create() }
 
 
                 weapons.add(
@@ -191,7 +192,7 @@ object IonUnitTypes{
                 hitSize = 47f
                 rotateSpeed = 0.8f
 
-                constructor = Prov<mindustry.gen.Unit> { UnitEntity.create() }
+                constructor = Prov<MUnit> { UnitEntity.create() }
 
                 parts.add(
                     object : HaloPart(){
@@ -239,7 +240,7 @@ object IonUnitTypes{
                 )
             }
             
-            override fun draw(unit: mindustry.gen.Unit){
+            override fun draw(unit: MUnit){
                 super.draw(unit)
                 /*
                 var s = Mathf.absin(15f, 3f)
@@ -285,7 +286,7 @@ object IonUnitTypes{
                 hitSize = 76f
                 rotateSpeed = 0.7f
                 
-                constructor = Prov<mindustry.gen.Unit> { UnitEntity.create() }
+                constructor = Prov<MUnit> { UnitEntity.create() }
             }
         }
 
@@ -299,7 +300,7 @@ object IonUnitTypes{
                 engineOffset = 7f
                 hitSize = 13f
 
-                constructor = Prov<mindustry.gen.Unit> { UnitEntity.create() }
+                constructor = Prov<MUnit> { UnitEntity.create() }
                 abilities.add(ControllableUnitSpawnAbility(UnitTypes.flare, 13f * 60f, 0f, 0f))
 
                 weapons.add(
@@ -341,7 +342,7 @@ object IonUnitTypes{
                 engineSize = 3f
                 hitSize = 13f
 
-                constructor = Prov<mindustry.gen.Unit> { UnitEntity.create() }
+                constructor = Prov<MUnit> { UnitEntity.create() }
                 abilities.add(ControllableUnitSpawnAbility(UnitTypes.flare, 7.8f * 60f, 0f, 2f))
 
                 weapons.add(
@@ -414,7 +415,7 @@ object IonUnitTypes{
                 hitSize = 29f
                 abilities.add(ControllableUnitSpawnAbility(UnitTypes.flare, 30f * 60f, 0f, 0f))
                 
-                constructor = Prov<mindustry.gen.Unit> { UnitEntity.create() }
+                constructor = Prov<MUnit> { UnitEntity.create() }
                 
                 weapons.add(
                     object : RepairBeamWeapon("healers-1"){
@@ -490,8 +491,7 @@ object IonUnitTypes{
                 rotateSpeed= 1.1f
                 abilities.add(ForceFieldAbility(150f, 2f, 1000f, 60f * 10))
                 abilities.add(ControllableUnitSpawnAbility(UnitTypes.horizon, 20f * 60f, 0f, 0f))
-                constructor = Prov<mindustry.gen.Unit> { UnitEntity.create() }
-                
+                constructor = Prov<MUnit> { UnitEntity.create() }
                 weapons.add(
                     object : Weapon("interceptor"){
                         init{

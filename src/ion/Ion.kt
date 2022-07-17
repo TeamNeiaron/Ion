@@ -1,16 +1,14 @@
 package ion
 
-import arc.*
-import arc.util.*
-import arc.func.*
-import mindustry.*
-import mindustry.content.*
-import mindustry.game.EventType.*
-import mindustry.mod.*
-import mindustry.ui.dialogs.*
-
-import ion.ui.*
+import arc.Events
+import arc.util.Log
 import ion.content.*
+import ion.ui.ControlButton
+import ion.ui.IonSettings
+import mindustry.Vars
+import mindustry.game.EventType.ClientLoadEvent
+import mindustry.game.EventType.FileTreeInitEvent
+import mindustry.mod.Mod
 
 class Ion : Mod(){
     
@@ -24,9 +22,9 @@ class Ion : Mod(){
             val control = ControlButton()
             control.build(Vars.ui.hudGroup)
             
-            Vars.mods.getScripts().runConsole(Vars.tree["scripts/http.js"].readString())
-            Vars.mods.getScripts().runConsole(Vars.tree["scripts/core.js"].readString())
-            Vars.mods.getScripts().runConsole(Vars.tree["scripts/core2.js"].readString())
+            Vars.mods.scripts.runConsole(Vars.tree["scripts/http.js"].readString())
+            Vars.mods.scripts.runConsole(Vars.tree["scripts/core.js"].readString())
+            Vars.mods.scripts.runConsole(Vars.tree["scripts/core2.js"].readString())
         }
         
         Events.on(FileTreeInitEvent::class.java){

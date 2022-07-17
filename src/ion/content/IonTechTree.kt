@@ -31,14 +31,14 @@ object IonTechTree {
                 node(
                     IonBlocks.slagSolidifier,
                     Seq.with(Produce(IonItems.stone))
-                ) { node(IonBlocks.petrifiedCoreConstructor, Seq.with(Research(IonBlocks.stoneDrill))){} }
+                ){ node(IonBlocks.petrifiedCoreConstructor, Seq.with(Research(IonBlocks.stoneDrill))){} }
             }
         }
         margeNode(Blocks.cyclone){
             node(
                 IonBlocks.defunction,
                 Seq.with(Produce(IonItems.stone))
-            ) { node(IonBlocks.eorphosia, Seq.with(Produce(IonItems.petrifiedCore))){} }
+            ){ node(IonBlocks.eorphosia, Seq.with(Produce(IonItems.petrifiedCore))){} }
         }
         margeNode(Blocks.airFactory){
             node(IonBlocks.advancedAirFactory){
@@ -53,7 +53,7 @@ object IonTechTree {
                         node(
                             IonBlocks.titanReconstructor,
                             Seq.with(Research(IonBlocks.alephReconstructor))
-                        ){ node(IonBlocks.colossalReconstructor, Seq.with(Research(IonBlocks.titanReconstructor))) {} }
+                        ){ node(IonBlocks.colossalReconstructor, Seq.with(Research(IonBlocks.titanReconstructor))){} }
                     }
                 }
             }

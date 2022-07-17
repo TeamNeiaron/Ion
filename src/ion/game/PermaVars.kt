@@ -1,13 +1,12 @@
 package ion.game
 
-import arc.Core.settings
-
-import com.github.mnemotechnician.mkui.delegates.*
+import com.github.mnemotechnician.mkui.delegates.setting
 
 /** Variable sets that are saved to your save file. Does not reset when the game is closed. */
 object PermaVars{
+    /** DO NOT MODIFY, EVER! */
     val syn = "ion-"
-    
+
     var testInt by setting(5, syn)
     var testFloat by setting(7f, syn)
     var killCountCampaign by setting(0, syn)

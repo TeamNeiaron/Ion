@@ -1,10 +1,9 @@
 package ion.content
 
-import arc.graphics.*
-import arc.graphics.g2d.*
-import mindustry.type.*
-
-import ion.defs.*
+import arc.graphics.Color
+import arc.graphics.g2d.Draw
+import ion.defs.IDraw
+import mindustry.type.StatusEffect
 
 object IonStatusEffects{
     

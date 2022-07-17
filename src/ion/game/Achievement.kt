@@ -1,18 +1,11 @@
 package ion.game
 
-import arc.*
-import arc.util.*
-import arc.func.*
-import arc.scene.style.*
-import mindustry.*
-import mindustry.gen.*
-import mindustry.game.EventType.*
-import mindustry.ctype.*
-
-import ion.*
-import ion.defs.*
-
-import java.lang.*
+import arc.Core
+import arc.func.Cons
+import ion.IonVars
+import ion.defs.Utils
+import mindustry.Vars
+import mindustry.gen.Icon
 
 open class Achievement{
     
@@ -21,7 +14,8 @@ open class Achievement{
     var name = "achievement"
     var displayName = "Achievement"
     var description = ""
-    var icon = Icon.units
+    var icon = Icon.units!!
+
     /** Creates a new Achievement with no condition listener, making this impossible to obtain outside normal means. */
     constructor(name: String, displayName: String){
         this.name = name
@@ -59,10 +53,6 @@ open class Achievement{
     }
     
     fun data(excludeInternalName: Boolean): Array<String>{
-        if(!excludeInternalName){
-            return arrayOf("$front-$name", displayName, description)
-        } else {
-            return arrayOf(displayName, description)
-        }
+        if(!excludeInternalName) return arrayOf("$front-$name", displayName, description) else return arrayOf(displayName, description)
     }
 }

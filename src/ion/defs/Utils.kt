@@ -12,6 +12,16 @@ import ion.IonVars
 import ion.content.IonItems
 import mindustry.Vars
 
+/** Returns true if the integer this function is used on is a multiple of the inputted argument. */
+fun Int.multipleOf(int: Int): Boolean{
+    return (this % int) == 0
+}
+
+/** Returns true if the float this function is used on is a multiple of the inputted argument. */
+fun Float.multipleOf(float: Float): Boolean{
+    return (this % float) == 0f
+}
+
 @Suppress("unused", "SpellCheckingInspection", "UNUSED_EXPRESSION")
 object Utils{
     /** Gets the result of a link and writes it to a file. */
