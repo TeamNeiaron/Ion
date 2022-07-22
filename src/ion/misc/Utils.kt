@@ -2,19 +2,18 @@ package ion.misc
 
 import arc.Core
 import arc.files.Fi
-import arc.func.Cons
 import arc.graphics.g2d.TextureRegion
 import arc.scene.style.TextureRegionDrawable
 import arc.util.Http
-import arc.util.Log
 import arc.util.Timer
 import arc.util.io.Streams
 import ion.IonVars
 import ion.content.IonItems
-import ion.hiearchy.yellow.type.weapons.DisableableWeapon
 import ion.hiearchy.yellow.type.weapons.NameableWeapon
 import mindustry.Vars
 import mindustry.type.UnitType
+import mindustry.type.Weapon
+
 
 /** Returns true if the integer this function is used on is a multiple of the inputted argument. */
 fun Int.multipleOf(int: Int): Boolean{
@@ -33,15 +32,15 @@ object Utils{
         link: String,
         file: Fi,
         overwrite: Boolean = true,
-        cons: Cons<Fi>
+        cons: (Fi) -> Unit
     ){
         try{
             Http.get(link){
                 Streams.copyProgress(it.resultAsStream, file.write(!overwrite), it.contentLength, 4096){1f}
                 
-                cons.get(file)
+                cons(file)
             }
-        } catch (e: Exception) {
+        }catch(e: Exception){
             Vars.ui.showException("@error.http-get-error", e)
         }
     }
@@ -108,22 +107,21 @@ object Utils{
         Timer.schedule(runnable, delay, delay, -1)
     }
 
-    /** Creates a mirrored copy of the inputted disableable weapon array and adds them all to the inputted unit. */
-    fun mirrorWeapons(inputUnit: UnitType, weapons: Array<DisableableWeapon>){
-        weapons.forEach{
-            val sus = it.copy()
-
-            sus.x = it.x - it.x * 2f
-            sus.reload = it.reload * 2f
-            sus.name = "${it.name}-mirror"
-            (sus as NameableWeapon).displayName = "${(it as NameableWeapon).displayName} (Mirror)"
-            sus.load()
-
-            Log.info("origin x: @, new x: @, origin reload: @, new reload: @, origin name: @, mirror name: @", it.x, sus.x, it.reload, sus.reload, it.name, sus.name)
-
-            inputUnit.weapons.add(sus)
+    /** Creates a mirrored copy of the inputted weapon array and adds them all to an inputted unit. */
+    fun mirrorWeapons(input: Array<Weapon>, nameable: Boolean, alternate: Boolean, unit: UnitType) {
+        for (i in input.indices) {
+            val mog = input[i].copy()
+            mog.x = input[i].x - input[i].x * 2f
+            if(alternate){
+                mog.reload = input[i].reload * 2f
+            }
+            mog.name = input[i].name + "-m"
+            mog.load()
+            if(nameable){
+                (mog as NameableWeapon).displayName = (input[i] as NameableWeapon).displayName + " (Inv)"
+            }
+            unit.weapons.add(mog)
         }
-
     }
 
 }

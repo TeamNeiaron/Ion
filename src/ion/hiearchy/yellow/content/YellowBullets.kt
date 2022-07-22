@@ -7,7 +7,7 @@ import mindustry.entities.bullet.BulletType
 
 object YellowBullets{
     lateinit var basicMissile: BulletType
-    lateinit var basicAirstrikeFlare: AirstrikeFlare
+    lateinit var basicAirstrikeFlare: BulletType
 
     fun load(){
         basicMissile = object : BombBulletType(){

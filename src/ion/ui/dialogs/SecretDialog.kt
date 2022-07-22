@@ -8,7 +8,7 @@ import com.github.mnemotechnician.mkui.extensions.dsl.addImage
 import mindustry.gen.Icon
 import mindustry.ui.dialogs.BaseDialog
 
-open class SecretDialog : BaseDialog("SECRETS") {
+open class SecretDialog : BaseDialog("SECRETS"){
     init{
         addCloseButton()
     }

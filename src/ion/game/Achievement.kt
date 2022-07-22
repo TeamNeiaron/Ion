@@ -1,7 +1,6 @@
 package ion.game
 
 import arc.Core
-import arc.func.Cons
 import ion.IonVars
 import ion.misc.Utils
 import mindustry.Vars
@@ -29,10 +28,9 @@ open class Achievement{
     /**
      * Creates a new Achievement with a condition listener.
      * A simple example of this is checking if another Achievement has already been unlocked.
-     * See IonAchievements for more info.
      */
-    constructor(name: String, displayName: String, conditions: Cons<Achievement>) : this(name, displayName){
-        Utils.loop(0.5f){ if(!this.isUnlocked()) conditions.get(this) }
+    constructor(name: String, displayName: String, conditions: (Achievement) -> Unit) : this(name, displayName){
+        Utils.loop(0.5f){ if(!this.isUnlocked()) conditions(this) }
     }
     
     fun load(){

@@ -3,11 +3,11 @@ package ion
 import arc.Events
 import arc.util.Log
 import ion.content.*
-import ion.misc.Utils
 import ion.hiearchy.yellow.content.YellowBullets
 import ion.hiearchy.yellow.content.YellowUnitTypes
 import ion.hiearchy.yellow.content.YellowWeapons
 import ion.hiearchy.yellow.ui.WeaponSwitchButton
+import ion.misc.Utils
 import ion.ui.ControlButton
 import ion.ui.IonSettings
 import mindustry.Vars
@@ -50,13 +50,11 @@ class Ion : Mod(){
         YellowUnitTypes.load()
 
         Utils.mirrorWeapons(
-            YellowUnitTypes.yellow,
             arrayOf(
                 YellowWeapons.meltdownBurst,
                 YellowWeapons.decimator,
                 YellowWeapons.mothRepellant,
                 YellowWeapons.airstrikeSummoner
-            )
-        )
+            ), true, true, YellowUnitTypes.yellow)
     }
 }
