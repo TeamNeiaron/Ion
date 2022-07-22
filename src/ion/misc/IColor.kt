@@ -1,4 +1,4 @@
-package ion.defs
+package ion.misc
 
 import arc.graphics.Color.valueOf
 

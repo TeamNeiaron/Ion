@@ -2,7 +2,7 @@ package ion
 
 import arc.Events
 import arc.struct.Seq
-import ion.defs.Utils
+import ion.misc.Utils
 import ion.game.Achievement
 import ion.game.PermVars
 import ion.game.TempVars

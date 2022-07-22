@@ -2,7 +2,7 @@ package ion.content
 
 import arc.func.Prov
 import arc.graphics.Color
-import ion.defs.IColor
+import ion.misc.IColor
 import ion.entities.abilities.ControllableUnitSpawnAbility
 import ion.type.weapons.SpinnyWeapon
 import mindustry.content.Fx

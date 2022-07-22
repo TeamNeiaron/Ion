@@ -3,7 +3,7 @@ package ion
 import arc.Events
 import arc.util.Log
 import ion.content.*
-import ion.defs.Utils
+import ion.misc.Utils
 import ion.hiearchy.yellow.content.YellowBullets
 import ion.hiearchy.yellow.content.YellowUnitTypes
 import ion.hiearchy.yellow.content.YellowWeapons

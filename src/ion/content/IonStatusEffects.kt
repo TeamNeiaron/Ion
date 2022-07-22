@@ -2,7 +2,7 @@ package ion.content
 
 import arc.graphics.Color
 import arc.graphics.g2d.Draw
-import ion.defs.IDraw
+import ion.misc.IDraw
 import mindustry.type.StatusEffect
 
 object IonStatusEffects{

@@ -3,9 +3,9 @@ function getInstance(name){
 }
 
 //objects
-const Utils = getInstance("ion.defs.Utils")
+const Utils = getInstance("ion.misc.Utils")
 const TempVars = getInstance("ion.game.TempVars")
-const PermaVars = getInstance("ion.game.PermVars")
+const PermVars = getInstance("ion.game.PermVars")
 const IonAchievements = getInstance("ion.content.IonAchievements")
 const IonVars = getInstance("ion.IonVars")
 const IonUnitTypes = getInstance("ion.content.IonUnitTypes")
@@ -15,6 +15,6 @@ const IonBullets = getInstance("ion.content.IonBullets")
 const IonFx = getInstance("ion.content.IonFx")
 const IonItems = getInstance("ion.content.IonItems")
 const IonTechTree = getInstance("ion.content.IonTechTree")
-const IColor = getInstance("ion.defs.IColor")
-const IDraw = getInstance("ion.defs.IDraw")
+const IColor = getInstance("ion.misc.IColor")
+const IDraw = getInstance("ion.misc.IDraw")
 const ISettings = getInstance("ion.ui.ISettings")

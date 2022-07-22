@@ -1,6 +1,6 @@
 package ion.content
 
-import ion.defs.Utils
+import ion.misc.Utils
 import ion.game.Achievement
 import ion.game.PermVars
 import mindustry.Vars

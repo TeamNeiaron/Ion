@@ -3,7 +3,7 @@ package ion.game
 import arc.Core
 import arc.func.Cons
 import ion.IonVars
-import ion.defs.Utils
+import ion.misc.Utils
 import mindustry.Vars
 import mindustry.gen.Icon
 

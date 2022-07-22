@@ -5,7 +5,7 @@ import arc.graphics.g2d.Draw
 import arc.graphics.g2d.Lines
 import arc.math.Angles
 import arc.math.Interp
-import ion.defs.IColor
+import ion.misc.IColor
 import mindustry.content.Fx
 import mindustry.entities.Effect
 import mindustry.entities.effect.MultiEffect

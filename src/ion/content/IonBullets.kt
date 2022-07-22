@@ -6,7 +6,7 @@ import mindustry.graphics.*
 import mindustry.entities.part.*
 import mindustry.entities.bullet.*
 
-import ion.defs.IColor
+import ion.misc.IColor
 import ion.entities.bullet.*
 
 object IonBullets{

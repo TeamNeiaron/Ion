@@ -9,7 +9,7 @@ import arc.util.Threads
 import arc.util.Time
 import com.github.mnemotechnician.mkui.extensions.dsl.textButton
 import ion.IonVars
-import ion.defs.Utils
+import ion.misc.Utils
 import ion.game.PermVars
 import mindustry.Vars.*
 import mindustry.gen.Icon
