@@ -5,7 +5,7 @@ function getInstance(name){
 //objects
 const Utils = getInstance("ion.defs.Utils")
 const TempVars = getInstance("ion.game.TempVars")
-const PermaVars = getInstance("ion.game.PermaVars")
+const PermaVars = getInstance("ion.game.PermVars")
 const IonAchievements = getInstance("ion.content.IonAchievements")
 const IonVars = getInstance("ion.IonVars")
 const IonUnitTypes = getInstance("ion.content.IonUnitTypes")

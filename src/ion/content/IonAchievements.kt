@@ -2,7 +2,7 @@ package ion.content
 
 import ion.defs.Utils
 import ion.game.Achievement
-import ion.game.PermaVars
+import ion.game.PermVars
 import mindustry.Vars
 import mindustry.gen.Groups
 
@@ -48,7 +48,7 @@ object IonAchievements{
         }
         
         malice = object : Achievement("malice", "Malice", {
-            if(PermaVars.killCountCampaign >= 150) it.unlock()
+            if(PermVars.killCountCampaign >= 150) it.unlock()
         }){
             init{
                 description = "Kill 150 units."
@@ -56,7 +56,7 @@ object IonAchievements{
         }
         
         killingSpree = object : Achievement("killing-spree", "Killing Spree", {
-            if(PermaVars.killCountCampaign >= 500) it.unlock()
+            if(PermVars.killCountCampaign >= 500) it.unlock()
         }){
             init{
                 description = "Kill 500 units."
@@ -64,7 +64,7 @@ object IonAchievements{
         }
         
         unhinged = object : Achievement("unhinged", "Unhinged", {
-            if(PermaVars.killCountCampaign >= 2000) it.unlock()
+            if(PermVars.killCountCampaign >= 2000) it.unlock()
         }){
             init{
                 description = "Kill 2000 units."
@@ -72,7 +72,7 @@ object IonAchievements{
         }
         
         genocide = object : Achievement("genocide", "Genocide", {
-            if(PermaVars.killCountCampaign >= 10000){
+            if(PermVars.killCountCampaign >= 10000){
                 it.unlock()
                 Vars.ui.showInfo("You're kind of a freak, you know that?")
                 Groups.unit.each{ it.kill() }
@@ -85,7 +85,7 @@ object IonAchievements{
         }
         
         cheesyPet = object : Achievement("cheesy-pet", "Cheesy Pet", {
-            if(PermaVars.petCount >= 1) it.unlock()
+            if(PermVars.petCount >= 1) it.unlock()
         }){
             init{
                 description = "Pet Cheesy-chan. [pink]qwq[]"
@@ -94,9 +94,9 @@ object IonAchievements{
         }
         
         cheesyPet2 = object : Achievement("cheesy-pet-2", "Cheesy Pet 2", {
-            if(PermaVars.petCount >= 10){
+            if(PermVars.petCount >= 10){
                 it.unlock()
-                PermaVars.messyHair = true
+                PermVars.messyHair = true
             }
         }){
             init{
@@ -106,7 +106,7 @@ object IonAchievements{
         }
         
         cheesyPet3 = object : Achievement("cheesy-pet-3", "Cheesy Pet 3", {
-            if(PermaVars.petCount >= 50) it.unlock()
+            if(PermVars.petCount >= 50) it.unlock()
         }){
             init{
                 description = "Pet Cheesy-chan 50 times. [scarlet]>_<[]"

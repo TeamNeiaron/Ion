@@ -1,7 +1,7 @@
 package ion.ui.dialogs
 
 import arc.scene.ui.Dialog
-import ion.game.PermaVars
+import ion.game.PermVars
 import mindustry.ui.dialogs.BaseDialog
 
 open class StatsDialog() : BaseDialog("Stats (Ion)") {
@@ -12,11 +12,11 @@ open class StatsDialog() : BaseDialog("Stats (Ion)") {
     override fun show(): Dialog{
         cont.clear()
         
-        cont.add("Kill Count (Campaign): ${PermaVars.killCountCampaign}").row()
-        cont.add("Kill Count (Custom): ${PermaVars.killCountCustom}").row()
-        cont.add("Kill Count (Campaign + Custom): ${PermaVars.killCountAll}").row()
+        cont.add("Kill Count (Campaign): ${PermVars.killCountCampaign}").row()
+        cont.add("Kill Count (Custom): ${PermVars.killCountCustom}").row()
+        cont.add("Kill Count (Campaign + Custom): ${PermVars.killCountAll}").row()
         //i ponder
-        cont.add("Headpat Count (Cheesy-chan): ${PermaVars.petCount}").row()
+        cont.add("Headpat Count (Cheesy-chan): ${PermVars.petCount}").row()
         
         return super.show()
     }

@@ -6,11 +6,15 @@ import arc.func.Cons
 import arc.graphics.g2d.TextureRegion
 import arc.scene.style.TextureRegionDrawable
 import arc.util.Http
+import arc.util.Log
 import arc.util.Timer
 import arc.util.io.Streams
 import ion.IonVars
 import ion.content.IonItems
+import ion.hiearchy.yellow.type.weapons.DisableableWeapon
+import ion.hiearchy.yellow.type.weapons.NameableWeapon
 import mindustry.Vars
+import mindustry.type.UnitType
 
 /** Returns true if the integer this function is used on is a multiple of the inputted argument. */
 fun Int.multipleOf(int: Int): Boolean{
@@ -103,4 +107,22 @@ object Utils{
     fun loop(delay: Float, runnable: () -> Unit){
         Timer.schedule(runnable, delay, delay, -1)
     }
+
+    fun mirrorWeapons(inputUnit: UnitType, vararg weapons: DisableableWeapon){
+        weapons.forEach{
+            val sus = it.copy()
+
+            sus.x = it.x - it.x * 2f
+            sus.reload = it.reload * 2f
+            sus.name = "${it.name}-mirror"
+            (sus as NameableWeapon).displayName = "${(it as NameableWeapon).displayName} (Mirror)"
+            sus.load()
+
+            Log.info("origin x: @, new x: @, origin reload: @, new reload: @, origin name: @, mirror name: @", it.x, sus.x, it.reload, sus.reload, it.name, sus.name)
+
+            inputUnit.weapons.add(sus)
+        }
+
+    }
+
 }

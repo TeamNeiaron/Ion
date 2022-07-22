@@ -10,7 +10,7 @@ import arc.util.Time
 import com.github.mnemotechnician.mkui.extensions.dsl.textButton
 import ion.IonVars
 import ion.defs.Utils
-import ion.game.PermaVars
+import ion.game.PermVars
 import mindustry.Vars.*
 import mindustry.gen.Icon
 import mindustry.gen.Sounds
@@ -82,19 +82,19 @@ object IonSettings{
                     "tantos" -> Threads.throwAppException(RuntimeException(tree["texts/tantos.txt"].readString()))
                     
                     "pet the cheesy-chan" -> ui.showConfirm("Question","Do so?"){
-                        if(PermaVars.messyHair){
-                            if(PermaVars.suspensive){
+                        if(PermVars.messyHair){
+                            if(PermVars.suspensive){
                                 ui.showInfo("Cheesy-chan has been pet.\nHer hair is all messy now.\n\nI'll be more than just a mere \"pet\"...")
-                                PermaVars.messyHair = false
-                                PermaVars.petCount += 1
+                                PermVars.messyHair = false
+                                PermVars.petCount += 1
                             } else {
                                 ui.showInfo("Cheesy-chan has been pet.\nHer hair is all messy now.\nShe is now sad. Do something about it.")
-                                PermaVars.messyHair = false
-                                PermaVars.petCount += 1
+                                PermVars.messyHair = false
+                                PermVars.petCount += 1
                             }
                         } else {
                             ui.showInfo("Cheesy-chan has been pet.")
-                            PermaVars.petCount += 1
+                            PermVars.petCount += 1
                         }
                     }
                     
@@ -112,7 +112,7 @@ object IonSettings{
                     
                     "reset" -> IonVars.secret.show(tree["texts/change.txt"].readString(), true)
                     
-                    "time to be sussy" -> PermaVars.suspensive = true
+                    "time to be sussy" -> PermVars.suspensive = true
                 }
             }
             

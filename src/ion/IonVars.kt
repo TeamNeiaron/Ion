@@ -4,7 +4,7 @@ import arc.Events
 import arc.struct.Seq
 import ion.defs.Utils
 import ion.game.Achievement
-import ion.game.PermaVars
+import ion.game.PermVars
 import ion.game.TempVars
 import ion.ui.dialogs.*
 import mindustry.Vars
@@ -35,12 +35,12 @@ object IonVars{
         
         Events.on(UnitDestroyEvent::class.java){
             if(it.unit.team != Vars.player.team() && !Vars.state.isCampaign){
-                PermaVars.killCountCustom += 1
-                PermaVars.killCountAll += 1
+                PermVars.killCountCustom += 1
+                PermVars.killCountAll += 1
             }
             if(it.unit.team != Vars.player.team() && Vars.state.isCampaign){
-                PermaVars.killCountCampaign += 1
-                PermaVars.killCountAll += 1
+                PermVars.killCountCampaign += 1
+                PermVars.killCountAll += 1
                 TempVars.kill5 += 1
             }
         }

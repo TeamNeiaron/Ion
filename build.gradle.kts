@@ -5,7 +5,7 @@ plugins {
     kotlin("jvm") version "1.7.0"
 }
 
-val mindustryVersion = "v130"
+val mindustryVersion = "v136"
 repositories {
     mavenCentral()
     maven("https://jitpack.io")
@@ -21,8 +21,8 @@ sourceSets {
 }
 
 dependencies {
-    compileOnly("com.github.Anuken.Arc:arc-core:47925a7b91")
-    compileOnly("com.github.Anuken.MindustryJitpack:core:191e05f23f")
+    compileOnly("com.github.Anuken.Arc:arc-core:$mindustryVersion")
+    compileOnly("com.github.Anuken.Mindustry:core:$mindustryVersion")
     implementation("com.github.mnemotechnician:mkui:v1.0")
 }
 

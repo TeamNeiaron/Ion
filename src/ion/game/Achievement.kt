@@ -8,7 +8,8 @@ import mindustry.Vars
 import mindustry.gen.Icon
 
 open class Achievement{
-    
+
+    /** The achievement string head. DO NOT MODIFY, EVER! */
     val front = "achievement"
     
     var name = "achievement"
@@ -18,6 +19,7 @@ open class Achievement{
 
     /** Creates a new Achievement with no condition listener, making this impossible to obtain outside normal means. */
     constructor(name: String, displayName: String){
+        if(name == "") throw IllegalArgumentException("Cannot have an Achievement with an empty internal name!")
         this.name = name
         this.displayName = displayName
         

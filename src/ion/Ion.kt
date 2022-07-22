@@ -3,6 +3,11 @@ package ion
 import arc.Events
 import arc.util.Log
 import ion.content.*
+import ion.defs.Utils
+import ion.hiearchy.yellow.content.YellowBullets
+import ion.hiearchy.yellow.content.YellowUnitTypes
+import ion.hiearchy.yellow.content.YellowWeapons
+import ion.hiearchy.yellow.ui.WeaponSwitchButton
 import ion.ui.ControlButton
 import ion.ui.IonSettings
 import mindustry.Vars
@@ -20,7 +25,9 @@ class Ion : Mod(){
             IonSettings.load()
             
             val control = ControlButton()
+            val wps = WeaponSwitchButton()
             control.build(Vars.ui.hudGroup)
+            wps.build(Vars.ui.hudGroup)
             
             Vars.mods.scripts.runConsole(Vars.tree["scripts/http.js"].readString())
             Vars.mods.scripts.runConsole(Vars.tree["scripts/core.js"].readString())
@@ -31,8 +38,6 @@ class Ion : Mod(){
             Vars.mods.getMod("ion").meta.description = Vars.tree["texts/desc.txt"].readString()
         }
     }
-    
-    
     override fun loadContent(){
         IonItems.load()
         IonStatusEffects.load()
@@ -40,5 +45,16 @@ class Ion : Mod(){
         IonUnitTypes.load()
         IonBlocks.load()
         IonTechTree.load()
+        YellowBullets.load()
+        YellowWeapons.load()
+        YellowUnitTypes.load()
+
+        Utils.mirrorWeapons(
+            YellowUnitTypes.yellow,
+            YellowWeapons.meltdownBurst,
+            YellowWeapons.decimator,
+            YellowWeapons.mothRepellant,
+            YellowWeapons.airstrikeSummoner
+        )
     }
 }
