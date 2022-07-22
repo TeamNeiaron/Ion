@@ -18,7 +18,7 @@ open class WeaponSwitchDialog : BaseDialog("Weapon Switch"){
             if(it !is DisableableWeaponMount) return
             cont.check("${(it.weapon as NameableWeapon).displayName}", it.enabled){ a: Boolean ->
                 it.enabled = a
-            }
+            }.row()
         }
 
         super.show()

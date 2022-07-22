@@ -51,10 +51,12 @@ class Ion : Mod(){
 
         Utils.mirrorWeapons(
             YellowUnitTypes.yellow,
-            YellowWeapons.meltdownBurst,
-            YellowWeapons.decimator,
-            YellowWeapons.mothRepellant,
-            YellowWeapons.airstrikeSummoner
+            arrayOf(
+                YellowWeapons.meltdownBurst,
+                YellowWeapons.decimator,
+                YellowWeapons.mothRepellant,
+                YellowWeapons.airstrikeSummoner
+            )
         )
     }
 }

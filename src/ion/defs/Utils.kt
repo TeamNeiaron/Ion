@@ -108,7 +108,8 @@ object Utils{
         Timer.schedule(runnable, delay, delay, -1)
     }
 
-    fun mirrorWeapons(inputUnit: UnitType, vararg weapons: DisableableWeapon){
+    /** Creates a mirrored copy of the inputted disableable weapon array and adds them all to the inputted unit. */
+    fun mirrorWeapons(inputUnit: UnitType, weapons: Array<DisableableWeapon>){
         weapons.forEach{
             val sus = it.copy()
 
