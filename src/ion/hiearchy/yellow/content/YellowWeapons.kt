@@ -63,8 +63,8 @@ object YellowWeapons{
                 Draw.color(Color.yellow)
                 Draw.z(Layer.effect)
                 Lines.stroke(1f)
-                Lines.square(unit.x - Angles.trnsx(rotation, mount.weapon.x, mount.weapon.y), unit.y + Angles.trnsy(rotation, mount.weapon.x, mount.weapon.y), 30f, Time.time)
-                Lines.square(unit.x - Angles.trnsx(rotation, mount.weapon.x, mount.weapon.y), unit.y + Angles.trnsy(rotation, mount.weapon.x, mount.weapon.y), 30f, -Time.time)
+                Lines.square(unit.x + Angles.trnsx(rotation, mount.weapon.x, mount.weapon.y), unit.y + Angles.trnsy(rotation, mount.weapon.x, mount.weapon.y), 30f, Time.time)
+                Lines.square(unit.x + Angles.trnsx(rotation, mount.weapon.x, mount.weapon.y), unit.y + Angles.trnsy(rotation, mount.weapon.x, mount.weapon.y), 30f, -Time.time)
             }
         }
 
