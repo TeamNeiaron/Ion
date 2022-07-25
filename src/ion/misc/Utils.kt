@@ -5,6 +5,7 @@ import arc.files.Fi
 import arc.graphics.g2d.TextureRegion
 import arc.scene.style.TextureRegionDrawable
 import arc.util.Http
+import arc.util.Log
 import arc.util.Timer
 import arc.util.io.Streams
 import ion.IonVars
@@ -13,17 +14,14 @@ import ion.hiearchy.yellow.type.weapons.NameableWeapon
 import mindustry.Vars
 import mindustry.type.UnitType
 import mindustry.type.Weapon
+import java.io.IOException
 
 
 /** Returns true if the integer this function is used on is a multiple of the inputted argument. */
-fun Int.multipleOf(int: Int): Boolean{
-    return (this % int) == 0
-}
+infix fun Int.multipleof(int: Int): Boolean = (this % int) == 0
 
 /** Returns true if the float this function is used on is a multiple of the inputted argument. */
-fun Float.multipleOf(float: Float): Boolean{
-    return (this % float) == 0f
-}
+infix fun Float.multipleof(float: Float): Boolean = (this % float) == 0f
 
 @Suppress("unused", "SpellCheckingInspection", "UNUSED_EXPRESSION")
 object Utils{
@@ -44,26 +42,37 @@ object Utils{
             Vars.ui.showException("@error.http-get-error", e)
         }
     }
-    
+
     fun writeFile(name: String, file: String){
-        Core.settings.put("file-$name", Fi(file).readBytes())
+        var f = Fi(file)
+        if(!f.exists()) throw IOException("Inputted string linking to file does not exist! ($file)")
+        Core.settings.put("file-$name", f.readBytes())
     }
     
     fun writeFile(name: String, file: Fi){
+        if(!file.exists()) throw IOException("Inputted file does not exist! ($file)")
         Core.settings.put("file-$name", file.readBytes())
     }
     
-    fun readFile(name: String): ByteArray{
+    fun readBytes(name: String): ByteArray{
         return Core.settings.getBytes("file-$name")
     }
-    
-    fun readFile(name: String, file: String): Fi{
+
+    fun copyBytesSafe(name: String, file: String): Fi{
         val f = Fi(file)
-        f.writeBytes(Core.settings.getBytes("file-$name"))
+        if(f.readString().isNotEmpty()){
+            Log.warn("Input string linking to file is not empty. Ignoring.")
+            return f
+        }
+        f.writeBytes(readBytes("file-$name"))
         return f
     }
     
-    fun readFile(name: String, file: Fi): Fi{
+    fun copyBytesSafe(name: String, file: Fi): Fi{
+        if(file.readString().isNotEmpty()){
+            Log.warn("Input file is not empty. Ignoring.")
+            return file
+        }
         file.writeBytes(Core.settings.getBytes("file-$name"))
         return file
     }
@@ -109,7 +118,7 @@ object Utils{
 
     /** Creates a mirrored copy of the inputted weapon array and adds them all to an inputted unit. */
     fun mirrorWeapons(input: Array<Weapon>, nameable: Boolean, alternate: Boolean, unit: UnitType) {
-        for (i in input.indices) {
+        for (i in input.indices){
             val mog = input[i].copy()
             mog.x = input[i].x - input[i].x * 2f
             if(alternate){
@@ -123,5 +132,4 @@ object Utils{
             unit.weapons.add(mog)
         }
     }
-
 }

@@ -5,7 +5,7 @@ import ion.IonVars
 import ion.game.Achievement
 import mindustry.ui.dialogs.BaseDialog
 
-open class AchievementListDialog() : BaseDialog("Achievements") {
+open class AchievementListDialog() : BaseDialog("Achievements"){
     val ach = AchievementDisplayDialog()
 
     init{

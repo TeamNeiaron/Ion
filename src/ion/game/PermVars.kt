@@ -2,18 +2,19 @@ package ion.game
 
 import com.github.mnemotechnician.mkui.delegates.setting
 
-/** Variable sets that are saved to your save file. Does not reset when the game is closed. */
+/** Variables that are saved to your save file. Does not reset even when the game is reloaded. */
+@Suppress("SpellCheckingInspection")
 object PermVars{
     /** The setting string head. DO NOT MODIFY, EVER! */
     val syn = "ion-"
 
     var testInt by setting(5, syn)
     var testFloat by setting(7f, syn)
-    /** Campaign unit kill count. */
+    /** Units killed in campaign sessions. */
     var killCountCampaign by setting(0, syn)
-    /** Custom game unit kill count. */
+    /** Units killed in custom game sessions. */
     var killCountCustom by setting(0, syn)
-    /** Campaign unit kill count + custom game unit kill count.  */
+    /** Units killed in ALL sessions. */
     var killCountAll by setting(0, syn)
     /**
      * Total amount of headpats given to Cheesy-chan.

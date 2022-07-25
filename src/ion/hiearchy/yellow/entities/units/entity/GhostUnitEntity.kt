@@ -1,14 +1,19 @@
 package ion.hiearchy.yellow.entities.units.entity
 
 import arc.math.Mathf
+import arc.util.Time
 import arc.util.io.Reads
 import arc.util.io.Writes
-import ion.hiearchy.yellow.entities.UnitHandler
 import ion.hiearchy.yellow.entities.units.GhostUnitType
+import mindustry.content.Fx
+import mindustry.gen.EntityMapping
 import mindustry.gen.UnitEntity
 
 open class GhostUnitEntity : UnitEntity(){
-    var lifetime = 0.0f
+    var lifetime = 0f
+    var despawnEffect = Fx.none
+
+    private var inited = false
 
     fun lifetimef(): Float{
         return lifetime / (type as GhostUnitType).lifetime
@@ -16,6 +21,28 @@ open class GhostUnitEntity : UnitEntity(){
 
     fun clampLifetime(){
         lifetime = Mathf.clamp(lifetime, 0f, (type as GhostUnitType).lifetime)
+    }
+
+    fun initVars(){
+        lifetime = (type as GhostUnitType).lifetime
+        despawnEffect = (type as GhostUnitType).despawnEffect
+    }
+
+    override fun update(){
+        super.update()
+
+        if(!inited){
+            initVars()
+            inited = true
+        }
+
+        lifetime -= Time.delta
+        clampLifetime()
+
+        if(lifetime <= 0f){
+            remove()
+            despawnEffect.at(this)
+        }
     }
 
     override fun cap(): Int{
@@ -32,7 +59,9 @@ open class GhostUnitEntity : UnitEntity(){
         lifetime = read.f()
     }
 
-    override fun classId(): Int{
-        return UnitHandler.classID<GhostUnitEntity>(GhostUnitEntity::class.java)
+    override fun classId() = mappingID
+
+    companion object{
+        val mappingID = EntityMapping.register("ion-ghost-unit", ::GhostUnitEntity)
     }
 }

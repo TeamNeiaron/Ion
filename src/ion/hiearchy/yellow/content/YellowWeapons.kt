@@ -116,7 +116,7 @@ object YellowWeapons{
                 Draw.z(Layer.effect)
                 Draw.alpha(mount.reload / this.reload)
 
-                Lines.square(unit!!.x, unit!!.y, 40f, Time.time * 6f)
+                Lines.square(unit!!.x, unit.y, 40f, Time.time * 6f)
                 Lines.square(unit.x, unit.y, 40f, -Time.time * 6f)
                 Lines.square(unit.x, unit.y, 80f, Time.time * 6f)
                 Lines.square(unit.x, unit.y, 80f, -Time.time * 6f)
