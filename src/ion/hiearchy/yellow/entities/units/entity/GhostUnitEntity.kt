@@ -40,8 +40,9 @@ open class GhostUnitEntity : UnitEntity(){
         clampLifetime()
 
         if(lifetime <= 0f){
+            val ty = (type as GhostUnitType)
             remove()
-            despawnEffect.at(this)
+            ty.despawnEffect.at(x + ty.despawnEffectOffset.x, y + ty.despawnEffectOffset.y)
         }
     }
 
@@ -59,9 +60,9 @@ open class GhostUnitEntity : UnitEntity(){
         lifetime = read.f()
     }
 
-    override fun classId() = mappingID
+    override fun classId() = mappingId
 
     companion object{
-        val mappingID = EntityMapping.register("ion-ghost-unit", ::GhostUnitEntity)
+        val mappingId = EntityMapping.register("ion-ghost-unit", ::GhostUnitEntity)
     }
 }

@@ -1,6 +1,8 @@
 package ion.hiearchy.yellow.content
 
+import arc.Core
 import arc.func.Prov
+import ion.hiearchy.yellow.entities.units.GhostUnitType
 import ion.hiearchy.yellow.entities.units.YellowUnitType
 import ion.hiearchy.yellow.entities.units.entity.YellowUnitEntity
 import mindustry.ai.types.FlyingAI
@@ -10,6 +12,7 @@ import mindustry.gen.Unit as MUnit
 
 object YellowUnitTypes{
     lateinit var yellow: UnitType
+    lateinit var ghostFlare: UnitType
 
     fun load(){
 
@@ -34,6 +37,20 @@ object YellowUnitTypes{
                 aiController = Prov<AIController> { FlyingAI() }
 
                 weapons.addAll(YellowWeapons.meltdownBurst, YellowWeapons.flareStorm, YellowWeapons.decimator, YellowWeapons.mothRepellant, YellowWeapons.airstrikeSummoner)
+            }
+        }
+
+        ghostFlare = object : GhostUnitType("ghost-flare"){
+            init{
+                flying = true
+                health = 40f
+                armor = 5f
+                speed = 3f
+                accel = 0.08f
+                drag = 0.01f
+
+                aiController = Prov<AIController> { FlyingAI() }
+                region = Core.atlas.find("flare")
             }
         }
     }
