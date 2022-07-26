@@ -34,7 +34,13 @@ object YellowUnitTypes{
 
                 aiController = Prov<AIController> { FlyingAI() }
 
-                weapons.addAll(YellowWeapons.meltdownBurst, YellowWeapons.flareStorm, YellowWeapons.decimator, YellowWeapons.mothRepellant, YellowWeapons.airstrikeSummoner).mirror(YellowWeapons.flareStorm)
+                weapons.addAll(YellowWeapons.meltdownBurst, YellowWeapons.flareStorm, YellowWeapons.decimator, YellowWeapons.mothRepellant, YellowWeapons.airstrikeSummoner)
+
+                weapons.each{
+                    if(it != YellowWeapons.flareStorm){
+                        it.mirror(this)
+                    }
+                }
             }
         }
 
