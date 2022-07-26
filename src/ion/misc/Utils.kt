@@ -28,10 +28,16 @@ fun Weapon.mirror(unit: UnitType){
     val a = this.copy()
 
     a.x = -this.x
+    Log.info("${this.x}, ${a.x}")
     a.reload = this.reload * 2f
+    Log.info("${this.reload}, ${a.reload}")
     a.name = "${this.name}-mirror"
+    Log.info("${this.name}, ${a.name}")
     a.load()
+    a.init()
     (a as NameableWeapon).displayName = "${(this as NameableWeapon).displayName} (Mirror)"
+    Log.info("${this.displayName}, ${a.displayName}")
+    unit.weapons.add(this)
 }
 
 @Suppress("unused", "SpellCheckingInspection", "UNUSED_EXPRESSION")
