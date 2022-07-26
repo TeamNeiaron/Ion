@@ -4,6 +4,7 @@ import arc.Core
 import arc.func.Prov
 import ion.hiearchy.yellow.entities.units.GhostUnitType
 import ion.hiearchy.yellow.entities.units.YellowUnitType
+import ion.misc.mirror
 import mindustry.ai.types.FlyingAI
 import mindustry.entities.units.AIController
 import mindustry.type.UnitType
@@ -33,7 +34,7 @@ object YellowUnitTypes{
 
                 aiController = Prov<AIController> { FlyingAI() }
 
-                weapons.addAll(YellowWeapons.meltdownBurst, YellowWeapons.flareStorm, YellowWeapons.decimator, YellowWeapons.mothRepellant, YellowWeapons.airstrikeSummoner)
+                weapons.addAll(YellowWeapons.meltdownBurst, YellowWeapons.flareStorm, YellowWeapons.decimator, YellowWeapons.mothRepellant, YellowWeapons.airstrikeSummoner).mirror(YellowWeapons.flareStorm)
             }
         }
 

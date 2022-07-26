@@ -7,7 +7,6 @@ import ion.hiearchy.yellow.content.YellowBullets
 import ion.hiearchy.yellow.content.YellowUnitTypes
 import ion.hiearchy.yellow.content.YellowWeapons
 import ion.hiearchy.yellow.ui.WeaponSwitchButton
-import ion.misc.Utils
 import ion.ui.ControlButton
 import ion.ui.IonSettings
 import mindustry.Vars
@@ -48,13 +47,5 @@ class Ion : Mod(){
         YellowBullets.load()
         YellowWeapons.load()
         YellowUnitTypes.load()
-
-        Utils.mirrorWeapons(
-            arrayOf(
-                YellowWeapons.meltdownBurst,
-                YellowWeapons.decimator,
-                YellowWeapons.mothRepellant,
-                YellowWeapons.airstrikeSummoner
-            ), true, true, YellowUnitTypes.yellow)
     }
 }

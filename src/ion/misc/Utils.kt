@@ -4,6 +4,7 @@ import arc.Core
 import arc.files.Fi
 import arc.graphics.g2d.TextureRegion
 import arc.scene.style.TextureRegionDrawable
+import arc.struct.Seq
 import arc.util.Http
 import arc.util.Log
 import arc.util.Timer
@@ -22,6 +23,24 @@ infix fun Int.multipleof(int: Int): Boolean = (this % int) == 0
 
 /** Returns true if the float this function is used on is a multiple of the inputted argument. */
 infix fun Float.multipleof(float: Float): Boolean = (this % float) == 0f
+
+fun Seq<Weapon>.mirror(vararg excludedWeapons: Weapon){
+    this.each{ w: Weapon ->
+        excludedWeapons.forEach{
+            if(w != it){
+                var a = w.copy()
+
+                a.x = -w.x
+                a.reload = w.reload * 2f
+                a.name = "${a.name}-mirror"
+                a.load()
+                (a as NameableWeapon).displayName = "${(w as NameableWeapon).displayName} (Mirror)"
+
+                this.add(a)
+            }
+        }
+    }
+}
 
 @Suppress("unused", "SpellCheckingInspection", "UNUSED_EXPRESSION")
 object Utils{
