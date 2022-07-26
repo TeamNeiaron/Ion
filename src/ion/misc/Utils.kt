@@ -116,8 +116,12 @@ object Utils{
         Timer.schedule(runnable, delay, delay, -1)
     }
 
-    /** Creates a mirrored copy of the inputted weapon array and adds them all to an inputted unit. */
-    fun mirrorWeapons(input: Array<Weapon>, unit: UnitType) {
+    /**
+     * Creates a mirrored copy of the inputted weapon array and adds them all to an inputted unit.
+     *
+     * WORK, DAMMIT!
+     */
+    fun mirrorWeapons(input: Array<Weapon>, unit: UnitType){
         for (i in input.indices){
             val mog = input[i].copy()
             mog.x = -input[i].x
@@ -125,8 +129,8 @@ object Utils{
             mog.name = "${input[i].name}-mirror"
             mog.load()
             mog.init()
-            (mog as NameableWeapon).displayName = "${(input[i] as NameableWeapon).displayName} (Inv)"
-            unit.weapons.add(mog)
+            (mog as NameableWeapon).displayName = "${(input[i] as NameableWeapon).displayName} (Mirror)"
+            unit.weapons.add(input[i])
         }
     }
 }
