@@ -102,8 +102,7 @@ object Utils{
         return Core.settings.getBool("mod-$name-enabled")
     }
 
-    fun draw(sprite: String): TextureRegionDrawable {
-
+    fun draw(sprite: String): TextureRegionDrawable{
         return TextureRegionDrawable(Core.atlas.find(sprite) as TextureRegion)
     }
 
@@ -127,10 +126,10 @@ object Utils{
             mog.x = -input[i].x
             mog.reload = input[i].reload * 2f
             mog.name = "${input[i].name}-mirror"
+            (mog as NameableWeapon).displayName = "${(input[i] as NameableWeapon).displayName} (Mirror)"
+            unit.weapons.add(mog)
             mog.load()
             mog.init()
-            (mog as NameableWeapon).displayName = "${(input[i] as NameableWeapon).displayName} (Mirror)"
-            unit.weapons.add(input[i])
         }
     }
 }
