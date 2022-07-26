@@ -4,11 +4,9 @@ import arc.Core
 import arc.func.Prov
 import ion.hiearchy.yellow.entities.units.GhostUnitType
 import ion.hiearchy.yellow.entities.units.YellowUnitType
-import ion.hiearchy.yellow.entities.units.entity.YellowUnitEntity
 import mindustry.ai.types.FlyingAI
 import mindustry.entities.units.AIController
 import mindustry.type.UnitType
-import mindustry.gen.Unit as MUnit
 
 object YellowUnitTypes{
     lateinit var yellow: UnitType
@@ -33,7 +31,6 @@ object YellowUnitTypes{
                 buildSpeed = Float.MAX_VALUE
                 deathExplosionEffect = YellowFx.yellowDeath
 
-                constructor = Prov<MUnit> { YellowUnitEntity() }
                 aiController = Prov<AIController> { FlyingAI() }
 
                 weapons.addAll(YellowWeapons.meltdownBurst, YellowWeapons.flareStorm, YellowWeapons.decimator, YellowWeapons.mothRepellant, YellowWeapons.airstrikeSummoner)

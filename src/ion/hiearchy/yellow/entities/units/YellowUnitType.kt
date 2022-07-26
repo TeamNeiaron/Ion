@@ -1,5 +1,6 @@
 package ion.hiearchy.yellow.entities.units
 
+import arc.func.Prov
 import arc.graphics.Color
 import arc.graphics.g2d.Draw
 import arc.graphics.g2d.Fill
@@ -7,11 +8,16 @@ import arc.graphics.g2d.Lines
 import arc.math.Mathf
 import arc.util.Time
 import arc.util.Tmp
+import ion.hiearchy.yellow.entities.units.entity.YellowUnitEntity
 import mindustry.graphics.Layer
 import mindustry.type.UnitType
 import mindustry.gen.Unit as MUnit
 
 open class YellowUnitType(name: String) : UnitType(name){
+    init{
+        constructor = Prov<MUnit> { YellowUnitEntity() }
+
+    }
 
     override fun draw(unit: MUnit){
         super.draw(unit)

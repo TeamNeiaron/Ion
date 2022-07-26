@@ -1,9 +1,18 @@
 package ion.hiearchy.yellow.entities.units.entity
 
+import arc.util.io.Reads
+import arc.util.io.Writes
 import ion.game.PermVars
+import mindustry.gen.EntityMapping
 import mindustry.gen.UnitEntity
 
 open class YellowUnitEntity : UnitEntity(){
+
+    private var inited = false
+
+    fun initVars(){
+        inited = true
+    }
 
     override fun kill(){
         remove()
@@ -32,22 +41,32 @@ open class YellowUnitEntity : UnitEntity(){
         }
     }
 
-    /*
-    override fun write(write: Writes?){
+
+    override fun write(write: Writes){
         super.write(write)
+        write.bool(inited)
+        /*
         mounts.forEach{
             val e = it as DisableableWeaponMount
-            write!!.bool(e.enabled)
+            write.bool(e.enabled)
         }
+        */
     }
 
-    override fun read(read: Reads?){
+    override fun read(read: Reads){
         super.read(read)
+        inited = read.bool()
+        /*
         mounts.forEach{
             val e = it as DisableableWeaponMount
-            e.enabled = read!!.bool()
+            e.enabled = read.bool()
         }
+        */
     }
 
-     */
+    override fun classId() = mappingId
+
+    companion object{
+        val mappingId = EntityMapping.register("ion-yellow-unit", ::YellowUnitEntity)
+    }
 }

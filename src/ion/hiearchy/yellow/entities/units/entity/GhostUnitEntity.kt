@@ -24,6 +24,7 @@ open class GhostUnitEntity : UnitEntity(){
     }
 
     fun initVars(){
+        inited = true
         ghostLifetime = (type as GhostUnitType).ghostLifetime
         despawnEffect = (type as GhostUnitType).despawnEffect
     }
@@ -33,7 +34,6 @@ open class GhostUnitEntity : UnitEntity(){
 
         if(!inited){
             initVars()
-            inited = true
         }
 
         ghostLifetime -= Time.delta
