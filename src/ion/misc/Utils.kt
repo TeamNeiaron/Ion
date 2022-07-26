@@ -32,7 +32,7 @@ fun Seq<Weapon>.mirror(vararg excludedWeapons: Weapon){
 
                 a.x = -w.x
                 a.reload = w.reload * 2f
-                a.name = "${a.name}-mirror"
+                a.name = "${w.name}-mirror"
                 a.load()
                 (a as NameableWeapon).displayName = "${(w as NameableWeapon).displayName} (Mirror)"
 
