@@ -10,21 +10,21 @@ import mindustry.gen.EntityMapping
 import mindustry.gen.UnitEntity
 
 open class GhostUnitEntity : UnitEntity(){
-    var lifetime = 0f
+    var ghostLifetime = 0f
     var despawnEffect = Fx.none
 
     private var inited = false
 
     fun lifetimef(): Float{
-        return lifetime / (type as GhostUnitType).lifetime
+        return ghostLifetime / (type as GhostUnitType).ghostLifetime
     }
 
     fun clampLifetime(){
-        lifetime = Mathf.clamp(lifetime, 0f, (type as GhostUnitType).lifetime)
+        ghostLifetime = Mathf.clamp(ghostLifetime, 0f, (type as GhostUnitType).ghostLifetime)
     }
 
     fun initVars(){
-        lifetime = (type as GhostUnitType).lifetime
+        ghostLifetime = (type as GhostUnitType).ghostLifetime
         despawnEffect = (type as GhostUnitType).despawnEffect
     }
 
@@ -36,10 +36,10 @@ open class GhostUnitEntity : UnitEntity(){
             inited = true
         }
 
-        lifetime -= Time.delta
+        ghostLifetime -= Time.delta
         clampLifetime()
 
-        if(lifetime <= 0f){
+        if(ghostLifetime <= 0f){
             val ty = (type as GhostUnitType)
             remove()
             ty.despawnEffect.at(x + ty.despawnEffectOffset.x, y + ty.despawnEffectOffset.y)
@@ -52,12 +52,12 @@ open class GhostUnitEntity : UnitEntity(){
 
     override fun write(write: Writes) {
         super.write(write)
-        write.f(lifetime)
+        write.f(ghostLifetime)
     }
 
     override fun read(read: Reads){
         super.read(read)
-        lifetime = read.f()
+        ghostLifetime = read.f()
     }
 
     override fun classId() = mappingId

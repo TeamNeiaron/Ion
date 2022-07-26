@@ -7,7 +7,7 @@ import ion.hiearchy.yellow.entities.units.entity.GhostUnitEntity
 import mindustry.type.UnitType
 import mindustry.gen.Unit as MUnit
 
-open class GhostUnitType(name: String, var lifetime: Float = 900f) : UnitType(name){
+open class GhostUnitType(name: String, var ghostLifetime: Float = 900f) : UnitType(name){
     init{
         constructor = Prov<MUnit> { GhostUnitEntity() }
     }
