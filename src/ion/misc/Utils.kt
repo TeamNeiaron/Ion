@@ -117,15 +117,14 @@ object Utils{
 
     /**
      * Creates a mirrored copy of the inputted weapon array and adds them all to an inputted unit.
-     *
-     * WORK, DAMMIT!
      */
     fun mirrorWeapons(input: Array<Weapon>, unit: UnitType){
-        for (i in input.indices){
+        for(i in input.indices){
             val mog = input[i].copy()
             mog.x = -input[i].x
             mog.reload = input[i].reload * 2f
             mog.name = "${input[i].name}-mirror"
+            mog.bullet = input[i].bullet.copy()
             (mog as NameableWeapon).displayName = "${(input[i] as NameableWeapon).displayName} (Mirror)"
             unit.weapons.add(mog)
             mog.load()
