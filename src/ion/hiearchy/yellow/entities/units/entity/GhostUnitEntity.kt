@@ -50,14 +50,16 @@ open class GhostUnitEntity : UnitEntity(){
         return count() + 1
     }
 
-    override fun write(write: Writes) {
+    override fun write(write: Writes){
         super.write(write)
         write.f(ghostLifetime)
+        write.bool(inited)
     }
 
     override fun read(read: Reads){
         super.read(read)
         ghostLifetime = read.f()
+        inited = read.bool()
     }
 
     override fun classId() = mappingId
