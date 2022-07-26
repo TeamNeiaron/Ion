@@ -23,23 +23,6 @@ infix fun Int.multipleof(int: Int): Boolean = (this % int) == 0
 /** Returns true if the float this function is used on is a multiple of the inputted argument. */
 infix fun Float.multipleof(float: Float): Boolean = (this % float) == 0f
 
-
-fun Weapon.mirror(unit: UnitType){
-    val a = this.copy()
-
-    a.x = -this.x
-    Log.info("${this.x}, ${a.x}")
-    a.reload = this.reload * 2f
-    Log.info("${this.reload}, ${a.reload}")
-    a.name = "${this.name}-mirror"
-    Log.info("${this.name}, ${a.name}")
-    a.load()
-    a.init()
-    (a as NameableWeapon).displayName = "${(this as NameableWeapon).displayName} (Mirror)"
-    Log.info("${this.displayName}, ${a.displayName}")
-    unit.weapons.add(this)
-}
-
 @Suppress("unused", "SpellCheckingInspection", "UNUSED_EXPRESSION")
 object Utils{
     /** Gets the result of a link and writes it to a file. */
@@ -134,18 +117,15 @@ object Utils{
     }
 
     /** Creates a mirrored copy of the inputted weapon array and adds them all to an inputted unit. */
-    fun mirrorWeapons(input: Array<Weapon>, nameable: Boolean, alternate: Boolean, unit: UnitType) {
+    fun mirrorWeapons(input: Array<Weapon>, unit: UnitType) {
         for (i in input.indices){
             val mog = input[i].copy()
-            mog.x = input[i].x - input[i].x * 2f
-            if(alternate){
-                mog.reload = input[i].reload * 2f
-            }
-            mog.name = input[i].name + "-m"
+            mog.x = -input[i].x
+            mog.reload = input[i].reload * 2f
+            mog.name = "${input[i].name}-mirror"
             mog.load()
-            if(nameable){
-                (mog as NameableWeapon).displayName = (input[i] as NameableWeapon).displayName + " (Inv)"
-            }
+            mog.init()
+            (mog as NameableWeapon).displayName = "${(input[i] as NameableWeapon).displayName} (Inv)"
             unit.weapons.add(mog)
         }
     }
