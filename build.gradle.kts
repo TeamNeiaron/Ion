@@ -5,7 +5,7 @@ plugins {
     kotlin("jvm") version "1.7.0"
 }
 
-val mindustryVersion = "v136"
+val mindustryVersion = "v136.1"
 repositories {
     mavenCentral()
     maven("https://jitpack.io")

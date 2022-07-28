@@ -21,6 +21,7 @@ open class AchievementUnlockerDialog : BaseDialog("Achievement Unlocker") {
                 } else { a.unlock() }
             }.size(65f)
             if(!a.isUnlocked()){
+                if(a.displayName.length < 2) return@each
                 cont.add("${a.displayName[0]}${a.displayName[1]}...").row()
             } else {
                 cont.add(a.displayName).row()

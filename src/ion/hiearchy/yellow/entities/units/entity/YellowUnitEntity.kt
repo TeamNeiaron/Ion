@@ -30,6 +30,10 @@ open class YellowUnitEntity : UnitEntity(){
     override fun update(){
         super.update()
 
+        if(!inited){
+            initVars()
+        }
+
         if(team.data().countType(type) > 1){
             PermVars.removeAllowed = true
             //clones must not exist

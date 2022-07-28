@@ -2,10 +2,10 @@ package ion
 
 import arc.Events
 import arc.struct.Seq
-import ion.misc.Utils
 import ion.game.Achievement
 import ion.game.PermVars
 import ion.game.TempVars
+import ion.misc.Utils
 import ion.ui.dialogs.*
 import mindustry.Vars
 import mindustry.game.EventType.UnitDestroyEvent
@@ -31,6 +31,7 @@ object IonVars{
         
         achievements.each{
             achievementInfo.add("${it.displayName} - ${it.description}")
+            it.load()
         }
         
         Events.on(UnitDestroyEvent::class.java){
